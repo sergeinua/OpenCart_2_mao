@@ -6,11 +6,11 @@ $_['heading_title']                = 'Логин';
 $_['text_account']                 = 'Профиль';
 $_['text_login']                   = 'Войти';
 $_['text_new_customer']            = 'Новый клиент';
-$_['text_register']                = 'Регистрация учетной записи';
+$_['text_register']                = 'Зарегистрироваться';
 $_['text_register_account']        = 'Создавая аккаунт, вы сможете делать покупки быстрее, быть в курсе о статусе заказа, а также просматривать заказы которые вы делали ранее.';
 $_['text_returning_customer']      = 'Существующий клиент';
 $_['text_i_am_returning_customer'] = 'Я постоянный покупатель';
-$_['text_forgotten']               = 'Забыли пароль';
+$_['text_forgotten']               = 'Забыли пароль?';
 
 // Entry
 $_['entry_email']                  = 'Ваш Email';

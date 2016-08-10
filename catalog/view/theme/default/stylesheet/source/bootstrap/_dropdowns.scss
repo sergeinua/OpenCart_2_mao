@@ -60,6 +60,7 @@
     @include max-md {
       right: 0;
       left: auto;
+      z-index: 1001;
     }
   }
 }

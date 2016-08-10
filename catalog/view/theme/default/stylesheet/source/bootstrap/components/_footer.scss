@@ -1,6 +1,7 @@
 .footer {
   position: relative;
   z-index: 200;
+  padding-top: 50px;
 }
 
 .advantages {
@@ -202,7 +203,7 @@
 
     @include max-sm{
       display: block;
-      text-align: center;
+      text-align: left;
       padding: 10px 0;
     }
 

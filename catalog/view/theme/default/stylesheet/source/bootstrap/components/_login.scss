@@ -1,0 +1,110 @@
+.account-login {
+  position: relative;
+  background: #0c1319;
+  //@include gradient-vertical($start-color: transparent, $end-color: $gray-base, $start-percent: 0%, $end-percent: 100%);
+  background-image: url('./../../image/car_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: 56% -127px;
+  background-size: cover;
+  min-height: 100vh;
+  padding-bottom: 180px;
+
+  @include sm {
+    padding-bottom: 120px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(51, 55, 64, .85);
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+  }
+
+  #top,
+  #search-col,
+  #cart {
+    display: none;
+  }
+  .header {
+    padding-top: 35px;
+    margin-bottom: 35px;
+  }
+
+  .header .container .col-xs-4 {
+    width: 66.66667%;
+  }
+
+  .advantages,
+  .footer-logo,
+  .footer-text {
+    display: none;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .form-control {
+    height: 48px;
+  }
+
+  .form-group-last-itm {
+    margin-bottom: 25px;
+  }
+
+  .form-buttons {
+    margin-bottom: 35px;
+
+    .btn {
+      width: 48%;
+
+      @include sm {
+        width: auto;
+      }
+    }
+  }
+
+  .small {
+    @include sm {
+      height: 165px;
+    }
+  }
+
+  .lato-bold {
+    font-weight: bold;
+  }
+
+  .copyright {
+    background-color: transparent;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 180px;
+
+    @include sm {
+      height: 120px;
+    }
+  }
+}
+
+.primary-link {
+  color: $brand-primary;
+}
