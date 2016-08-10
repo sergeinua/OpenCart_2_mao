@@ -1,0 +1,88 @@
+.homepage-slider {
+  &-item {
+    @include size(100% 160px);
+    @include background-center();
+    background-color: transparent;
+
+    @include max-sm{
+      background-size: 250% 180%;
+    }
+
+    @include sm {
+      @include size(100% 505px);
+    }
+
+    @include sm-md{
+      background-size: 250% 110%;
+    }
+  }
+
+  .owl-buttons .owl-prev,
+  .owl-buttons .owl-next {
+    //display: none;
+    @include absolute(null 3px 3px null);
+    @include size(16px);
+    background-color: $global-color;
+    @include transition-willChange(background-color);
+
+    @include sm {
+      @include size(48px);
+      @include absolute(null 12px 12px null);
+    }
+
+    .fa {
+      @include middle-center;
+      color: $gray;
+      @include transition-willChange(color);
+
+      @include max-sm{
+        font-size: $font-size-base/2; // 7px
+      }
+    }
+
+    &:hover {
+      background-color: $brand-primary;
+
+      .fa {
+        color: $global-color;
+      }
+    }
+  }
+
+  .owl-buttons .owl-prev {
+    right: 21px;
+
+    @include sm {
+      right: 72px;
+    }
+  }
+
+}
+
+.img-banners-wrapper {
+  a {
+    display: block;
+    height: 114px;
+    @include background-center();
+
+    &:nth-of-type(1) {
+      margin-bottom: 35px;
+    }
+
+    @include sm {
+      @include size(100% 240px);
+
+      &:nth-of-type(1) {
+        margin-bottom: 65px;
+      }
+    }
+
+    @include md{
+
+      &:nth-of-type(1) {
+        margin-bottom: 25px;
+      }
+    }
+
+  }
+}

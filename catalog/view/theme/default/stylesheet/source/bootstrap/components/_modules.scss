@@ -1,0 +1,48 @@
+.featured-module{
+  position: relative;
+  margin-bottom: 60px;
+  //top: -75px;
+
+  @include md{
+    margin-bottom: 100px;
+  }
+
+  @include max-sm{
+    h1,.h1{
+      width: 80%;
+    }
+  }
+}
+
+
+.featured-button-block{
+  position: relative;
+  display: block;
+  @include size(100% 120px);
+  background-color: $gray-base;
+  border: 2px solid $product-border-color;
+  clear: both;
+  text-align: center;
+  color: $global-color;
+  transition: border-color $a-transition, background-color $a-transition;
+  will-change: border-color, background-color;
+
+  &:hover{
+    border-color: $brand-primary;
+    background-color: $brand-primary;
+    color: $global-color;
+  }
+
+  span{
+    @include middle-center;
+    z-index: 10;
+  }
+
+  @include sm{
+    @include size(100% 356px);
+  }
+
+  @include lg{
+    display: none;
+  }
+}

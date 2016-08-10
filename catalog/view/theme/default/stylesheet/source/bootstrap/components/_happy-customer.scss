@@ -1,0 +1,81 @@
+.happy-customer{
+  position: relative;
+  margin-top: 0px;
+  font-family: $font-family-heading;
+  color: $gray-light;
+
+  @include md{
+    top: 53px;
+  }
+
+  img{
+    position: relative;
+    top: 0;
+    z-index: 100;
+  }
+
+  &-text{
+    left: -40px;
+
+    @include max-sm{
+      top: 70px;
+    }
+
+    @include sm-md{
+      top: 110px;
+      left: -50px;
+    }
+
+    @include md{
+      left: -70px;
+    }
+
+    @include lg{
+      left: 25px;
+    }
+  }
+
+  &-title{
+    position: relative;
+    font-size: $font-size-large + 2; // 20px
+    line-height: 1;
+
+    @include max-sm{
+      width: 140%;
+    }
+
+    @include sm{
+      top: 50px;
+      font-size: 48px;
+    }
+
+    @include md{
+      top: 50px;
+      font-size: ($font-size-h3 * 2);
+    }
+  }
+
+  &-number{
+    position: relative;
+    display: block;
+    font-size: 96px;
+    line-height: 1;
+
+    @include sm{
+      top: 20px;
+      margin-left: -13px;
+      font-size: 240px;
+    }
+
+    @include md{
+      top: 20px;
+      margin-left: -13px;
+      font-size: 390px;
+    }
+
+    @include lg{
+      font-size: ($font-size-h3 * 14);
+    }
+  }
+
+}

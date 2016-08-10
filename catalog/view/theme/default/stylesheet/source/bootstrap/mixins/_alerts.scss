@@ -1,0 +1,5 @@
+// Alerts
+
+@mixin alert-variant($border) {
+  border-left-color: $border;
+}

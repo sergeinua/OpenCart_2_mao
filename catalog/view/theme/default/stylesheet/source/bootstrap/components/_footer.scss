@@ -1,0 +1,266 @@
+.footer {
+  position: relative;
+  z-index: 200;
+}
+
+.advantages {
+  padding: 12px 0;
+  background-color: $brand-primary;
+  box-shadow: 0px 10px 30px 0px rgba(23, 24, 26, 0.5);
+
+  @include sm {
+    padding: 0;
+  }
+
+  @include sm-md {
+    .row {
+      .col-xs-12:nth-last-of-type(1) {
+        .advantages-item {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-item {
+    position: relative;
+    padding: 12px 0 24px 65px;
+    color: $global-color;
+    font: {
+      family: $font-family-heading;
+      size: $font-size-h2;
+    }
+    line-height: $line-height-normal;
+
+    @include sm{
+      padding: 22px 0 24px 65px;
+    }
+
+    @include md {
+      padding: 24px 0 24px 25px;
+    }
+
+    &-text {
+      position: relative;
+      z-index: 20;
+    }
+
+    span {
+      display: block;
+      font-size: $font-size-h4;
+    }
+
+    img {
+      @include absolute(50% null null 20px);
+      transform: translateY(-50%);
+
+      @include md {
+        @include absolute(50% null null 0);
+      }
+    }
+  }
+}
+
+.footer-text {
+  min-height: 240px;
+  padding-top: 20px;
+  background-color: $footer-text-bg;
+
+  @include md{
+    padding-top: 50px;
+  }
+
+  .address {
+    padding-bottom: 10px;
+
+    @include sm{
+      padding-bottom: 0;
+    }
+
+    @include max-sm{
+      br{
+        display: none;
+      }
+    }
+
+    @include md{
+      padding-bottom: 15px;
+    }
+  }
+
+  .footer-contact-list {
+    margin-bottom: 0;
+
+    li {
+      line-height: $line-height-normal * 2;
+
+      @include md{
+        line-height: $line-height-base;
+      }
+
+      a{
+        display: block;
+      }
+    }
+  }
+
+  .address,
+  .footer-contact-list {
+    color: $global-color;
+    font-size: $font-size-type;
+  }
+}
+
+.social {
+  @include size-reset();
+  @include cl;
+
+  li {
+    display: block;
+    float: left;
+
+    a {
+      display: block;
+      font-size: $font-size-h4;
+      @include transition-willChange(color);
+      padding: 20px 13px;
+
+      @include md{
+        padding: 20px 15px;
+        font-size: $font-size-h2;
+      }
+    }
+  }
+}
+
+.footer-logo {
+  padding: 10px 0;
+
+  @include md {
+    padding: 0;
+    //background-color: $gray-base;
+  }
+
+  .footer-col {
+    position: relative;
+    float: left;
+    width: 33.333%;
+    height: 65px;
+
+    @include sm {
+      width: 11.111%;
+      height: 95px;
+    }
+  }
+
+  img {
+    @include middle-center;
+    margin: auto;
+
+    @include sm-md{
+      max-width: 50px;
+    }
+  }
+}
+
+.copyright {
+  background-color: $copyright-bg;
+
+  .mao-copyright {
+    font-size: $font-size-base;
+    color: $global-color;
+    padding-top: 15px;
+
+    @include sm{
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    @include md{
+      padding-top: 0;
+      line-height: 50px;
+    }
+  }
+}
+
+.reclamare {
+  color: $global-color;
+
+  @include sm{
+    text-align: right;
+  }
+
+  img {
+    position: relative;
+    top: -1px;
+    right: 0;
+  }
+
+  a {
+    line-height: 50px;
+    @include transition-willChange(color);
+
+    @include max-sm{
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    @include sm-md{
+      line-height: 70px;
+    }
+
+    .fa {
+      position: relative;
+      top: 1px;
+      right: -2px;
+      color: $brand-primary;
+    }
+  }
+}
+
+.features {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1360px;
+  height: 4032px;
+  z-index: 44;
+}
+
+.social-parent {
+  @include max-sm {
+    padding-bottom: 10px;
+    @include cl;
+
+    .social,
+    .footer-logo {
+      float: left;
+      width: 50%;
+    }
+  }
+}
+
+.address-block{
+  @include max-sm{
+    padding: 15px 0 10px;
+    border-bottom: 1px solid $address-border-color;
+
+    &.last{
+      border: none;
+    }
+  }
+
+  @include sm-md{
+    padding-bottom: 25px;
+    br{
+      display: none;
+    }
+  }
+
+  &.first{
+    @include sm-md{
+      padding-top: 20px;
+    }
+  }
+}

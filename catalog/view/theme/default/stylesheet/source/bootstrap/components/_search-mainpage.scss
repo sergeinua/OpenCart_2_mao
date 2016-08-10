@@ -1,0 +1,91 @@
+#search-col{
+  will-change: position, width;
+  transition: position $a-transition, width $a-transition;
+
+  @include max-lg{
+    position: relative;
+    z-index: 1000;
+  }
+
+  &.active{
+    @include max-sm{
+      position: absolute;
+      width: 80%;
+    }
+  }
+}
+.search-input-block {
+  position: relative;
+
+  &.search-active {
+    z-index: 100;
+
+    .btn-close-search{
+      right: -51px;
+      opacity: 1;
+    }
+  }
+}
+
+.search-form-control {
+  border: none;
+  border-bottom: 2px solid $gray-light;
+  font-size: $font-size-type;
+  will-change: height, padding, margin;
+  transition: height $a-transition, padding $a-transition, margin $a-transition;
+
+  &:focus {
+    height: 60px;
+    margin-top: -6px;
+    padding: 23px 24px 20px;
+
+    & + .btn-search-input {
+      padding: 20px 23px;
+      color: #2e3033;
+    }
+  }
+}
+
+.btn-search-input {
+  @include absolute(50% 0 null null);
+  transform: translateY(-50%);
+  padding: 13px 10px;
+  background-color: transparent;
+  color: $global-color;
+  @include transition-willChange(padding);
+
+  .fa {
+    font-size: $font-size-type;
+    &:after {
+      @include transition-willChange(color);
+    }
+  }
+
+  &:hover {
+    color: $global-color;
+  }
+  z-index: 5;
+}
+
+.btn-close-search {
+  @include absolute(50% 0 null null);
+  transform: translateY(-50%);
+  padding: 20px 12px;
+  color: $global-color;
+  opacity: 0;
+  will-change: color, opacity, right;
+  transition: opacify $a-transition, right .35s .15s ease-in-out, color $a-transition;
+  z-index: 1;
+
+  &:before{
+    font-size: $font-size-large;
+  }
+
+  &:hover{
+    color: $brand-primary;
+  }
+}
+
+#search-input{
+  padding-right: 50px;
+}

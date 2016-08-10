@@ -1,0 +1,33 @@
+.html-block-homepage{
+
+  h1,.h1,
+  h2,.h2,
+  h3,.h3{
+    @include max-sm{
+      width: 90%;
+    }
+  }
+
+  img{
+    position: relative;
+    top: -50px;
+  }
+
+  p{
+    font-size: $font-size-type;
+  }
+}
+
+.text-left-md{
+  @include lg{
+    left: -33%;
+  }
+}
+
+.html-text-image{
+  @include sm-lg{
+    img{
+      margin: auto;
+    }
+  }
+}

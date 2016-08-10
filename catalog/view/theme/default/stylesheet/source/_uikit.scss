@@ -1,0 +1,76 @@
+.uikit {
+  background: lighten($gray-base, 5%);
+
+  &-heading{
+    margin-top: 50px;
+  }
+
+  &-color{
+    height: 50px;
+
+    &.brand-primary{
+      background-color: $brand-primary;
+    }
+    &.brand-primary-hover{
+      background-color: $brand-primary-hover;
+    }
+    &.brand-primary-active{
+      background-color: $brand-primary-active;
+    }
+
+    &.brand-danger{
+      background-color: $brand-danger;
+    }
+    &.brand-danger-hover{
+      background-color: $brand-danger-hover;
+    }
+    &.brand-danger-active{
+      background-color: $brand-danger-active;
+    }
+
+    &.gray-base{
+      background-color: $gray-base;
+    }
+    &.gray-dark{
+      background-color: $gray-dark;
+    }
+    &.gray{
+      background-color: $gray;
+    }
+
+    &.gray-light{
+      background-color: $gray-light;
+    }
+    &.gray-lighter{
+      background-color: $gray-lighter;
+    }
+    &.gray-lightest{
+      background-color: $gray-lightest;
+    }
+
+    &.global-color{
+      height: 150px;
+      background-color: $global-color;
+    }
+  }
+
+  &-btns{
+    .btn{
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+  }
+
+  &-panels{
+    .panel-dark,
+    .panel-light{
+      @include size(100% 250px);
+    }
+  }
+
+  .colors{
+    padding: 50px 0;
+  }
+}

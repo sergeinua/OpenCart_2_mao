@@ -1,0 +1,43 @@
+body{
+  background:{
+    image: url(./../../image/body-bg.png);
+    repeat: no-repeat;
+    position: 50% -47px;
+    //size: cover;
+    size: contain;
+  }
+
+  @include max-sm{
+    //padding: 0 9px;
+  }
+
+
+  &.overflow-hidden{
+    overflow: hidden;
+
+    @include max-lg{
+      .cart{
+        z-index: -1;
+      }
+    }
+
+    .search-overlay{
+      @include size(100%);
+      position: fixed;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(46,48,51, .85);
+      z-index: 10;
+    }
+  }
+
+  &.overflow-hidden-fixed{
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left: 0;
+  }
+
+}

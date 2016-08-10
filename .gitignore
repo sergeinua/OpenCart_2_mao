@@ -1,0 +1,10 @@
+/*
+/*/
+!/catalog/
+!/admin/
+!/.gitignore
+!/.ftppass
+!/Gulpfile.js
+!/package.json
+!/README.md
+
