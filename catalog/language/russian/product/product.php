@@ -18,7 +18,7 @@ $_['text_login']                              = 'Пожалуйста <a href="%
 $_['text_no_reviews']                         = 'Упс! Пока никто ничего не написал...Станьте первым!';
 $_['text_note']                               = '<span class="text-danger">Внимание:</span> HTML не переведен!';
 $_['text_success']                            = 'Спасибо за Ваш отзыв. Он был отправлен на модерацию.';
-$_['text_related']                            = 'Рекомендуемые товары';
+$_['text_related']                            = 'С этим товаром покупают';
 $_['text_tags']                               = 'Теги:';
 $_['text_error']                              = 'Товар не найден!';
 $_['text_payment_recurring']                  = 'Повторяющийся платеж';
@@ -34,7 +34,7 @@ $_['text_year']                               = 'год';
 
 // Entry
 $_['entry_qty']                               = 'Кол-во';
-$_['entry_name']                              = 'Ваше имя:';
+$_['entry_name']                              = 'Ваше имя';
 $_['entry_review']                            = 'Ваш отзыв';
 $_['entry_rating']                            = 'Оценка:';
 $_['entry_good']                              = 'Хорошо';

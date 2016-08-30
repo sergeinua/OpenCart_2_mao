@@ -284,8 +284,10 @@
               </div>
             </div>
             <div class="col-xs-12">
-                <div class="feedback-blck panel-dark">
-                  <h2 class="h2"><?php echo $text_write; ?></h2>
+                <div class="feedback-blck panel-dark clearfix">
+					<div class="col-sm-12">
+						<h2 class="h2"><?php echo $text_write; ?></h2>
+					</div>
                   <form class="form-horizontal" id="form-review">
 
                     <?php if ($review_guest) { ?>
@@ -301,38 +303,109 @@
                           <input type="email" name="email" value="" id="input-emal" class="form-control" placeholder="Ваш e-mail"/>
 
                       </div>
-                    <div class="required">
+                    <div class="required clearfix">
                       <div class="col-sm-12">
                         <textarea name="text" rows="5" id="input-review" class="form-control" placeholder="<?php echo $entry_review; ?>"></textarea>
                       </div>
                     </div>
-                    <div class="required">
-                      <div class="col-sm-12">
-                        <label class="control-label"><?php echo $entry_rating; ?></label>
-                        <br>
-                        <?php echo $entry_bad; ?>&nbsp;
-                        <input type="radio" name="rating" value="1" />
-                        &nbsp;
-                        <input type="radio" name="rating" value="2" />
-                        &nbsp;
-                        <input type="radio" name="rating" value="3" />
-                        &nbsp;
-                        <input type="radio" name="rating" value="4" />
-                        &nbsp;
-                        <input type="radio" name="rating" value="5" />
-                        &nbsp;<?php echo $entry_good; ?></div>
-                    </div>
-                    <?php echo $captcha; ?>
-                    <div class="buttons clearfix">
-                      <div class="pull-right">
-                        <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-outline"><?php echo $button_continue; ?></button>
+                    <div class="required clearfix">
+                      <div class="user-rating col-sm-12">
+                        <span class="control-label h3"><?php echo $entry_rating; ?></span>
+						  <div class="clearfix">
+							  <span class="legend-rating"><?php echo $entry_bad; ?></span>
+							  <input type="radio" name="rating" value="1" id="the-worst-rating"/>
+							  <label for="the-worst-rating" class="fa fa-circle-o"></label>
+							  <input type="radio" name="rating" value="2"  id="bad-rating"/>
+							  <label for="bad-rating" class="fa fa-circle-o"></label>
+							  <input type="radio" name="rating" value="3"  id="normal-rating"/>
+							  <label for="normal-rating" class="fa fa-circle-o"></label>
+							  <input type="radio" name="rating" value="4"  id="good-rating"/>
+							  <label for="good-rating" class="fa fa-circle-o"></label>
+							  <input type="radio" name="rating" value="5"  id="the-best-rating"/>
+							  <label for="the-best-rating" class="fa fa-circle-o"></label>
+							  <span class="legend-rating"><?php echo $entry_good; ?></span>
+						  </div>
                       </div>
+                    </div>
+                    <div class="buttons clearfix">
+						<div class="col-xs-12">
+							<div class="pull-left capcha">
+
+								<!-- TODO сделать капчу-->
+
+								<?php echo $captcha; ?>
+								<img src="./catalog/view/theme/default/image/cap4a.png" alt="">
+							</div>
+							<div class="button-wrapper pull-right">
+								<button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-outline"><?php echo $button_continue; ?></button>
+							</div>
+						</div>
                     </div>
                     <?php } else { ?>
                     <?php echo $text_login; ?>
                     <?php } ?>
-                    <div id="review"></div>
                   </form>
+					<div class="col-sm-12">
+						<div id="review" class="feedback-review"></div>
+					</div>
+					<div class="col-sm-12">
+						<div id="users-reviews" class="users-reviews">
+							<div class="review-single">
+								<div class="review-head clearfix">
+									<div class="user-atrs pull-left">
+										<div>Витя Сидоров</div>
+										<span>24.08.12</span> <span>09:48</span>
+									</div>
+									<div class="user-rating pull-right">
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+									</div>
+								</div>
+								<div class="review-text">
+									<p>Заказал себе на день рождения. Рекомендую.</p>
+								</div>
+							</div>
+							<div class="review-single">
+								<div class="review-head clearfix">
+									<div class="user-atrs pull-left">
+										<div>Вася Иванов</div>
+										<span>24.08.12</span> <span>09:48</span>
+									</div>
+									<div class="user-rating pull-right">
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+									</div>
+								</div>
+								<div class="review-text">
+									<p>Куплю ещё, и не раз!)</p>
+								</div>
+							</div>
+							<div class="review-single">
+								<div class="review-head clearfix">
+									<div class="user-atrs pull-left">
+										<div>Коля Петров</div>
+										<span>24.08.12</span> <span>09:48</span>
+									</div>
+									<div class="user-rating pull-right">
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+									</div>
+								</div>
+								<div class="review-text">
+									<p>Качество на высоте!</p>
+								</div>
+							</div>
+						</div>
+					</div>
                 </div>
             </div>
           </div>
@@ -444,7 +517,6 @@
         <!--todo: Вывести эти картинки через админку-->
 
         <div class="col-md-3">
-
           <div class="img-banners-wrapper">
             <div class="row">
               <div class="col-xs-6 col-md-12">
@@ -459,11 +531,7 @@
               </div>
             </div>
           </div>
-
         </div>
-
-
-        <?php echo $captcha; ?>
 
 
         <!-- <div class="">
@@ -635,76 +703,149 @@
         </div> -->
       </div>
       <?php if ($products) { ?>
-      <h3><?php echo $text_related; ?></h3>
+
       <div class="row">
+		  <h3><?php echo $text_related; ?></h3>
+		  <div class="owl-carousel goods-related-slider" id="goods-related-slider">
         <?php $i = 0; ?>
         <?php foreach ($products as $product) { ?>
-        <!-- <?php if ($column_left && $column_right) { ?>
-        <?php $class = 'col-lg-6 col-md-6 col-sm-12 col-xs-12'; ?>
-        <?php } elseif ($column_left || $column_right) { ?>
-        <?php $class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'; ?>
-        <?php } else { ?>
-        <?php $class = 'col-lg-3 col-md-3 col-sm-6 col-xs-12'; ?>
-        <?php } ?> -->
-        <div class="<?php echo $class; ?>">
-          <div class="product-thumb transition">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+          <div class="product-thumb transition item">
+            <div class="image">
+				<a href="<?php echo $product['href']; ?>">
+					<img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" />
+				</a>
+			</div>
             <div class="caption">
-              <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-              <p><?php echo $product['description']; ?></p>
-              <?php if ($product['rating']) { ?>
-              <div class="rating">
-                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <?php if ($product['rating'] < $i) { ?>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } else { ?>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } ?>
-                <?php } ?>
-              </div>
-              <?php } ?>
-              <?php if ($product['price']) { ?>
-              <p class="price">
-                <?php if (!$product['special']) { ?>
-                <?php echo $product['price']; ?>
-                <?php } else { ?>
-                <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-                <?php } ?>
-                <?php if ($product['tax']) { ?>
-                <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                <?php } ?>
-              </p>
-              <?php } ?>
+				<div class="product-name">
+					<a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+				</div>
+				<div class="product-footer">
+					<?php if ($product['price']) { ?>
+					<p class="price">
+						<?php if (!$product['special']) { ?>
+						<?php echo $product['price']; ?>
+						<?php } else { ?>
+						<span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
+						<?php } ?>
+					</p>
+					<button type="button" class="btn btn-hover btn-outline btn-shopping-cart" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i></button>
+					<?php } ?>
+				</div>
+
             </div>
-            <div class="button-group">
-              <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span> <i class="fa fa-shopping-cart"></i></button>
-              <!-- <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-              <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button> -->
-            </div>
-          </div>
-        </div>
-        <?php if (($column_left && $column_right) && ($i % 2 == 0)) { ?>
-        <div class="clearfix visible-md visible-sm"></div>
-        <?php } elseif (($column_left || $column_right) && ($i % 3 == 0)) { ?>
-        <div class="clearfix visible-md"></div>
-        <?php } elseif ($i % 4 == 0) { ?>
-        <div class="clearfix visible-md"></div>
-        <?php } ?>
+
+		  </div>
         <?php $i++; ?>
         <?php } ?>
+			  <div class="product-thumb transition item">
+				  <div class="image">
+					  <a href="http://mao.reclamare.ua/iphone">
+						  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+					  </a>
+				  </div>
+				  <div class="caption">
+					  <div class="product-name">
+						  <a href="http://mao.reclamare.ua/iphone">Ступица в сборе (B11-3001030AB) SNR</a>
+					  </div>
+					  <div class="product-footer">
+						  <p class="price">
+							  101.00 грн.											</p>
+						  <button type="button" class="btn btn-hover btn-outline btn-shopping-cart" onclick="cart.add('40', '1');"><i class="fa fa-shopping-cart"></i></button>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="product-thumb transition item">
+				  <div class="image">
+					  <a href="http://mao.reclamare.ua/iphone">
+						  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+					  </a>
+				  </div>
+				  <div class="caption">
+					  <div class="product-name">
+						  <a href="http://mao.reclamare.ua/iphone">Ступица с подшипником в сборе SNR</a>
+					  </div>
+					  <div class="product-footer">
+						  <p class="price">
+							  101.00 грн.											</p>
+						  <button type="button" class="btn btn-hover btn-outline btn-shopping-cart" onclick="cart.add('40', '1');"><i class="fa fa-shopping-cart"></i></button>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="product-thumb transition item">
+				  <div class="image">
+					  <a href="http://mao.reclamare.ua/iphone">
+						  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+					  </a>
+				  </div>
+				  <div class="caption">
+					  <div class="product-name">
+						  <a href="http://mao.reclamare.ua/iphone">Ступица передняя с подшипником</a>
+					  </div>
+					  <div class="product-footer">
+						  <p class="price">
+							  101.00 грн.
+						  </p>
+						  <button type="button" class="btn btn-hover btn-outline btn-shopping-cart" onclick="cart.add('40', '1');"><i class="fa fa-shopping-cart"></i></button>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="product-thumb transition item">
+				  <div class="image">
+					  <a href="http://mao.reclamare.ua/iphone">
+						  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+					  </a>
+				  </div>
+				  <div class="caption">
+					  <div class="product-name">
+						  <a href="http://mao.reclamare.ua/iphone">Ступица передняя с подшипником в сборе</a>
+					  </div>
+					  <div class="product-footer">
+						  <p class="price">
+							  101.00 грн.
+						  </p>
+						  <button type="button" class="btn btn-hover btn-outline btn-shopping-cart" onclick="cart.add('40', '1');"><i class="fa fa-shopping-cart"></i></button>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="product-thumb transition item">
+				  <div class="image">
+					  <a href="http://mao.reclamare.ua/iphone">
+						  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+					  </a>
+				  </div>
+				  <div class="caption">
+					  <div class="product-name">
+						  <a href="http://mao.reclamare.ua/iphone">Ступица</a>
+					  </div>
+					  <div class="product-footer">
+						  <p class="price">
+							  101.00 грн.
+						  </p>
+						  <button type="button" class="btn btn-hover btn-outline btn-shopping-cart" onclick="cart.add('40', '1');"><i class="fa fa-shopping-cart"></i></button>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="product-thumb transition item">
+				  <div class="image">
+					  <a href="http://mao.reclamare.ua/iphone">
+						  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+					  </a>
+				  </div>
+				  <div class="caption">
+					  <div class="product-name">
+						  <a href="http://mao.reclamare.ua/iphone">Ступица</a>
+					  </div>
+					  <div class="product-footer">
+						  <p class="price">
+							  101.00 грн.
+						  </p>
+						  <button type="button" class="btn btn-hover btn-outline btn-shopping-cart" onclick="cart.add('40', '1');"><i class="fa fa-shopping-cart"></i></button>
+					  </div>
+				  </div>
+			  </div>
       </div>
       <?php } ?>
-      <?php if ($tags) { ?>
-      <p><?php echo $text_tags; ?>
-        <?php for ($i = 0; $i < count($tags); $i++) { ?>
-        <?php if ($i < (count($tags) - 1)) { ?>
-        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
-        <?php } else { ?>
-        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
-        <?php } ?>
-        <?php } ?>
-      </p>
-      <?php } ?>
+	  </div>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
@@ -908,6 +1049,23 @@ $(document).ready(function() {
     pagination: false
   });
 
+	$('#goods-related-slider').owlCarousel({
+		items : 7,
+		loop: true,
+		navigation: true,
+		paginationSpeed : 400,
+		navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+		pagination: false,
+		itemsCustom : [
+			[0, 2],
+			[450, 2],
+			[560, 3],
+			[600, 3],
+			[775, 4],
+			[1000, 5],
+			[1200, 6]
+		]
+	});
 
 });
 //--></script>

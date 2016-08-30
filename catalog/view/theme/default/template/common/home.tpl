@@ -14,6 +14,32 @@
 
             <?php echo $content_top; ?>
 
+            <?php if (isset($category_home)) : ?>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="catalog-homepage-links">
+                            <div class="row">
+
+                                <?php foreach ($category_home as $item) : ?>
+
+                                    <div class="col-xs-6 col-sm-4 col-md-3 catalog-homepage-links-grid">
+                                        <a href="<?= $item['link']; ?>" class="catalog-link" role="link">
+                                            <span class="image" style="background-image: url(<?= $item['img']; ?>)"></span>
+                                            <span class="title"><?= $item[0]['name']; ?></span>
+                                        </a>
+                                    </div>
+
+                                <?php endforeach; ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+<!--
             <div class="row">
                 <div class="col-xs-12">
                     <div class="catalog-homepage-links">
@@ -104,7 +130,10 @@
 
                 </div>
             </div>
+-->
+
             <?php echo $content_bottom; ?>
+
             <div class="html-block-homepage">
 
                 <div class="row">
@@ -159,7 +188,7 @@
                             довольных клиента
                         </div>
                         <div class="happy-customer-number">
-                            6548
+                            <?= $current_quantity; ?>
                         </div>
                     </div>
                 </div>

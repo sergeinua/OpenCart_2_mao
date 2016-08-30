@@ -3,7 +3,7 @@
   <div class="relative-wrapper">
 		<div class="button-float" id="button-float"><a href="#" id="button-submit"><?php echo $button_select; ?></a></div>
 	</div>
-  <div class="panel-heading"><?php echo $heading_title; ?></div>
+  <!-- <div class="panel-heading"><?php echo $heading_title; ?></div> -->
   <div class="panel-body">
     <form action="">
       <?php if ($selecteds) { # Selected options ?>
@@ -35,8 +35,8 @@
 
         <?php if ($manual_price) { ?>
 				<div class="fields-price" id="fields-price">
-					<dd>&nbsp;</dd>
-					<?php echo $symbol_left; ?>&nbsp;<input name="price[min]" value="<?php echo $min_price_get; ?>" type="text" size="6" id="min-price-value" class="enabled" />&nbsp;-&nbsp;<input name="price[max]" value="<?php echo $max_price_get; ?>" type="text" size="6" id="max-price-value" class="enabled" />&nbsp;<?php echo $symbol_right; ?>
+					<?php echo $symbol_left; ?>
+					<input name="price[min]" value="<?php echo $min_price_get; ?>" type="text" size="6" id="min-price-value" class="enabled" />&nbsp;-&nbsp;<input name="price[max]" value="<?php echo $max_price_get; ?>" type="text" size="6" id="max-price-value" class="enabled" />&nbsp;<?php echo $symbol_right; ?>
 				</div>
 				<?php } ?>
 
@@ -128,9 +128,9 @@
             <?php echo $option['postfix']; ?>
             <?php } ?>
 
-            <?php if ($option['description']) { ?>
+            <!-- <?php if ($option['description']) { ?>
 						<b>i</b>
-						<?php } ?>
+						<?php } ?> -->
 	        </div>
 
 	        <div class="option-values">

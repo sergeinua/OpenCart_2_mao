@@ -3,7 +3,7 @@
 
   <div class="row">
 
-  <!-- <?php echo $column_left; ?>
+  <?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -11,48 +11,47 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"> -->
+    <div id="content" class="<?php echo $class; ?>">
 	<div class="hiddem-md hidden-lg">
 		 <?php echo $content_top; ?>
 	</div>
 </div>
 
-	  <!--
-		TODO: вывести циклом, а не хардкором
-		-->
-
-
-	  <div class="hidden-xs hidden-sm col-md-3">
-		  <div class="panel-dark" style="width: 270px;">
+	  <div class="hidden-xs hidden-sm hidden-md hidden-lg col-md-3">
+		  <div class="panel-dark" style="max-width: 270px;">
 			  <div class="nav-menu-wrapper">
 				  <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
 				  </a>
 				  <nav id="menu2" class="dropdown-menu nav-menu">
 					  <ul class="nav">
-						  <li><a href="http://mao.reclamare.ua/desktops">Great Wall</a></li>
-						  <li><a href="http://mao.reclamare.ua/laptop-notebook">Lifan</a></li>
-						  <li class="has-submenu">
-							  <a href="http://mao.reclamare.ua/component" class="">Chery</a>
-							  <div class="submenu panel-dark">
-								  <ul class="list-unstyled">
-									  <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_59">Chery A13 / Zaz Forza</a></li>
-									  <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_61">Chery Cross Eastar (B14)</a></li>
-									  <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_62">Chery Eastar (B11)</a></li>
-									  <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_63">Chery Jaggi</a></li>
-									  <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_60">Chery M11</a></li>
-									  <li><a href="http://mao.reclamare.ua/component/mouse">Chery Amulet (A11-A15)</a></li>
-									  <li><a href="http://mao.reclamare.ua/component/scanner">Chery Elara (Fora) (A21)</a></li>
-									  <li><a href="http://mao.reclamare.ua/component/web-camera">Chery Kimo (S12 )</a></li>
-									  <li><a href="http://mao.reclamare.ua/component/monitor">Chery QQ (S11)</a></li>
-									  <li><a href="http://mao.reclamare.ua/component/printer">Chery Tiggo (T11)</a></li>
-								  </ul>
-							  </div>
-						  </li>
-						  <li><a href="http://mao.reclamare.ua/tablet">Kia</a></li>
-						  <li><a href="http://mao.reclamare.ua/software">Hyundai</a></li>
-						  <li><a href="http://mao.reclamare.ua/smartphone">Chevrolet</a></li>
-						  <li><a href="http://mao.reclamare.ua/camera">BYD</a></li>
-						  <li><a href="http://mao.reclamare.ua/mp3-players">Daewoo</a></li>
+
+                          <?php foreach ($menu_categories as $item) : ?>
+
+                              <?php if (isset($item['children'])) : ?>
+
+                                  <li class="has-submenu">
+                                      <a href="<?= $item['href']; ?>" class=""><?= $item['name']; ?></a>
+                                      <div class="submenu panel-dark">
+                                          <ul class="list-unstyled">
+
+                                              <?php foreach ($item['children'] as $child) : ?>
+
+                                                  <li><a href="<?= $child['href']; ?>"><?= $child['name']; ?></a></li>
+
+                                              <?php endforeach; ?>
+
+                                          </ul>
+                                      </div>
+                                  </li>
+
+                              <?php else : ?>
+
+                                  <li><a href="<?= $item['href']; ?>"><?= $item['name']; ?></a></li>
+
+                              <?php endif; ?>
+
+                          <?php endforeach; ?>
+
 					  </ul>
 					  <ul class="nav nav-link top-menu-links">
 						  <li><a href="http://mao.reclamare.ua/garanty">Гарантия</a></li>
@@ -64,33 +63,51 @@
 
 			  <!-- TODO: вывести динамически -->
 
+
+
 			  <div class="breadcrumb-wrapper">
 				  <ul class="breadcrumb">
 					  <li><a href="http://mao.reclamare.ua/index.php?route=common/home">Главная</a></li>
 					  <li><a href="http://mao.reclamare.ua/component">Chery</a></li>
 					  <li class="subcategories-links">
-						  <a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_59">Chery A13 / Zaz Forza</a>
-						  <a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_61">Chery Cross Eastar (B14)</a>
-						  <a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_62">Chery Eastar (B11)</a>
-						  <a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_63">Chery Jaggi</a>
-						  <a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_60">Chery M11</a>
-						  <a href="http://mao.reclamare.ua/component/mouse">Chery Amulet (A11-A15)</a>
-						  <a href="http://mao.reclamare.ua/component/scanner">Chery Elara (Fora) (A21)</a>
-						  <a href="http://mao.reclamare.ua/component/web-camera">Chery Kimo (S12 )</a>
-						  <a href="http://mao.reclamare.ua/component/monitor">Chery QQ (S11)</a>
-						  <a href="http://mao.reclamare.ua/component/printer">Chery Tiggo (T11)</a>
+
+                          <?php foreach ($categories as $item) : ?>
+
+                             <a href="<?= $item['href']; ?>"><?= $item['name']; ?></a>
+
+                          <?php endforeach; ?>
+
 					  </li>
 				  </ul>
-
 			  </div>
+
+
 		  </div>
 	  </div>
 	  <div id="content" class="col-md-9">
 
       <h2><?php echo $heading_title; ?></h2>
 
-		<!-- TODO: вывести динамически -->
+      <?php if (isset($categories)) : ?>
 
+          <div class="row subcategories-links">
+
+          <?php foreach ($categories as $item) : ?>
+
+              <div class="col-xs-6 col-sm-4 subcategory-link-wrap">
+                  <a href="<?= $item['href']; ?>" class="subcategory-link" role="link">
+						<span class="image"
+                              style="background-image: url(<?= $item['img']; ?>)"></span>
+                      <span class="title"><?= $item['name']; ?></span>
+                  </a>
+              </div>
+
+          <?php endforeach; ?>
+
+          </div>
+
+      <?php endif; ?>
+<!--
 		<div class="row subcategories-links">
 			<div class="col-xs-6 col-sm-4 subcategory-link-wrap">
 				<a href="#" class="subcategory-link" role="link">
@@ -156,8 +173,8 @@
 				</a>
 			</div>
 		</div>
-
-      <!-- <?php if ($thumb || $description) { ?>
+-->
+      <?php if ($thumb || $description) { ?>
       <div class="row">
         <?php if ($thumb) { ?>
         <div class="col-sm-2">
@@ -168,7 +185,6 @@
         <div class="col-sm-10"><?php echo $description; ?></div>
         <?php } ?>
       </div>
-      <hr>
       <?php } ?>
       <?php if ($categories) { ?>
       <h3><?php echo $text_refine; ?></h3>
@@ -195,17 +211,17 @@
         <?php } ?>
       </div>
       <?php } ?>
-      <?php } ?> -->
-      <!-- <?php if ($products) { ?>
-      <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
+      <?php } ?>
+      <?php if ($products) { ?>
+      <!-- <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p> -->
       <div class="row">
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <div class="btn-group hidden-xs">
             <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
             <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
           </div>
-        </div>
-        <div class="col-md-2 text-right">
+        </div> -->
+        <!-- <div class="col-md-2 text-right">
           <label class="control-label" for="input-sort"><?php echo $text_sort; ?></label>
         </div>
         <div class="col-md-3 text-right">
@@ -232,46 +248,47 @@
             <?php } ?>
             <?php } ?>
           </select>
-        </div>
+        </div> -->
       </div>
       <br />
-      <div class="row">
+      <div class="row panel-dark model-goods-wrapper">
+		  <div class="inputs-wrapper clearfix">
+			  <div class="input-wrapper">
+				  <input type="text" placeholder="Искать..." class="form-control">
+			  </div>
+			  <div class="select-wrapper">
+				  <select class="form-control">
+					  <option disabled="">Все группы</option>
+					  <option value="Аксессуары">Аксессуары</option>
+					  <option value="Двигатель">Двигатель</option>
+					  <option value="Кузов">Кузов</option>
+					  <option value="Салон">Салон</option>
+					  <option value="Трансмиссия">Трансмиссия</option>
+					  <option value="Ходовая">Ходовая</option>
+					  <option value="Электрика">Электрика</option>
+				  </select>
+			  </div>
+		  </div>
         <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-list col-xs-12">
+        <div class="product-layout product-list model-goods">
           <div class="product-thumb">
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>
               <div class="caption">
-                <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-                <p><?php echo $product['description']; ?></p>
-                <?php if ($product['rating']) { ?>
-                <div class="rating">
-                  <?php for ($i = 1; $i <= 5; $i++) { ?>
-                  <?php if ($product['rating'] < $i) { ?>
-                  <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                  <?php } else { ?>
-                  <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                  <?php } ?>
-                  <?php } ?>
-                </div>
-                <?php } ?>
-                <?php if ($product['price']) { ?>
-                <p class="price">
+                <span><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
+                <!-- <p><?php echo $product['description']; ?></p> -->
+				  <div class="price-buy-wrapper">
+					  <?php if ($product['price']) { ?>
+					  <span class="price">
                   <?php if (!$product['special']) { ?>
-                  <?php echo $product['price']; ?>
-                  <?php } else { ?>
-                  <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-                  <?php } ?>
-                  <?php if ($product['tax']) { ?>
-                  <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                  <?php } ?>
-                </p>
-                <?php } ?>
-              </div>
-              <div class="button-group">
-                <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
+						  <?php echo $product['price']; ?>
+						  <?php } else { ?>
+						  <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old" style="text-decoration: line-through;"><?php echo $product['price']; ?></span>
+						  <?php } ?>
+                </span>
+					  <?php } ?>
+					  <button type="button" class="btn btn-hover btn-outline btn-xs" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
+				  </div>
               </div>
             </div>
           </div>
@@ -289,12 +306,29 @@
         <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
       </div>
       <?php } ?>
-      <?php echo $content_bottom; ?> -->
-
+      <?php echo $content_bottom; ?>
 
 	</div>
 
     <?php echo $column_right; ?>
+	  <!--todo: Вывести эти картинки через админку-->
+
+	  <div class="col-md-3">
+		  <div class="img-banners-wrapper">
+			  <div class="row">
+				  <div class="col-xs-6 col-md-12">
+					  <a href="#" role="link">
+						  <img src="./catalog/view/theme/default/image/mao_free-delivery_250x2501.jpg" alt="banner_title">
+					  </a>
+				  </div>
+				  <div class="col-xs-6 col-md-12">
+					  <a href="#" role="link">
+						  <img src="./catalog/view/theme/default/image/mao_delivery-kiev_250x2501.jpg" alt="banner_title">
+					  </a>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
 
   </div>
 </div>

@@ -160,7 +160,8 @@ class ControllerProductCategory extends Controller {
 
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
+					'img' => $this->model_tool_image->resize($result['image'], 300, 300)
 				);
 			}
 
@@ -373,6 +374,55 @@ class ControllerProductCategory extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+
+
+			// category list
+			$this->load->model('catalog/category');
+			$this->load->model('catalog/product');
+			$data['menu_categories'] = array();
+
+			$categories = $this->model_catalog_category->getCategories(0);
+
+			foreach ($categories as $category) {
+				if ($category['top']) {
+					// Level 2
+					$children_data = array();
+					$children = $this->model_catalog_category->getCategories($category['category_id']);
+					foreach ($children as $child) {
+						$children_data3 = [];
+						$children3 = $this->model_catalog_category->getCategories($child['category_id']);
+						if($children3) {
+							foreach ($children3 as $child3) {
+								$filter_data = array(
+									'filter_category_id' => $child3['category_id'],
+									'filter_sub_category' => true
+								);
+								$children_data3[] = array(
+									'name' => $child3['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+									'href' => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child3['category_id'])
+								);
+							}
+						}
+						$filter_data = array(
+							'filter_category_id'  => $child['category_id'],
+							'filter_sub_category' => true
+						);
+
+						$children_data[] = array(
+							'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+							'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']),
+							'child3' => $children_data3
+						);
+					}
+					// Level 1
+					$data['menu_categories'][] = array(
+						'name'     => $category['name'],
+						'children' => $children_data,
+						'column'   => $category['column'] ? $category['column'] : 1,
+						'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+					);
+				}
+			}
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/category.tpl', $data));

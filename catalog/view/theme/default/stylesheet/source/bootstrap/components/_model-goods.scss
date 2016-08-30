@@ -1,0 +1,52 @@
+.model-goods-wrapper {
+  padding: 24px 12px;
+  margin-bottom: 36px;
+  color: $global-color;
+
+  @include sm {
+    padding: 24px 36px;
+  }
+
+  .inputs-wrapper {
+    margin-bottom: 24px;
+    .input-wrapper {
+      width: 49%;
+      float: left;
+    }
+    .select-wrapper {
+      width: 49%;
+      float: right;
+    }
+  }
+}
+
+.model-goods {
+  .product-thumb .image {
+    float: left;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin-right: 12px;
+
+    @include sm {
+    margin-right: 24px;
+      height: 72px;
+      width: 72px;
+    }
+  }
+
+  .product-thumb .caption {
+    border: none;
+    padding: 0;
+  }
+}
+
+.select-wrapper {
+  select.form-control {
+    -moz-appearance: none;
+    padding: 0 12px;
+    &:focus {
+      background-color:$global-color;
+    }
+  }
+}

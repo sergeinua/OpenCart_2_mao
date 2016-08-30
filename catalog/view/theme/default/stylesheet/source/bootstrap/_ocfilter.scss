@@ -67,7 +67,7 @@
 
   .ocfilter-option{position: relative;}
 
-	.ocfilter-option + .ocfilter-option{border-top: 1px dotted #EEEEEE;}
+	//.ocfilter-option + .ocfilter-option{border-top: 1px dotted #EEEEEE;}
 
 	  .ocfilter-option .option-name{color: #0E6A93; font-size: 12px; font-weight: bold; padding: 5px 0 0 10px;}
 
@@ -367,7 +367,7 @@
 
 
 
-  .option-values > .hidden-values{background-color: #FBFBFB; border: 1px dotted #CCCCCC; left: -1px; padding: 7px 0; position: absolute; width: 100%; z-index: 15;}
+  .option-values > .hidden-values{background-color: #FBFBFB; /*border: 1px dotted #CCCCCC;*/ left: -1px; padding: 7px 0; position: absolute; width: 100%; z-index: 15;}
 
     .option-values > .hidden-values label{padding-left: 15px;}
 

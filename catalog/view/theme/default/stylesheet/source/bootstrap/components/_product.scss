@@ -22,7 +22,7 @@
       &:after{
         content: '';
         @include middle-center;
-        @include size(100%);
+        @include size(99%);
         background-color: $global-color;
         z-index: -1;
         will-change: width, height;
@@ -37,9 +37,13 @@
       }
 
       .caption{
-        border: 2px solid $global-color;
         background-color: $global-color;
-        border-top: none;
+        //border-top: none;
+
+        @include sm{
+          //border: 2px solid $global-color;
+          border-color: $global-color;
+        }
       }
 
       .product-name{
