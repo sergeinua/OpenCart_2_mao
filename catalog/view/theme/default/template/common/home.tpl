@@ -10,7 +10,10 @@
         <?php } else { ?>
         <?php $class = 'col-sm-12'; ?>
         <?php } ?>
-        <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+        <div id="content" class="<?php echo $class; ?>">
+
+            <?php echo $content_top; ?>
+
             <div class="row">
                 <div class="col-xs-12">
                     <div class="catalog-homepage-links">

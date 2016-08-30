@@ -1,0 +1,97 @@
+.subcategories-links {
+  margin-bottom: 70px;
+
+  @include md {
+    margin-bottom: 110px;
+  }
+
+  &-grid {
+    @include md {
+      &:nth-last-of-type(1),
+      &:nth-last-of-type(2),
+      &:nth-last-of-type(3),
+      &:nth-last-of-type(4) {
+        a {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .subcategory-link {
+    position: relative;
+    display: block;
+    margin-bottom: 11px;
+
+    @include sm {
+      margin-bottom: 24px;
+    }
+
+    &:after {
+      content: '';
+      @include middle-center;
+      @include size(96%);
+      background-color: $global-color;
+      will-change: top, height, width;
+      transition: height $a-transition, width $a-transition, top $a-transition;
+      z-index: -1;
+    }
+
+    &:hover {
+      &:after {
+        top: 55%;
+        @include size(110% 122%);
+      }
+
+      .title {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .image {
+      position: relative;
+      display: block;
+      @include size(100% 130px);
+      @include background-center();
+
+      @include sm {
+        @include size(100% 220px);
+      }
+
+      @include lg {
+        @include size(100% 300px);
+      }
+    }
+
+    .title {
+      display: block;
+      width: 100%;
+      @include absolute(null null -21px 0);
+      font-family: $font-family-heading;
+      font-size: $font-size-h5;
+      line-height: $line-height-normal;
+      text-transform: uppercase;
+      background-color: $global-color;
+      color: $gray-base;
+      z-index: 1;
+      transform: translateY(-100%);
+      will-change: transform, opacity;
+      transition: transform $a-transition, opacity $a-transition;
+      opacity: 0;
+
+      @include md {
+        @include absolute(null null -48px 0);
+        font-size: $font-size-h4;
+        line-height: $line-height-normal * 2;
+      }
+
+      &:after {
+        content: "\f054";
+        @include absolute(50% 0 null null);
+        @include fa-mixin($font-size-base, 48px);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

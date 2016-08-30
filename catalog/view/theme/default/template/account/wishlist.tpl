@@ -5,9 +5,15 @@
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
   </ul>
-  <?php if ($success) { ?>
-  <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  ?php if ($success) { ?>
+  <div class="alert alert-success" role="alert">
+    <div class="alert-content">
+      <div class="alert-head">Ok!</div>
+      <p><?php echo $success; ?></p>
+    </div>
+    <button type="button" title="Удалить" class="btn btn-close" data-dismiss="alert">
+      <i class="fa fa-times"></i>
+    </button>
   </div>
   <?php } ?>
   <div class="row"><?php echo $column_left; ?>

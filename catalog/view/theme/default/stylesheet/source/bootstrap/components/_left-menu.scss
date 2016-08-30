@@ -1,0 +1,215 @@
+//
+// Sidebar
+// --------------------------------------------------
+
+
+.sidebar {
+  position: relative;
+  height: 48px;
+  background-color: $sidebar-bg;
+  padding-top: 15px;
+  z-index: 99;
+}
+
+#toggle {
+  height: 18px;
+  width: 18px;
+  margin-left: 24px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2000;
+
+  div {
+    width: 18px;
+    height: 2px;
+    background: $global-color;
+    margin: 0;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+
+    &.one {
+      width: 18px;
+    }
+    &.two {
+      width: 14px;
+      margin-top: 6px;
+    }
+    &.three {
+      width: 16px;
+      margin-top: 6px;
+    }
+  }
+
+  &.on .one {
+    width: 22px;
+    transform: rotate(45deg) translate(4px, 7px);
+  }
+
+  &.on .two {
+    opacity: 0;
+  }
+
+  &.on .three {
+    width: 22px;
+    margin-top: 0;
+    transform: rotate(-45deg) translate(0px, -3px);
+  }
+}
+
+#toggle-menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: $box-wrapper-shadow;
+  background-color: $gray-base;
+  z-index: 1999;
+
+  .dropdown-menu {
+    position: relative;
+  }
+}
+
+
+/*.catalog-link {
+  display: block;
+  text-align: center;
+  background-color: transparent;
+  margin: 0 24px;
+  padding: 0 24px;
+  font-size: 14px;
+  line-height: 36px;
+  border: 2px solid $brand-primary-hover;
+  text-transform: uppercase;
+  transition: $transition;
+
+  &:active,
+  &:hover {
+    color: $brand-primary-hover;
+  }
+
+  .fa {
+    transition: transform .3s ease;
+  }
+}*/
+
+
+.nav-menu-wrapper {
+  padding: 24px 0;
+
+  .catalog-opening-link {
+    display: block;
+    padding: 12px 30px;
+    margin: 0 24px;
+    font-size: $font-size-base;
+    line-height: 12px;
+    border-radius: 0;
+    color: $global-color;
+    background-color: transparent;
+    border: 2px solid $brand-primary;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-family: $font-family-sans-serif;
+    font-weight: $headings-font-weight;
+
+    .fa {
+      transition: $transition;
+    }
+
+  }
+
+  &.open {
+    .catalog-opening-link {
+      color: $brand-primary-hover;
+
+      .fa {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+#menu2 {
+  &.nav-menu {
+    margin: 0 15px;
+    width: 270px;
+  }
+
+  &.dropdown-menu {
+    top: 66px;
+    position: absolute;
+    box-shadow: 0px 10px 30px 0px rgba(23,24,26,0.5);
+  }
+
+  .nav {
+    li.has-submenu {
+      .submenu {
+        width: 0;
+      }
+
+      &:hover {
+        .submenu {
+          width: 270px;
+          right: -270px;
+        }
+      }
+    }
+  }
+}
+
+.breadcrumb-wrapper {
+  .breadcrumb {
+    padding: 12px 24px;
+    margin-bottom: $line-height-computed;
+    list-style: none;
+
+    > li {
+      display: block;
+      margin-bottom: 24px;
+      font-size: $font-size-base;
+      line-height: 12px;
+
+      &:after {
+        content: '→';
+        padding: 0 5px;
+        color: $breadcrumb-color;
+      }
+      &:before {
+        display: none;
+      }
+      &:last-of-type:after {
+        content: '';
+        display: none;
+      }
+      &:nth-of-type(2) {
+        margin-left: 12px;
+      }
+      &:nth-of-type(3) {
+        margin-left: 24px;
+      }
+      &:nth-of-type(4) {
+        margin-left: 36px;
+      }
+      &:nth-of-type(5) {
+        margin-left: 48px;
+      }
+      &:nth-of-type(6) {
+        margin-left: 60px;
+      }
+
+      &.subcategories-links a {
+        display: block;
+        margin-bottom: 24px;
+        font-size: $font-size-base;
+        line-height: 18px;
+      }
+    }
+
+    > .active {
+      color: $breadcrumb-active-color;
+    }
+  }
+}

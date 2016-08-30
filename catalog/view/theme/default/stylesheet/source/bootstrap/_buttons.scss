@@ -17,7 +17,7 @@
   border: 2px solid transparent;
   white-space: nowrap;
   @include user-select(none);
-
+  transition: $transition;
 
   &,
   &:active,
@@ -171,5 +171,65 @@ input[type="button"] {
   background-color: $global-color;
   @include rounded();
   box-shadow: -4px 2px 8px 1px rgba(0,0,0,0.13);
-  color: $gray-base
+  color: $gray-base;
+  transition: $transition;
+
+  &:hover {
+    box-shadow: -2px 2px 8px 1px rgba(0,0,0,0.1);
+  }
+}
+
+
+/// Checkboxes & radiobuttons
+
+.ocfilter-option {
+
+  label small {
+    display: none !important;
+  }
+
+  label a {
+    //display: none !important;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    margin-right: 26px;
+    width: 0;
+  }
+
+
+  .option-values label {
+    margin: 0;
+  }
+
+  .option-values input:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url('./../../image/mao_check_sprite.png') no-repeat top center;
+  }
+
+  input[type="checkbox"]:before {
+    background-position: 0 0;
+  }
+
+  input[type="checkbox"]:checked:before {
+    background-position: 0 -28px;
+  }
+
+  input[type="radio"]:before {
+    background-position: 0 -47px;
+  }
+
+  input[type="radio"]:checked:before {
+    background-position: 0 -68px;
+  }
 }

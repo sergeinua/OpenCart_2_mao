@@ -33,6 +33,7 @@ $(document).ready(function() {
 	var $searchOverlay = $('.search-overlay');
 	var $navBtn	= $('#nav-btn');
 	var $navMenu = $('#menu');
+	var $navMenu2 = $('#menu2');
 	var $searchCol	= $('#search-col');
 	var $content	= $("#content");
 
@@ -40,8 +41,9 @@ $(document).ready(function() {
 		$(this).toggleClass('active');
 		$body.toggleClass('overflow-hidden-fixed');
 		$navMenu.toggleClass('open');
+		$navMenu2.toggleClass('open');
 	});
-	console.log(1);
+
 
 
 	// Language
@@ -168,6 +170,12 @@ $(document).ready(function() {
 	// Makes tooltips work on ajax generated content
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
+	});
+
+	// toggle menu
+	$("#toggle").click(function() {
+		$(this).toggleClass("on");
+		$("#menu-toggle").slideToggle();
 	});
 });
 

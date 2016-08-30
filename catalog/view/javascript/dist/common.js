@@ -41,7 +41,6 @@ $(document).ready(function() {
 		$body.toggleClass('overflow-hidden-fixed');
 		$navMenu.toggleClass('open');
 	});
-	console.log(1);
 
 
 	// Language
@@ -168,6 +167,12 @@ $(document).ready(function() {
 	// Makes tooltips work on ajax generated content
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
+	});
+
+	// toggle menu
+	$("#toggle").click(function() {
+		$(this).toggleClass("on");
+		$("#menu-toggle").slideToggle();
 	});
 });
 

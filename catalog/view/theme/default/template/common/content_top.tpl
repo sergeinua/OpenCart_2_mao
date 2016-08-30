@@ -22,38 +22,7 @@
         <?php } ?>
         <?php } ?>
       </ul>
-      <ul class="nav nav-link">
-          <li>
-              <a href="#">
-                  Шины
-              </a>
-          </li>
-          <li>
-              <a href="#">
-                  Аксессуары
-              </a>
-          </li>
-          <li>
-              <a href="#">
-                Автохимия
-              </a>
-          </li>
-          <li>
-              <a href="#">
-                  Масла
-              </a>
-          </li>
-          <li>
-              <a href="#">
-                Шины
-              </a>
-          </li>
-          <li>
-              <a href="#">
-                Аксессуары
-              </a>
-          </li>
-      </ul>
+
       <ul class="nav nav-link top-menu-links">
           <li><a href="http://mao.reclamare.ua/garanty">Гарантия</a></li>
           <li><a href="http://mao.reclamare.ua/delivery">Доставка и оплата</a></li>

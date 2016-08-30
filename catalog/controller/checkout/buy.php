@@ -245,7 +245,7 @@ class ControllerCheckoutBuy extends Controller {
                 foreach ($total_data as $key => $value) {
                     $sort_order[$key] = $value['sort_order'];
                 }
-
+                //unset($total_data[1]);
                 array_multisort($sort_order, SORT_ASC, $total_data);
             }
 

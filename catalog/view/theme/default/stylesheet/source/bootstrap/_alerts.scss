@@ -9,15 +9,26 @@
 .alert {
   padding: $alert-padding;
   margin-bottom: $line-height-computed;
-  border: 1px solid transparent;
   border-left: 4px solid transparent;
   background-color: $global-color;
   color: $gray-base;
-  font-size: $font-size-base;
+  //font-size: $font-size-base;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+
+  @include sm {
+    max-width: 500px;
+  }
 
   a{
-    color: $gray-base;
-    text-decoration: underline;
+    color: $brand-primary;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 
   // Headings for larger alerts
@@ -40,6 +51,64 @@
 
   > p + p {
     margin-top: 5px;
+  }
+
+  .fa {
+    display: block;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 36px;
+      width: 36px;
+      position: absolute;
+      left: -52px;
+      top: -6px;
+    }
+
+    &:after {
+      display: block;
+      font-size: 18px;
+      line-height: 24px;
+      color: $gray-base;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-family: "Lato",Helvetica,Arial,sans-serif;
+    }
+  }
+
+  .close {
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 2px solid transparent;
+    white-space: nowrap;
+    @include user-select(none);
+
+    &,
+    &:active,
+    &:focus {
+      @include tab-focus;
+    }
+
+    @include absolute(24px 18px null null);
+    @include size(36px);
+    padding: 0;
+    background-color: $global-color;
+    @include rounded();
+    box-shadow: -4px 2px 8px 1px rgba(0,0,0,0.13);
+    color: $gray-base;
+    right: -18px;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: -2px 2px 8px 1px rgba(0,0,0,0.1);
+    }
   }
 }
 
@@ -66,16 +135,52 @@
 
 .alert-success {
   @include alert-variant($alert-success-border);
+
+  .fa-check-circle {
+    &:before {
+      background-image: url(./../../image/icns/mao__ok.png);
+    }
+    &:after {
+      content: 'Ok!';
+    }
+  }
 }
 
 .alert-info {
   @include alert-variant($alert-info-border);
+
+  .fa-info-circle {
+    &:before {
+      background-image: url(./../../image/icns/mao__info.png);
+    }
+    &:after {
+      content: 'Information!';
+    }
+  }
 }
 
 .alert-warning {
   @include alert-variant($alert-warning-border);
+
+  .fa-exclamation-circle {
+    &:before {
+      background-image: url(./../../image/icns/mao__warn.png);
+    }
+    &:after {
+      content: 'Warning!';
+    }
+  }
 }
 
 .alert-danger {
   @include alert-variant($alert-danger-border);
+
+  .fa-exclamation-circle {
+    &:before {
+      background-image: url(./../../image/icns/mao__dang.png);
+    }
+    &:after {
+      content: 'Error!';
+    }
+  }
 }

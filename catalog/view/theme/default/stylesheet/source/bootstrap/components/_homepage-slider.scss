@@ -62,7 +62,6 @@
 .img-banners-wrapper {
   a {
     display: block;
-    height: 114px;
     @include background-center();
 
     &:nth-of-type(1) {
@@ -70,7 +69,6 @@
     }
 
     @include sm {
-      @include size(100% 240px);
 
       &:nth-of-type(1) {
         margin-bottom: 65px;
@@ -84,5 +82,9 @@
       }
     }
 
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }

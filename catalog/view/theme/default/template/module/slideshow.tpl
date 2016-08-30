@@ -27,17 +27,19 @@
 
 </div>
 <!--todo: Вывести эти картинки через админку-->
-<div class="col-sm-12 col-md-3">
+<div class="col-md-3">
 
     <div class="img-banners-wrapper">
         <div class="row">
             <div class="col-xs-6 col-md-12">
-                <a href="#" role="link"
-                   style="background-image: url(./catalog/view/theme/default/image/mao_free-delivery_250x2501.jpg)"></a>
+                <a href="#" role="link">
+                    <img src="./catalog/view/theme/default/image/mao_free-delivery_250x2501.jpg" alt="banner_title">
+                </a>
             </div>
             <div class="col-xs-6 col-md-12">
-                <a href="#" role="link"
-                   style="background-image: url(./catalog/view/theme/default/image/mao_delivery-kiev_250x2501.jpg)"></a>
+                <a href="#" role="link">
+                    <img src="./catalog/view/theme/default/image/mao_delivery-kiev_250x2501.jpg" alt="banner_title">
+                </a>
             </div>
         </div>
     </div>

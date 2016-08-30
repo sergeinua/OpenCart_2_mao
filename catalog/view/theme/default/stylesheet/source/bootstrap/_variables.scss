@@ -1,5 +1,8 @@
 //== Colors
 //
+
+$transition: all .3s ease;
+
 $global-color:                #fff  !default;
 
 $gray-base:                   #333740 !default;
@@ -29,6 +32,7 @@ $brand-danger-active:         #d90000 !default;
 $product-border-color:        #474d59 !default;
 $copyright-bg:                #1f2126 !default;
 $footer-text-bg:              #292c33 !default;
+$sidebar-bg:                  #292c33 !default;
 
 //== Scaffolding
 //
@@ -66,6 +70,7 @@ $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 $font-size-xs:            11px !default;
 
 $font-size-h1:            48px;
+$font-size-h1-xs:         42px;
 $font-size-h2:            floor(($font-size-base * 2.6)) !default; // ~36px
 $font-size-h3:            floor(($font-size-base * 2.15)) !default; // ~30px
 $font-size-h4:            ceil(($font-size-base * 1.7)) !default; // ~24px
@@ -74,7 +79,7 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-normal:      1 !default;
-$line-height-base:        1.428571429 !default; // 20/14
+$line-height-base:        1.5 !default; // 20/14
 
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
@@ -138,18 +143,19 @@ $caret-width-base:          4px !default;
 //** Carets increase slightly in size for larger components.
 $caret-width-large:         5px !default;
 
+$box-wrapper-shadow:    0px 5px 20px 0px #2e3033 !default;
 
 //== Tables
 //
 //## Customizes the `.table` component with basic values, each used across all table variations.
 
 //** Padding for `<th>`s and `<td>`s.
-$table-cell-padding:            8px !default;
+$table-cell-padding:            12px !default;
 //** Padding for cells in `.table-condensed`.
 $table-condensed-cell-padding:  5px !default;
 
 //** Default background color used for all tables.
-$table-bg:                      transparent !default;
+$table-bg:                      $gray-base !default;
 //** Background color used for `.table-striped`.
 $table-bg-accent:               #f9f9f9 !default;
 //** Background color used for `.table-hover`.
@@ -157,7 +163,9 @@ $table-bg-hover:                #f5f5f5 !default;
 $table-bg-active:               $table-bg-hover !default;
 
 //** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
+$table-border-color:            $gray !default;
+
+$table-wrapper-shadow:    0px 5px 20px 0px #2e3033 !default;
 
 
 //== Buttons
@@ -533,15 +541,18 @@ $state-success-text:             #24b324 !default;
 $state-success-bg:               #dff0d8 !default;
 $state-success-border:           $state-success-text;
 
-$state-info-text:                #31708f !default;
+//$state-info-text:                #31708f !default;
+$state-info-text:                #b6b9bf !default;
 $state-info-bg:                  #d9edf7 !default;
 $state-info-border:              $state-info-text;
 
-$state-warning-text:             #8a6d3b !default;
+//$state-warning-text:             #8a6d3b !default;
+$state-warning-text:             #ff7f00 !default;
 $state-warning-bg:               #fcf8e3 !default;
 $state-warning-border:           $state-warning-text;
 
-$state-danger-text:              #a94442 !default;
+//$state-danger-text:              #a94442 !default;
+$state-danger-text:              #cb0000 !default;
 $state-danger-bg:                #f2dede !default;
 $state-danger-border:            $state-danger-text;
 
@@ -623,6 +634,9 @@ $label-link-hover-color:      #fff !default;
 //** Padding applied to the modal body
 $modal-inner-padding:         15px !default;
 
+
+$modal-border-left-color:     #b6b9bf !default;
+
 //** Padding applied to the modal title
 $modal-title-padding:         15px !default;
 //** Modal title line-height
@@ -653,7 +667,7 @@ $modal-sm:                    300px !default;
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-padding:               20px !default;
+$alert-padding:               25px 20px 25px 70px !default;
 $alert-border-radius:         $border-radius-base !default;
 $alert-link-font-weight:      bold !default;
 

@@ -1,11 +1,9 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
+
+  <div class="row">
+
+    <!-- <?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -13,27 +11,355 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+    <div id="content" class="<?php echo $class; ?>"> -->
+
+      <div class="hidden-md hidden-lg">
+        <?php echo $content_top; ?>
+      </div>
+    </div>
+
       <div class="row">
-        <?php if ($column_left || $column_right) { ?>
-        <?php $class = 'col-sm-6'; ?>
-        <?php } else { ?>
-        <?php $class = 'col-sm-8'; ?>
-        <?php } ?>
-        <div class="<?php echo $class; ?>">
+
+        <div class="hidden-xs hidden-sm col-md-3">
+          <div class="panel-dark" style="max-width: 270px;">
+            <div class="nav-menu-wrapper">
+              <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
+              </a>
+              <nav id="menu2" class="dropdown-menu nav-menu">
+                <ul class="nav">
+                  <li><a href="http://mao.reclamare.ua/desktops">Great Wall</a></li>
+                  <li><a href="http://mao.reclamare.ua/laptop-notebook">Lifan</a></li>
+                  <li class="has-submenu">
+                    <a href="http://mao.reclamare.ua/component" class="">Chery</a>
+                    <div class="submenu panel-dark">
+                      <ul class="list-unstyled">
+                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_59">Chery A13 / Zaz Forza</a></li>
+                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_61">Chery Cross Eastar (B14)</a></li>
+                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_62">Chery Eastar (B11)</a></li>
+                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_63">Chery Jaggi</a></li>
+                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_60">Chery M11</a></li>
+                        <li><a href="http://mao.reclamare.ua/component/mouse">Chery Amulet (A11-A15)</a></li>
+                        <li><a href="http://mao.reclamare.ua/component/scanner">Chery Elara (Fora) (A21)</a></li>
+                        <li><a href="http://mao.reclamare.ua/component/web-camera">Chery Kimo (S12 )</a></li>
+                        <li><a href="http://mao.reclamare.ua/component/monitor">Chery QQ (S11)</a></li>
+                        <li><a href="http://mao.reclamare.ua/component/printer">Chery Tiggo (T11)</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><a href="http://mao.reclamare.ua/tablet">Kia</a></li>
+                  <li><a href="http://mao.reclamare.ua/software">Hyundai</a></li>
+                  <li><a href="http://mao.reclamare.ua/smartphone">Chevrolet</a></li>
+                  <li><a href="http://mao.reclamare.ua/camera">BYD</a></li>
+                  <li><a href="http://mao.reclamare.ua/mp3-players">Daewoo</a></li>
+                </ul>
+                <ul class="nav nav-link top-menu-links">
+                  <li><a href="http://mao.reclamare.ua/garanty">Гарантия</a></li>
+                  <li><a href="http://mao.reclamare.ua/delivery">Доставка и оплата</a></li>
+                  <li><a href="http://mao.reclamare.ua/index.php?route=information/contact">Контакты</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- TODO: вывести динамически -->
+
+            <div class="breadcrumb-wrapper">
+              <ul class="breadcrumb">
+                <li><a href="http://mao.reclamare.ua/index.php?route=common/home">Главная</a></li>
+                <li><a href="http://mao.reclamare.ua/component">Chery</a></li>
+                <li class="subcategories-links">
+                  <a href="#">Аккумулятор BOSCH 60Ah/540A (R+ Std.) 242x175x190 B13 S4 (start</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h1><?php echo $heading_title; ?></h1>
           <?php if ($thumb || $images) { ?>
-          <ul class="thumbnails">
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="panel-dark product-single">
+                <div class="hr-bottom clearfix">
+                  <div class="img-wrapper">
+                    <img src="<?php echo $thumb; ?>" class="product-single-img" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+                  </div>
+                  <div class="description-wrapper">
+                    <ul class="list-unstyled">
+                      <!-- <?php if ($manufacturer) { ?>
+                      <li><?php echo $text_manufacturer; ?>
+                        <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a>
+                      </li>
+                      <?php } ?> -->
+                      <li>
+                        <?php echo $text_model; ?>
+                        <?php echo $model; ?></li>
+                      <!-- <?php if ($reward) { ?>
+                      <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
+                      <?php } ?> -->
+                      <li>
+                        <!-- <?php echo $text_stock; ?> -->
+                        <?php echo $stock; ?>
+                        </li>
+                      <li>
+                        <div class="product-card-rating">
+                          <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+                          <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+                          <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+                          <span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+                          <span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="#">2 отзыва</a>
+                      </li>
+                    </ul>
+
+                    <?php if ($price) { ?>
+                    <ul class="list-unstyled product-card-price">
+                      <?php if (!$special) { ?>
+                      <li class="main-price">
+                        <span><?php echo $price; ?></span>
+                      </li>
+                      <?php } else { ?>
+                      <li class="old-price">
+                        <span style="text-decoration: line-through;"><?php echo $price; ?></span>
+                      </li>
+                      <li class="main-price">
+                        <div><?php echo $special; ?></div>
+                      </li>
+                      <?php } ?>
+                      <!-- <?php if ($tax) { ?>
+                      <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
+                      <?php } ?>
+                      <?php if ($points) { ?>
+                      <li><?php echo $text_points; ?> <?php echo $points; ?></li>
+                      <?php } ?>
+                      <?php if ($discounts) { ?>
+                      <li></li>
+                      <?php foreach ($discounts as $discount) { ?>
+                      <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
+                      <?php } ?>
+                      <?php } ?> -->
+                    </ul>
+                    <?php } ?>
+                    <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default"><?php echo $button_cart; ?></button>
+                  </div>
+                </div>
+                <p class="product-description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at atque cum doloremque inventore nulla quis vel. Earum, inventore, provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at atque cum doloremque inventore nulla quis vel. Earum, inventore, provident!</p>
+              </div>
+            </div>
+
+            <div class="col-xs-12">
+              <div class="panel-dark goods-couple">
+
+                <div class="h1">Вместе дешевле</div>
+                <div class="owl-carousel" id="goods-couple-slider">
+                    <div class="owl-item">
+                      <div class="clearfix sale-prop">
+                        <div class="col-sm-4">
+                          <div class="first-itm-b">
+                            <div class="first-itm clearfix">
+                              <div class="img-wrap">
+                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                              </div>
+                              <div class="itm-descr">
+                                <span class="title">Ступица передняя с подшипником в сборе (B11-3001030AB) SNR</span>
+                                <br>
+                                <span class="price-single">7 690 грн.</span>
+                                <span class="price-couple">2 690 грн.</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="second-itm-b">
+                            <div class="second-itm clearfix">
+                              <div class="img-wrap">
+                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                              </div>
+                              <div class="itm-descr">
+                                <span class="title">Ступица передняя с подшипником</span>
+                                <br>
+                                <span class="price-single">17 690 грн.</span>
+                                <span class="price-couple">112 690 грн.</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="summ">
+                            <div class="total-price-buy panel-dark">
+                              <div class="couple-summ">15 380 грн.</div>
+                              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default btn-xs"><?php echo $button_cart; ?></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="owl-item"><div class="clearfix sale-prop">
+                        <div class="col-sm-4">
+                          <div class="first-itm-b">
+                            <div class="first-itm clearfix">
+                              <div class="img-wrap">
+                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                              </div>
+                              <div class="itm-descr">
+                                <span class="title">Ступица передняя с подшипником в сборе (B11-3001030AB) SNR</span>
+                                <br>
+                                <span class="price-single">7 690 грн.</span>
+                                <span class="price-couple">2 690 грн.</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="second-itm-b">
+                            <div class="second-itm clearfix">
+                              <div class="img-wrap">
+                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                              </div>
+                              <div class="itm-descr">
+                                <span class="title">Ступица передняя с подшипником</span>
+                                <br>
+                                <span class="price-single">17 690 грн.</span>
+                                <span class="price-couple">112 690 грн.</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="summ">
+                            <div class="total-price-buy panel-dark">
+                              <div class="couple-summ">15 380 грн.</div>
+                              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default btn-xs"><?php echo $button_cart; ?></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="owl-item"><div class="clearfix sale-prop">
+                        <div class="col-sm-4">
+                          <div class="first-itm-b">
+                            <div class="first-itm clearfix">
+                              <div class="img-wrap">
+                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                              </div>
+                              <div class="itm-descr">
+                                <span class="title">Ступица передняя с подшипником в сборе (B11-3001030AB) SNR</span>
+                                <br>
+                                <span class="price-single">7 690 грн.</span>
+                                <span class="price-couple">2 690 грн.</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="second-itm-b">
+                            <div class="second-itm clearfix">
+                              <div class="img-wrap">
+                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                              </div>
+                              <div class="itm-descr">
+                                <span class="title">Ступица передняя с подшипником</span>
+                                <br>
+                                <span class="price-single">17 690 грн.</span>
+                                <span class="price-couple">112 690 грн.</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="summ">
+                            <div class="total-price-buy panel-dark">
+                              <div class="couple-summ">15 380 грн.</div>
+                              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default btn-xs"><?php echo $button_cart; ?></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="feedback-blck panel-dark">
+                  <h2 class="h2"><?php echo $text_write; ?></h2>
+                  <form class="form-horizontal" id="form-review">
+
+                    <?php if ($review_guest) { ?>
+                      <div class="col-sm-6 required">
+
+                          <input type="text" name="name" value="" id="input-name" class="form-control" placeholder="<?php echo $entry_name; ?>"/>
+
+                      </div>
+                      <div class="col-sm-6 required">
+
+
+                          <!-- TODO сделать красиво-->
+                          <input type="email" name="email" value="" id="input-emal" class="form-control" placeholder="Ваш e-mail"/>
+
+                      </div>
+                    <div class="required">
+                      <div class="col-sm-12">
+                        <textarea name="text" rows="5" id="input-review" class="form-control" placeholder="<?php echo $entry_review; ?>"></textarea>
+                      </div>
+                    </div>
+                    <div class="required">
+                      <div class="col-sm-12">
+                        <label class="control-label"><?php echo $entry_rating; ?></label>
+                        <br>
+                        <?php echo $entry_bad; ?>&nbsp;
+                        <input type="radio" name="rating" value="1" />
+                        &nbsp;
+                        <input type="radio" name="rating" value="2" />
+                        &nbsp;
+                        <input type="radio" name="rating" value="3" />
+                        &nbsp;
+                        <input type="radio" name="rating" value="4" />
+                        &nbsp;
+                        <input type="radio" name="rating" value="5" />
+                        &nbsp;<?php echo $entry_good; ?></div>
+                    </div>
+                    <?php echo $captcha; ?>
+                    <div class="buttons clearfix">
+                      <div class="pull-right">
+                        <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-outline"><?php echo $button_continue; ?></button>
+                      </div>
+                    </div>
+                    <?php } else { ?>
+                    <?php echo $text_login; ?>
+                    <?php } ?>
+                    <div id="review"></div>
+                  </form>
+                </div>
+            </div>
+          </div>
+
+          <!-- <ul class="thumbnails">
             <?php if ($thumb) { ?>
-            <li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+            <li>
+              <a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>">
+                <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+              </a>
+            </li>
             <?php } ?>
             <?php if ($images) { ?>
             <?php foreach ($images as $image) { ?>
-            <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+            <li class="image-additional">
+              <a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>">
+                <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+              </a>
+            </li>
             <?php } ?>
             <?php } ?>
-          </ul>
+          </ul> -->
           <?php } ?>
-          <ul class="nav nav-tabs">
+
+
+
+          <!-- <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
             <?php if ($attribute_groups) { ?>
             <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
@@ -111,57 +437,38 @@
               </form>
             </div>
             <?php } ?>
-          </div>
+          </div> -->
+
         </div>
-        <?php if ($column_left || $column_right) { ?>
-        <?php $class = 'col-sm-6'; ?>
-        <?php } else { ?>
-        <?php $class = 'col-sm-4'; ?>
-        <?php } ?>
-        <div class="<?php echo $class; ?>">
-          <div class="btn-group">
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
-            <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>
+
+        <!--todo: Вывести эти картинки через админку-->
+
+        <div class="col-md-3">
+
+          <div class="img-banners-wrapper">
+            <div class="row">
+              <div class="col-xs-6 col-md-12">
+                <a href="#" role="link">
+                  <img src="./catalog/view/theme/default/image/mao_free-delivery_250x2501.jpg" alt="banner_title">
+                </a>
+              </div>
+              <div class="col-xs-6 col-md-12">
+                <a href="#" role="link">
+                  <img src="./catalog/view/theme/default/image/mao_delivery-kiev_250x2501.jpg" alt="banner_title">
+                </a>
+              </div>
+            </div>
           </div>
-          <h1><?php echo $heading_title; ?></h1>
-          <ul class="list-unstyled">
-            <?php if ($manufacturer) { ?>
-            <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
-            <?php } ?>
-            <li><?php echo $text_model; ?> <?php echo $model; ?></li>
-            <?php if ($reward) { ?>
-            <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
-            <?php } ?>
-            <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
-          </ul>
-          <?php if ($price) { ?>
-          <ul class="list-unstyled">
-            <?php if (!$special) { ?>
-            <li>
-              <h2><?php echo $price; ?></h2>
-            </li>
-            <?php } else { ?>
-            <li><span style="text-decoration: line-through;"><?php echo $price; ?></span></li>
-            <li>
-              <h2><?php echo $special; ?></h2>
-            </li>
-            <?php } ?>
-            <?php if ($tax) { ?>
-            <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
-            <?php } ?>
-            <?php if ($points) { ?>
-            <li><?php echo $text_points; ?> <?php echo $points; ?></li>
-            <?php } ?>
-            <?php if ($discounts) { ?>
-            <li>
-              <hr>
-            </li>
-            <?php foreach ($discounts as $discount) { ?>
-            <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
-            <?php } ?>
-            <?php } ?>
-          </ul>
-          <?php } ?>
+
+        </div>
+
+
+        <?php echo $captcha; ?>
+
+
+        <!-- <div class="">
+
+
           <div id="product">
             <?php if ($options) { ?>
             <hr>
@@ -323,26 +630,22 @@
               <?php } ?>
               <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
             <hr>
-            <!-- AddThis Button BEGIN -->
-            <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
-            <!-- AddThis Button END -->
           </div>
           <?php } ?>
-        </div>
+        </div> -->
       </div>
       <?php if ($products) { ?>
       <h3><?php echo $text_related; ?></h3>
       <div class="row">
         <?php $i = 0; ?>
         <?php foreach ($products as $product) { ?>
-        <?php if ($column_left && $column_right) { ?>
+        <!-- <?php if ($column_left && $column_right) { ?>
         <?php $class = 'col-lg-6 col-md-6 col-sm-12 col-xs-12'; ?>
         <?php } elseif ($column_left || $column_right) { ?>
         <?php $class = 'col-lg-4 col-md-4 col-sm-6 col-xs-12'; ?>
         <?php } else { ?>
         <?php $class = 'col-lg-3 col-md-3 col-sm-6 col-xs-12'; ?>
-        <?php } ?>
+        <?php } ?> -->
         <div class="<?php echo $class; ?>">
           <div class="product-thumb transition">
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
@@ -375,8 +678,8 @@
             </div>
             <div class="button-group">
               <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span> <i class="fa fa-shopping-cart"></i></button>
-              <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-              <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
+              <!-- <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
+              <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button> -->
             </div>
           </div>
         </div>
@@ -468,7 +771,7 @@ $('#button-cart').on('click', function() {
 
 				$('#cart > button').html('<i class="fa fa-shopping-cart"></i> ' + json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				//$('html, body').animate({ scrollTop: 0 }, 'slow');
 
 				$('#cart > ul').load('index.php?route=common/cart/info ul li');
 			}
@@ -480,18 +783,18 @@ $('#button-cart').on('click', function() {
 });
 //--></script>
 <script type="text/javascript"><!--
-$('.date').datetimepicker({
-	pickTime: false
-});
-
-$('.datetime').datetimepicker({
-	pickDate: true,
-	pickTime: true
-});
-
-$('.time').datetimepicker({
-	pickDate: false
-});
+//$('.date').datetimepicker({
+//	pickTime: false
+//});
+//
+//$('.datetime').datetimepicker({
+//	pickDate: true,
+//	pickTime: true
+//});
+//
+//$('.time').datetimepicker({
+//	pickDate: false
+//});
 
 $('button[id^=\'button-upload\']').on('click', function() {
 	var node = this;
@@ -589,13 +892,23 @@ $('#button-review').on('click', function() {
 });
 
 $(document).ready(function() {
-	$('.thumbnails').magnificPopup({
-		type:'image',
-		delegate: 'a',
-		gallery: {
-			enabled:true
-		}
-	});
+	//$('.thumbnails').magnificPopup({
+	//	type:'image',
+	//	delegate: 'a',
+	//	gallery: {
+	//		enabled:true
+	//	}
+	//});
+
+  $('#goods-couple-slider').owlCarousel({
+    navigation: true,
+    paginationSpeed : 400,
+    navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    singleItem: true,
+    pagination: false
+  });
+
+
 });
 //--></script>
 <?php echo $footer; ?>

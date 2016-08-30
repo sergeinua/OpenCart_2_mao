@@ -50,14 +50,36 @@
 // Actual modal
 .modal-content {
   position: relative;
+  padding: 15px 40px 25px 25px;
   background-color: $modal-content-bg;
-  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
-  border: 1px solid $modal-content-border-color;
-  border-radius: $border-radius-large;
+  border-left: 4px solid $modal-border-left-color;
   @include box-shadow(0 3px 9px rgba(0,0,0,.5));
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
+  color: $gray-base;
+
+  .btn-close {
+    right: -18px;
+    border: 0;
+  }
+
+  .btn-ghost {
+    color: $gray-base;
+  }
+}
+
+.modal-title {
+  color: $gray-base;
+}
+
+.modal-body {
+  p {
+    margin: 15px 0 40px;
+    color: $gray-base;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 // Modal background
@@ -77,8 +99,6 @@
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
-  padding: $modal-title-padding;
-  border-bottom: 1px solid $modal-header-border-color;
   @include clearfix;
 }
 // Close icon
@@ -88,7 +108,7 @@
 
 // Title text within header
 .modal-title {
-  margin: 0;
+  margin: 15px 0;
   line-height: $modal-title-line-height;
 }
 
@@ -96,19 +116,16 @@
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
-  padding: $modal-inner-padding;
 }
 
 // Footer (for actions)
 .modal-footer {
-  padding: $modal-inner-padding;
   text-align: right; // right align buttons
-  border-top: 1px solid $modal-footer-border-color;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {
-    margin-left: 5px;
+    margin-left: 20px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
   }
   // but override that for button groups

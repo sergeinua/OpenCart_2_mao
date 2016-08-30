@@ -48,7 +48,11 @@
         </ul>
 
     <button role="button" type="button" id="nav-btn" class="btn btn-nav">
-      <div class="span-overlay"><span></span><span></span><span></span></div>
+      <div class="span-overlay">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </button>
 
     <div id="top-links" class="top-links">
@@ -115,7 +119,7 @@
   </div>
 </header>
 <?php // moved to content_top ?>
-<?php /* if ($categories) { ?>
+<!-- <?php if ($categories) { ?>
 <div class="container">
   <nav id="menu" class="navbar">
     <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
@@ -146,4 +150,4 @@
     </div>
   </nav>
 </div>
-<?php } */ ?>
+<?php } ?> -->

@@ -1,5 +1,5 @@
 <?php if ($options) { ?>
-<div class="panel ocfilter panel-default" id="ocfilter">
+<div class="panel ocfilter panel-default panel-dark" id="ocfilter">
   <div class="relative-wrapper">
 		<div class="button-float" id="button-float"><a href="#" id="button-submit"><?php echo $button_select; ?></a></div>
 	</div>
