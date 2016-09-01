@@ -19,65 +19,154 @@
         <div id="content" class="col-xs-12">
 
             <h1><?php echo $heading_title; ?></h1>
+            <div class="panel-dark">
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
                 <div class="cart-table table-wrapper">
                     <table class="table">
                         <thead>
                             <tr>
-                                <td></td>
-                                <td class="text-left"><?php echo $column_name; ?></td>
-                                <td class="text-center"><?php echo $column_model; ?></td>
-                                <td class="text-center"><?php echo $column_quantity; ?></td>
-                                <td class="text-center"><?php echo $column_price; ?></td>
-                                <td class="text-center"><?php echo $column_total; ?></td>
+                                <td class="hidden-xs cart-table-img"></td>
+                                <td class="text-left  hidden-xs cart-table-name"><?php echo $column_name; ?></td>
+                                <td class="text-center hidden-xs hidden-sm cart-table-model"><?php echo $column_model; ?></td>
+                                <td class="text-center hidden-xs cart-table-quantity"><?php echo $column_quantity; ?></td>
+                                <td class="text-center  hidden-xs cart-table-price"><?php echo $column_price; ?></td>
+                                <td class="text-center  hidden-xs cart-table-total"><?php echo $column_total; ?></td>
+                                <td class="text-right cart-table-del"></td>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($products as $product) { ?>
-                                <tr style="position: relative;">
-                                    <td class="text-center"><?php if ($product['thumb']) { ?>
-                                            <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
-                                        <?php } ?></td>
-                                    <td class="text-left">
+                                <tr style="position: relative;" class="itm">
+                                    <td class="text-center cart-table-img"><?php if ($product['thumb']) { ?>
+                                            <a href="<?php echo $product['href']; ?>">
+                                                <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
+                                        <?php } ?>
+                                    </td>
+                                    <td class="text-left cart-table-name">
                                         <a href="<?php echo $product['href']; ?>">
                                             <?php echo $product['name']; ?>
                                         </a>
+                                        <div class="hidden-sm hidden-md hidden-lg">
+                                            <div style="margin-top: 12px;"><strong><?php echo $column_quantity; ?></strong></div>
+                                            <div class="number clearfix">
+                                                <span class="minus">-</span>
+                                                <input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>"  class="itms-quantity" />
+                                                <span class="plus">+</span>
+                                            </div>
+                                            <div style="margin-top: 12px;"><strong><?php echo $column_total; ?></strong></div>
+                                            <div><?php echo $product['total']; ?></div>
+                                        </div>
                                     </td>
-                                    <td class="text-left"><?php echo $product['model']; ?></td>
-                                    <td class="text-left">
+                                    <td class="text-center  hidden-xs  hidden-sm cart-table-model"><?php echo $product['model']; ?></td>
+                                    <td class="text-center  hidden-xs cart-table-quantity">
 										<div class="number clearfix">
 											<span class="minus">-</span>
 											<input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>"  class="itms-quantity" />
 											<span class="plus">+</span>
 										</div>
 									</td>
-                                    <td class="text-right"><?php echo $product['price']; ?></td>
-                                    <td class="text-right"><?php echo $product['total']; ?></td>
-									<button type="button" class="btn btn-close" onclick="cart.remove('<?php echo $product['key']; ?>');"><i class="fa fa-times"></i></button>
+                                    <td class="text-center  hidden-xs cart-table-price"><?php echo $product['price']; ?></td>
+                                    <td class="text-center  hidden-xs cart-table-total"><?php echo $product['total']; ?></td>
+                                    <td class="cart-table-del">
+                                        <button type="button" class="btn btn-close" onclick="cart.remove('<?php echo $product['key']; ?>');"><i class="fa fa-times"></i></button>
+                                    </td>
                                 </tr>
                             <?php } ?>
                             <tr>
-                                <td colspan="5"> </td>
-                                <td class="text-right">
+
+                                <td class="text-right" colspan="7">
                                     <?php foreach ($totals as $total) { ?>
-                                    <?php echo $total['title']; ?> <?php echo $total['text']; ?>
+                                    <?php echo $total['title']; ?> <span style="display: inline-block; width: 150px;"><?php echo $total['text']; ?></span>
                                     <br>
                                     <?php } ?>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+
+                    <!--- TODO сделать кнопки --->
+                    <div class="btns-blck">
+                        <a href="" class="btn btn-hover btn-outline btn-xs" id="back-to-shop">Продолжить покупки</a>
+                        <button type="button" class="btn btn-hover btn-default btn-xs" id="place-order">Оформить заказ</button>
+                    </div>
                 </div>
             </form>
-            <?php if (($coupon || $voucher || $reward || $shipping) && $settings['buy_cart_modules']) { ?>
-                <h2><?php echo $text_next; ?></h2>
-                <p><?php echo $text_next_choice; ?></p>
-                <div class="panel-group" id="accordion"><?php echo $coupon; ?><?php echo $voucher; ?><?php echo $reward; ?><?php echo $shipping; ?></div>
-            <?php } ?>
-            <hr />
-            <h2 class="text-center h1" id="checkout-f"><?php echo $settings['buy_h2'.$lang]; ?></h2>
-            <br />
-            <div class="row" id="checkout-form">
+
+            <div id="payment-blck" class="payment-blck">
+                <div class="row check-form" id="checkout-form">
+                    <div class="col-sm-6 user-info-fields">
+                        <div class="user-info-title clearfix">
+                            <h4>Информация о покупателе</h4>
+                            <p>Я зарегистрирован</p>
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label" for="input-payment-firstname">Имя и Фамилия</label>
+                            <input type="text" name="firstname" value="" id="input-payment-firstname" class="form-control">
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label" for="input-payment-telephone">Телефон</label>
+                            <input type="text" name="telephone" value="" id="input-payment-telephone" class="form-control">
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label" for="input-payment-address">Адрес</label>
+                            <input type="text" name="telephone" value="" id="input-payment-address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="input-payment-email">E-Mail</label>
+                            <input type="email" name="email" value="" id="input-payment-email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="input-payment-password">Пароль</label>
+                            <input type="password" name="email" value="" id="input-payment-password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="input-payment-confirm-password">Подтвердите пароль</label>
+                            <input type="password" name="email" value="" id="input-payment-confirm-password" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-5 col-lg-offset-2 col-lg-4">
+                        <h4 class="delivery-method">Способ доставки</h4>
+                        <div class="form-group">
+                            <div id="shipping_methods">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="shipping_method" value="" data-cost="40 грн." id="shipping_method_1">
+                                        <div style="display: inline-block;width: 85%;">Доставка по Киеву   <span style="display: inline-block; float: right;">40 грн.</span></div>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="shipping_method" value="" id="shipping_method_2">
+                                        <div style="display: inline-block;width: 85%;">Доставка в другой регион<span style="display: inline-block; float: right;">Дог.</span></div>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="shipping_method" value="" data-cost="0" id="shipping_method_3">
+                                        <div style="display: inline-block;width: 85%;">Самовывоз из магазина<span style="display: inline-block; float: right;">0 грн.</span></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comment" rows="8" class="form-control" id="input-comment" placeholder="Комментарии к заказу"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="pull-left">
+							<a href="" class="btn btn-hover btn-outline btn-xs" id="back-to-shop">&larr;&nbsp;&nbsp;<span class="hidden-xs">Назад</span></a>
+						</div>
+						<div class="pull-right">
+							<input type="button" value="Оформить заказ" id="button-order" data-loading-text="" class="btn btn-hover btn-default btn-xs" />
+						</div>
+					</div>
+				</div>
+
+            <!-- <div class="row" id="checkout-form">
                 <div class="<?php echo $settings['buy_form_design']?'col-sm-6 col-sm-offset-3':'col-sm-6' ?>">
                     <?php if($settings['buy_form_headings']){ ?>
                     <div class="form-group">
@@ -476,8 +565,9 @@
                         </div>
                     <?php } ?>
                 </div>
-            </div>
-
+            </div> --> <!--- id="checkout-form" ----->
+        </div>
+    </div>
 
 
 
@@ -736,11 +826,11 @@ cart.remove = function(key) {
     $("#checkout-form input[name='telephone']").mask("<?php echo $settings['buy_telephone_mask'];?>");
     <?php } ?>
 //--></script>
-<style type="text/css">
-    #checkout-form .has-feedback .form-control-feedback{top:26px;right:10px}
+<!-- <style type="text/css">
+   #checkout-form .has-feedback .form-control-feedback{top:26px;right:10px}
     #checkout-form #shipping_methods .radio, #checkout-form #payment_methods .radio{margin-left:20px}
     #checkout-form #payment-form{display:none}
-</style>
+</style> -->
 <script>
 	$(document).ready(function(){
 		$('span.minus').click(function () {
@@ -757,6 +847,18 @@ cart.remove = function(key) {
 			$input.change();
 			return false;
 		});
-	});
+        $('#place-order').click(function () {
+            $('#payment-blck').css('display', 'block');
+            $('#back-to-shop').css('display', 'none');
+            $('#place-order').css('display', 'none');
+        });
+        $('input[type="radio"]').change( function() {
+            var this_radio_set = $('input[name="'+$(this).attr("name")+'"]');
+            for (var i=0; i < this_radio_set.length;i++) {
+                if ( $(this_radio_set[i]).is(':checked') ) $(this_radio_set[i]).parents('label').addClass('checked');
+                else $(this_radio_set[i]).parents('label').removeClass('checked');
+            }
+        });
+    });
 	</script>
 <?php echo $footer; ?>

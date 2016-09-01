@@ -13,11 +13,11 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
 	<div class="hiddem-md hidden-lg">
-		 <?php echo $content_top; ?>
+		 <!-- <?php echo $content_top; ?> -->
 	</div>
 </div>
 
-	  <div class="hidden-xs hidden-sm hidden-md hidden-lg col-md-3">
+	  <div class="hidden-xs hidden-sm col-md-3">
 		  <div class="panel-dark" style="max-width: 270px;">
 			  <div class="nav-menu-wrapper">
 				  <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>

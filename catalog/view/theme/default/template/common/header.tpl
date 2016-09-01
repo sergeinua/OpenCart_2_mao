@@ -61,19 +61,14 @@
           <a href="<?php echo $telephone; ?>" class="dropdown-toggle" data-toggle="dropdown">
             <?php echo $telephone; ?>
           </a>
-
-        <!--TODO Вывести остальные номера через админку щас забито хардкором-->
         <ul class="dropdown-menu">
+          <?php foreach ($config_telephone_additional as $key => $value) : ?>
           <li>
-            <a href="tel:0932063462">
-              0932063462
+            <a href="tel:<?= $value; ?>">
+              <?= $value; ?>
             </a>
           </li>
-          <li>
-            <a href="tel:0986182115">
-              0986182115
-            </a>
-          </li>
+          <?php endforeach; ?>
         </ul>
         </li>
         <li class="dropdown profile-enter"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span></a>
@@ -119,7 +114,8 @@
   </div>
 </header>
 <?php // moved to content_top ?>
-<!-- <?php if ($categories) { ?>
+<!--
+<?php if ($categories) { ?>
 <div class="container">
   <nav id="menu" class="navbar">
     <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
@@ -150,4 +146,5 @@
     </div>
   </nav>
 </div>
-<?php } ?> -->
+<?php } ?>
+-->

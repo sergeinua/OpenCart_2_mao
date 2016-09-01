@@ -1,0 +1,50 @@
+body.information-contact {
+  nav#top {
+    display: none;
+  }
+  header.header {
+    #search-col,
+    #cart {
+      display: none;
+    }
+  }
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 560px;
+}
+#map-side-bar {
+  float: left;
+  width: 370px;
+  padding: 24px;
+  background: #fff;
+  position: absolute;
+  top: 48px;
+  right: 48px;
+  z-index: 999999;
+  a {
+    color: $gray;
+  }
+}
+
+#map-side-bar .map-location {
+  margin-bottom: 12px;
+}
+
+
+p#pagination a {
+  background-color: #f4dea4;
+  font-style: normal;
+  text-decoration: none;
+  border: 1px solid #666;
+  float: left;
+  padding: 3px 7px;
+  margin: 0px 5px;
+  color: #333;
+}
+
+p#pagination a:hover {
+  background-color: #f4a99f;
+}

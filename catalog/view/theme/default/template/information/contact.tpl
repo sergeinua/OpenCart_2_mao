@@ -1,22 +1,24 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
+  <!-- <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
+  </ul> -->
+  <div class="row">
+    <!-- <?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
     <?php $class = 'col-sm-9'; ?>
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
-    <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+    <?php } ?> -->
+    <div id="content" class="col-xs-12">
+      <!-- <?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
-      <h3><?php echo $text_location; ?></h3>
-      <div class="panel panel-default">
+      <h3><?php echo $text_location; ?></h3> -->
+      <!-- <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
             <?php if ($image) { ?>
@@ -51,8 +53,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <?php if ($locations) { ?>
+      </div> -->
+      <!-- <?php if ($locations) { ?>
       <h3><?php echo $text_store; ?></h3>
       <div class="panel-group" id="accordion">
         <?php foreach ($locations as $location) { ?>
@@ -99,10 +101,34 @@
         </div>
         <?php } ?>
       </div>
-      <?php } ?>
+      <?php } ?> -->
+      <div id="map"></div>
+
+      <div id="map-side-bar">
+        <div class="map-location" data-jmapping="{id: 1, point: {lng: 30.4530378, lat: 50.5169344}, category: &#39;market&#39;}">
+          <a class="map-link" href="http://code.viget.com/jmapping/examples/on_page_update.html#1">ул. Автозаводская, 76 (СТО)</a>
+          <div class="info-box" style="display: none;">
+            <p>(063999999) 238-41-33 Пн-пт - с 9:00 до 18:00 Сб - с 10:00 до 15:00</p>
+          </div>
+        </div>
+        <div class="map-location" data-jmapping="{id: 2, point: {lng: 30.4532626, lat: 50.4223147}, category: &#39;restaurant&#39;}">
+          <a class="map-link" href="http://code.viget.com/jmapping/examples/on_page_update.html#2">Воздухофлотский проспект, 56 (район Севастопольской площади)</a>
+          <div class="info-box" style="display: none;">
+            <p>(093) 206-34-62, (098) 618-21-15, (099) 242-34-64 Пн-пт - с 9:00 до 18:00 Сб - с 10:00 до 15:00</p>
+          </div>
+        </div>
+        <div class="map-location" data-jmapping="{id: 3, point: {lng: 30.5976363, lat: 50.4863449}, category: &#39;restaurant&#39;}">
+          <a class="map-link" href="http://code.viget.com/jmapping/examples/on_page_update.html#2">ул. И. Микитенко, 11</a>
+          <div class="info-box" style="display: none;">
+            <p>500м от авторынка на Перова (093) 491-45-15 Пн-пт - с 9:00 до 19:00 Сб - с 10:00 до 15:00 Вс - с 10:00 до 17:00</p>
+          </div>
+        </div>
+      </div>
+
+
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
-          <legend><?php echo $text_contact; ?></legend>
+          <!-- <legend><?php echo $text_contact; ?></legend> -->
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
             <div class="col-sm-10">
@@ -141,4 +167,21 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+
+  <script type="text/javascript">
+          $(document).ready(function(){
+            $(document).bind('init_finished.quickpaginate', function(e){
+              $('#map').jMapping({location_selector: '.map-location:visible'});
+            });
+            $(document).bind('paginate.quickpaginate', function(e, direction, page){
+              $('#map').jMapping('update');
+            });
+            $('#map-side-bar .map-location').quickpaginate({
+              perpage: 3, showcounter: false,
+              pager: $("p#pagination")
+            });
+          });
+
+</script>
+
 <?php echo $footer; ?>

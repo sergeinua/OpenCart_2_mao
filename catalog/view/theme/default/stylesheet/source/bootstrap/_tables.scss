@@ -20,8 +20,12 @@ th, td {
 // Baseline styles
 .table-wrapper {
   background-color: $table-bg;
-  padding: 24px;
-  box-shadow: $table-wrapper-shadow;
+  padding: 24px 6px 12px;
+  //box-shadow: $table-wrapper-shadow;
+
+  @include sm {
+    padding: 24px;
+  }
 }
 
 .table {
