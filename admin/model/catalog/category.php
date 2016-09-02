@@ -7,6 +7,9 @@ class ModelCatalogCategory extends Model {
 
 		$category_id = $this->db->getLastId();
 
+		// display category on home page
+		$this->db->query("INSERT INTO `" . DB_PREFIX . "category_display_home` (`category_id`, `display`) VALUES ('" . (int)$category_id . "', '1')");
+
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "category SET image = '" . $this->db->escape($data['image']) . "' WHERE category_id = '" . (int)$category_id . "'");
 		}
@@ -60,6 +63,23 @@ class ModelCatalogCategory extends Model {
 
 	public function editCategory($category_id, $data) {
 		$this->event->trigger('pre.admin.category.edit', $data);
+
+		// display category on home page
+		$ex_q = $this->db->query("SELECT `display` FROM `" . DB_PREFIX . "category_display_home` WHERE category_id = '" . (int)$category_id . "'");
+		if (isset($ex_q->row['display'])) {
+			$exists = true;
+		} else {
+			$exists = false;
+		}
+		if ($data['display_home']) {
+			if ($exists) {
+				$this->db->query("UPDATE `" . DB_PREFIX . "category_display_home` SET `display` = '1' WHERE category_id = '" . (int)$category_id . "'");
+			} else {
+				$this->db->query("INSERT INTO `" . DB_PREFIX . "category_display_home` (`category_id`, `display`) VALUES ('" . (int)$category_id . "', '1')");
+			}
+		} else {
+			$this->db->query("DELETE FROM `" . DB_PREFIX . "category_display_home` WHERE `category_id` = '" . (int)$category_id . "'");
+		}
 
 		$this->db->query("UPDATE " . DB_PREFIX . "category SET parent_id = '" . (int)$data['parent_id'] . "', `top` = '" . (isset($data['top']) ? (int)$data['top'] : 0) . "', `column` = '" . (int)$data['column'] . "', sort_order = '" . (int)$data['sort_order'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE category_id = '" . (int)$category_id . "'");
 
@@ -320,5 +340,16 @@ class ModelCatalogCategory extends Model {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "category_to_layout WHERE layout_id = '" . (int)$layout_id . "'");
 
 		return $query->row['total'];
-	}	
+	}
+
+	public function getDisplayHome($category_id) {
+		$query = $this->db->query("SELECT `display` FROM `" . DB_PREFIX . "category_display_home` WHERE category_id = '" . (int)$category_id . "'");
+		if (isset($query->row['display'])) {
+			$result = ($query->row['display'] == 1) ? true : false;
+		} else {
+			$result = false;
+		}
+
+		return $result;
+	}
 }

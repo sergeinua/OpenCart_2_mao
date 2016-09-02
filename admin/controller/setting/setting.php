@@ -508,6 +508,13 @@ class ControllerSettingSetting extends Controller {
 			$data['config_telephone'] = $this->config->get('config_telephone');
 		}
 
+		//additional telephones
+		if (isset($this->request->post['config_telephone_additional'])) {
+			$data['config_telephone_additional'] = $this->request->post['config_telephone_additional'];
+		} else {
+			$data['config_telephone_additional'] = $this->config->get('config_telephone_additional');
+		}
+
 		if (isset($this->request->post['config_fax'])) {
 			$data['config_fax'] = $this->request->post['config_fax'];
 		} else {

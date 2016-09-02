@@ -20,27 +20,6 @@
   }
 }
 
-.model-goods {
-  .product-thumb .image {
-    float: left;
-    display: inline-block;
-    height: 60px;
-    width: 60px;
-    margin-right: 12px;
-
-    @include sm {
-    margin-right: 24px;
-      height: 72px;
-      width: 72px;
-    }
-  }
-
-  .product-thumb .caption {
-    border: none;
-    padding: 0;
-  }
-}
-
 .select-wrapper {
   select.form-control {
     -moz-appearance: none;
@@ -50,3 +29,126 @@
     }
   }
 }
+
+.model-goods-list {
+
+  .model-product-thumb {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+    border: 0;
+    font-size: 12px;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 95px;
+      width: 105%;
+      opacity: 0;
+      background-color: #fff;
+      z-index: -1;
+      transition: opacity .4s ease;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 105%;
+      background-color: $gray;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:hover {
+      .caption {
+        .price {
+          color: inherit;
+        }
+        background-color: transparent;
+      }
+    }
+
+    @include sm {
+      font-size: 14px;
+
+      &:hover {
+        .caption a,
+        .price-buy-wrapper .price,
+        .price span,
+        .buy,
+        .btn-outline {
+          color: $gray;
+        }
+      }
+      &:hover:before {
+        background-color: transparent;
+      }
+      &:hover:after {
+        opacity: 1;
+      }
+    }
+
+    .image {
+      float: left;
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      margin-right: 12px;
+
+      @include sm {
+        margin-right: 24px;
+        height: 72px;
+        width: 72px;
+      }
+    }
+
+    .caption {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+
+      @include lg {
+        a {
+          display: inline-block;
+          width: 50%;
+          float: left;
+        }
+      }
+    }
+
+    .price-buy-wrapper {
+      margin-top: 12px;
+
+      .price {
+        display: inline-block;
+        float: left;
+      }
+      .buy {
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        float: right;
+        text-align: right;
+      }
+
+      @include lg {
+        margin-top: 0;
+        float: left;
+        display: inline-block;
+        width: 30%;
+
+        .price {
+          float: right;
+        }
+      }
+    }
+  }
+}
+

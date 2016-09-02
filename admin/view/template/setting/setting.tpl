@@ -143,6 +143,13 @@
                     <div class="text-danger"><?php echo $error_telephone; ?></div>
                     <?php } ?>
                   </div>
+                  <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
+                  <div class="col-sm-10">
+                    <textarea name="config_telephone_additional" placeholder="<?php echo $entry_telephone; ?>"
+                              id="input-telephone" class="form-control"
+                              rows="5"><?php echo $config_telephone_additional; ?>
+                    </textarea>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>

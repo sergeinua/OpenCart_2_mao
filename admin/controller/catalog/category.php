@@ -290,6 +290,7 @@ class ControllerCatalogCategory extends Controller {
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_display_home'] = 'Display home';
 		$data['entry_description'] = $this->language->get('entry_description');
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
 		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
@@ -408,6 +409,8 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$data['parent_id'] = 0;
 		}
+
+//		$data['_display_home'] = ($this->model_catalog_category->getDisplayHome($this->request->get['category_id']) == 1) ? true : false;
 
 		$this->load->model('catalog/filter');
 

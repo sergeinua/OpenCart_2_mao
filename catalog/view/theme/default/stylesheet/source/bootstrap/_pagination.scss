@@ -5,21 +5,24 @@
   display: inline-block;
   padding-left: 0;
   margin: $line-height-computed 0;
-  border-radius: $border-radius-base;
 
   > li {
     display: inline; // Remove list-style and block-level defaults
     > a,
     > span {
       position: relative;
-      float: left; // Collapse white-space
+      float: left;
       padding: $padding-base-vertical $padding-base-horizontal;
       line-height: $line-height-base;
       text-decoration: none;
       color: $pagination-color;
-      background-color: $pagination-bg;
-      border: 1px solid $pagination-border;
       margin-left: -1px;
+
+      @include sm {
+        i {
+          width: 18px;
+        }
+      }
     }
     &:first-child {
       > a,
@@ -42,8 +45,7 @@
     &:focus {
       z-index: 2;
       color: $pagination-hover-color;
-      background-color: $pagination-hover-bg;
-      border-color: $pagination-hover-border;
+      cursor: pointer;
     }
   }
 
@@ -54,8 +56,9 @@
     &:focus {
       z-index: 3;
       color: $pagination-active-color;
-      background-color: $pagination-active-bg;
-      border-color: $pagination-active-border;
+      background-color: $brand-primary-active;
+      border-radius: 50%;
+      box-shadow: 0 5px 20px 0 rgba(255,153,0,0.5);
       cursor: default;
     }
   }
@@ -74,9 +77,6 @@
     }
   }
 }
-
-// Sizing
-// --------------------------------------------------
 
 // Large
 .pagination-lg {

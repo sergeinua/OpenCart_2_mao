@@ -5,19 +5,19 @@
 
   <?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
+    <?php $class = 'col-lg-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
+    <?php $class = 'col-lg-9'; ?>
     <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
+    <?php $class = 'col-lg-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>">
+    <!--<div id="content" class="<?php echo $class; ?>">
 	<div class="hiddem-md hidden-lg">
-		 <!-- <?php echo $content_top; ?> -->
+		 <?php echo $content_top; ?>
 	</div>
-</div>
-
-	  <div class="hidden-xs hidden-sm col-md-3">
+</div> -->
+<!--
+	  <div class="col-md-3">
 		  <div class="panel-dark" style="max-width: 270px;">
 			  <div class="nav-menu-wrapper">
 				  <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
@@ -60,15 +60,15 @@
 					  </ul>
 				  </nav>
 			  </div>
-
-			  <!-- TODO: вывести динамически -->
-
-
-
 			  <div class="breadcrumb-wrapper">
 				  <ul class="breadcrumb">
-					  <li><a href="http://mao.reclamare.ua/index.php?route=common/home">Главная</a></li>
-					  <li><a href="http://mao.reclamare.ua/component">Chery</a></li>
+
+                      <?php foreach ($breadcrumbs as $item) : ?>
+
+                          <li><a href="<?= $item['href']; ?>"><?= $item['text']; ?></a></li>
+
+                      <?php endforeach; ?>
+
 					  <li class="subcategories-links">
 
                           <?php foreach ($categories as $item) : ?>
@@ -80,11 +80,10 @@
 					  </li>
 				  </ul>
 			  </div>
-
-
 		  </div>
 	  </div>
-	  <div id="content" class="col-md-9">
+-->
+	  <div id="content" class="<?php echo $class; ?>">
 
       <h2><?php echo $heading_title; ?></h2>
 
@@ -174,7 +173,7 @@
 			</div>
 		</div>
 -->
-      <?php if ($thumb || $description) { ?>
+      <!-- <?php if ($thumb || $description) { ?>
       <div class="row">
         <?php if ($thumb) { ?>
         <div class="col-sm-2">
@@ -185,7 +184,7 @@
         <div class="col-sm-10"><?php echo $description; ?></div>
         <?php } ?>
       </div>
-      <?php } ?>
+      <?php } ?> -->
       <?php if ($categories) { ?>
       <h3><?php echo $text_refine; ?></h3>
       <?php if (count($categories) <= 5) { ?>
@@ -214,13 +213,13 @@
       <?php } ?>
       <?php if ($products) { ?>
       <!-- <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p> -->
-      <div class="row">
-        <!-- <div class="col-md-4">
-          <div class="btn-group hidden-xs">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
-          </div>
-        </div> -->
+		  <!-- <div class="row">
+			<div class="col-md-4">
+			  <div class="btn-group hidden-xs">
+				<button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
+				<button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
+			  </div>
+			</div> -->
         <!-- <div class="col-md-2 text-right">
           <label class="control-label" for="input-sort"><?php echo $text_sort; ?></label>
         </div>
@@ -248,11 +247,10 @@
             <?php } ?>
             <?php } ?>
           </select>
-        </div> -->
-      </div>
-      <br />
+        </div>
+      </div> -->
       <div class="row panel-dark model-goods-wrapper">
-		  <div class="inputs-wrapper clearfix">
+		  <div class="inputs-wrapper col-xs-12">
 			  <div class="input-wrapper">
 				  <input type="text" placeholder="Искать..." class="form-control">
 			  </div>
@@ -269,36 +267,190 @@
 				  </select>
 			  </div>
 		  </div>
-        <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-list model-goods">
-          <div class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
-            <div>
-              <div class="caption">
-                <span><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
-                <!-- <p><?php echo $product['description']; ?></p> -->
-				  <div class="price-buy-wrapper">
-					  <?php if ($product['price']) { ?>
-					  <span class="price">
-                  <?php if (!$product['special']) { ?>
-						  <?php echo $product['price']; ?>
-						  <?php } else { ?>
-						  <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old" style="text-decoration: line-through;"><?php echo $product['price']; ?></span>
+		  <div class="model-goods-list col-xs-12">
+			<?php foreach ($products as $product) { ?>
+			  <div class="model-product-thumb">
+				  <div class="clearfix">
+					  <div class="image">
+						  <a href="<?php echo $product['href']; ?>">
+							  <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" />
+						  </a>
+					  </div>
+					  <div class="caption">
+						  <a href="<?php echo $product['href']; ?>">
+							  <?php echo $product['name']; ?>
+						  </a>
+					  </div>
+					  <div class="price-buy-wrapper clearfix">
+						  <?php if ($product['price']) { ?>
+							  <?php if (!$product['special']) { ?>
+							  	<span class="price" style="line-height: 40px;">
+									<?php echo $product['price']; ?>
+								</span>
+
+							  <?php } else { ?>
+
+								  <span class="price">
+									<span class="price-new">
+									  <?php echo $product['special']; ?>
+									</span>
+									<br>
+									<span class="price-old" style="text-decoration: line-through;">
+										<?php echo $product['price']; ?>
+									</span>
+								  </span>
+							  <?php } ?>
 						  <?php } ?>
-                </span>
-					  <?php } ?>
-					  <button type="button" class="btn btn-hover btn-outline btn-xs" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
+						  <span class="buy">
+							  <button type="button" class="btn btn-hover btn-outline btn-xs" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
+								<?php echo $button_cart; ?>
+							  </button>
+						  </span>
+					  </div>
 				  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <?php } ?>
+			  </div>
+			<?php } ?>
+
+			  <div class="model-product-thumb">
+				  <div class="clearfix">
+					  <div class="image">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+						  </a>
+					  </div>
+					  <div class="caption">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
+					  </div>
+					  <div class="price-buy-wrapper clearfix">
+
+								  <span class="price"  style="line-height: 40px;">
+									  99990.00 грн.
+								  </span>
+						  <span class="buy">
+							  <button type="button" class="btn btn-hover btn-outline btn-xs" onclick="cart.add('42', '2');">
+								Купить							  </button>
+						  </span>
+					  </div>
+				  </div>
+			  </div><div class="model-product-thumb">
+				  <div class="clearfix">
+					  <div class="image">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+						  </a>
+					  </div>
+					  <div class="caption">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
+					  </div>
+					  <div class="price-buy-wrapper clearfix">
+
+								  <span class="price"  style="line-height: 40px;">
+									  1490.00 грн.
+								  </span>
+						  <span class="buy">
+							  Уточняйте наличие
+						  </span>
+					  </div>
+				  </div>
+			  </div><div class="model-product-thumb">
+				  <div class="clearfix">
+					  <div class="image">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+						  </a>
+					  </div>
+					  <div class="caption">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
+					  </div>
+					  <div class="price-buy-wrapper clearfix">
+
+								  <span class="price"  style="line-height: 40px;">
+									  170.00 грн.
+								  </span>
+						  <span class="buy">
+							  Уточняйте наличие
+						  </span>
+					  </div>
+				  </div>
+			  </div><div class="model-product-thumb">
+				  <div class="clearfix">
+					  <div class="image">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+						  </a>
+					  </div>
+					  <div class="caption">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
+					  </div>
+					  <div class="price-buy-wrapper clearfix">
+
+								  <span class="price"  style="line-height: 40px;">
+									  1330.00 грн.
+								  </span>
+						  <span class="buy">
+							  Уточняйте наличие
+						  </span>
+					  </div>
+				  </div>
+			  </div><div class="model-product-thumb">
+				  <div class="clearfix">
+					  <div class="image">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
+						  </a>
+					  </div>
+					  <div class="caption">
+						  <a href="http://mao.reclamare.ua/component/monitor/test">
+							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
+					  </div>
+					  <div class="price-buy-wrapper clearfix">
+
+								  <span class="price" style="line-height: 40px;">
+									  90.00 грн.
+								  </span>
+						  <span class="buy"> Уточняйте наличие
+						  </span>
+					  </div>
+				  </div>
+			  </div>
+
+			  <!-- TODO удалить к чертям-->
+
+		  </div>
+		  <div class="col-xs-12 text-center category-pagination">
+			  <ul class="pagination">
+				  <li>
+					  <a href="#"><i class="fa fa-angle-double-left"></i></a>
+				  </li>
+				  <li>
+					  <a href="#"><i class="fa fa-angle-left"></i></a>
+				  </li>
+				  <li class="active">
+					  <span>1</span>
+				  </li>
+				  <li>
+					  <a href="#">2</a>
+				  </li>
+				  <li>
+					  <a href="#">3</a>
+				  </li>
+				  <li>
+					  <a href="#"><i class="fa fa-angle-right"></i></a>
+				  </li>
+				  <li>
+					  <a href="#"><i class="fa fa-angle-double-right"></i></a>
+				  </li>
+			  </ul>
+		  </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div>
+      </div> -->
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
       <p><?php echo $text_empty; ?></p>
@@ -313,7 +465,7 @@
     <?php echo $column_right; ?>
 	  <!--todo: Вывести эти картинки через админку-->
 
-	  <div class="col-md-3">
+	  <!-- <div class="col-md-3">
 		  <div class="img-banners-wrapper">
 			  <div class="row">
 				  <div class="col-xs-6 col-md-12">
@@ -328,7 +480,7 @@
 				  </div>
 			  </div>
 		  </div>
-	  </div>
+	  </div> -->
 
   </div>
 </div>
