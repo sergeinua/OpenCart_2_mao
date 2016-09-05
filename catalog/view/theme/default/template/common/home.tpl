@@ -132,7 +132,10 @@
             </div>
 -->
 
+
+
             <?php echo $content_bottom; ?>
+
 
             <div class="html-block-homepage">
 
@@ -194,6 +197,13 @@
                 </div>
             </div>
         </div>
+
+        <?php if($column_right) : ?>
+
+            <?php echo $column_right; ?>
+        
+        <?php endif; ?>
+
     </div>
 </div>
 

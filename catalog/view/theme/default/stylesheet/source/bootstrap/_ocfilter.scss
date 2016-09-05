@@ -8,43 +8,33 @@
 .ocfilter-option label small {}
 .ocfilter-option label small {}
 
-
 /*=Background transparency */
 
 .ocfilter .fields-price,
-
 .ocfilter .button-float,
-
-.ocfilter-option .option-description
-
-{
-
+.ocfilter-option .option-description {
 	background-color: rgba(0, 0, 0, 0.85);
-
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#D8000000, endColorstr=#D8000000)"; /* IE8 */
-
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#D8000000', endColorstr='#D8000000'); /* IE6 & 7 */
-
   zoom: 1;
-
 }
 
 
 
 /*=Font size */
 
-.ocfilter-option .option-name,
+.ocfilter-option .option-name {
+  font-family: 'BabesNeueBold';
+  font-size: 24px;
+  line-height: 24px;
+  color: $global-color;
+  text-transform: uppercase;
+}
 
 .ocfilter-option .option-values,
-
 .ocfilter-option .option-description,
-
-.ocfilter-option .fields-price
-
-{
-
+.ocfilter-option .fields-price {
 	font-size: 12px;
-
 }
 
 
@@ -53,15 +43,15 @@
 
 .relative-wrapper{position: relative;}
 
+#column-left {
+  .ocfilter {
+    display: block;
 
-
-.box.ocfilter{}
-
-
-
-#column-left .ocfilter{display: block;}
-
-
+    .panel-body {
+      padding: 12px 24px;
+    }
+  }
+}
 
 .ocfilter .box-content{background-color: #FFFFFF; padding: 0; overflow: visible!important;}
 
@@ -69,13 +59,13 @@
 
 	//.ocfilter-option + .ocfilter-option{border-top: 1px dotted #EEEEEE;}
 
-	  .ocfilter-option .option-name{color: #0E6A93; font-size: 12px; font-weight: bold; padding: 5px 0 0 10px;}
+	  .ocfilter-option .option-name{  margin: 36px 6px 18px; }
 
-    .ocfilter-option .option-name b{color: #CCCCCC; cursor: pointer; display: block; float: right; font-family: Georgia; font-size: 14px; line-height: 16px; font-style: italic; height: 16px; padding: 0 7px 0 4px;}
+    .ocfilter-option .option-name b{color: #fff;cursor: pointer; display: none; float: right; font-family: Georgia; font-size: 14px; line-height: 16px; font-style: italic; height: 16px; padding: 0 7px 0 4px;}
 
-    .ocfilter-option:hover .option-name b{color: #549EC2;}
+    .ocfilter-option:hover .option-name b{color: #fff;}
 
-		.ocfilter-option .option-values{padding:5px 10px 5px 15px;}
+		//.ocfilter-option .option-values{padding:5px 10px 5px 15px;}
 
 
 
@@ -85,13 +75,19 @@
 
 
 
-      .ocfilter-option label{cursor: pointer; display: block; font-size: 12px; font-weight: normal; line-height: 1.2; padding: 4px 0;}
+      .ocfilter-option label{cursor: pointer; display: block; font-size: 14px; font-weight: normal; line-height: 36px; height: 36px; padding: 0 6px;transition: all .25s ease;}
+
+      .ocfilter-option label.selected, .ocfilter-option label:hover { background-color: #fff;}
+      .ocfilter-option label.selected a { color: $gray;}
+      .ocfilter-option label:hover a {
+        color: $gray;
+      }
 
       .ocfilter-option label input{display: inline-block; margin: 0 5px 0 0; vertical-align: top;}
 
-      .ocfilter-option label small{background-color: #DBEAF9; border-radius: 0 3px 3px 0; color: #0E6A93; display: inline-block; font-size: 10px; line-height: 15px; height: 15px; margin: 0 0 0 5px; padding: 0 3px; position: absolute; text-align: right;}
+      .ocfilter-option label small{background-color: #DBEAF9; border-radius: 0 3px 3px 0; color: #fff; display: inline-block; font-size: 10px; line-height: 15px; height: 15px; margin: 0 0 0 5px; padding: 0 3px; position: absolute; text-align: right;}
 
-			.ocfilter-option label small:before {border-color: transparent #DBEAF9 transparent transparent; border-style: dashed solid; border-width: 8px 3px 7px 0; content: ""; display: block; height: 0; left: -3px; position: absolute; top: 0; width: 0;}
+	  .ocfilter-option label small:before {border-color: transparent #DBEAF9 transparent transparent; border-style: dashed solid; border-width: 8px 3px 7px 0; content: ""; display: block; height: 0; left: -3px; position: absolute; top: 0; width: 0;}
 
 
 
@@ -101,7 +97,7 @@
 
       .ocfilter-option label.disabled small:before {border-color: transparent #EFEFEF transparent transparent;}
 
-			.ocfilter-option label a{color: #236BBB; text-decoration: none;}
+			.ocfilter-option label a{color: #fff; text-decoration: none;}
 
       .ocfilter-option label.selected {color: #E56101;}
 
@@ -143,21 +139,27 @@
 
     /*=Selected Options */
 
-    .selected-options {color: #333333; margin: -15px -14px 10px;}
+    .selected-options {color: #fff; margin: 0 0 10px; border-bottom: 2px solid $gray;}
+    .selected-options .btn {
+      margin-bottom: 24px;}
 
-    .selected-options .ocfilter-option{background-color: #F8F8F8; border-bottom: 1px solid #EAEAEA; border-top: 1px solid #FFFFFF; font-size: 10px; padding: 4px 5px;}
+    .selected-options .ocfilter-option{ font-size: 12px; padding: 6px 0; margin-bottom: 6px;}
+
+    .selected-options .ocfilter-option .cancel-option-small {display: block;line-height: 36px;}
+    .selected-options .ocfilter-option .cancel-small-wrapp { display:block;}
+    .selected-options .ocfilter-option .cancel-small-wrapp a { margin: 0 6px 6px 0;}
 
 
 
     .selected-options .cancel-large,
 
-		.selected-options .cancel-small{background-color: #EEEEEE; border-radius: 30px 30px 30px 30px; box-shadow: 0 1px 1px #CCCCCC inset, 0 1px 0 #FFFFFF; color: #666666; display: inline-block; padding: 0 7px; text-decoration: none;}
+		.selected-options .cancel-small{display: inline-block; padding: 0 7px; text-decoration: none;}
 
 
 
 		.selected-options .cancel-large{border-radius: 0 0 0 0; box-shadow: none; display: block; font-weight: bold; padding: 1px 5px 4px;}
 
-    .selected-options .cancel-small{font-size: 10px; line-height: 17px; white-space: nowrap;}
+    .selected-options .cancel-small{box-shadow: 0 0px 1px #CCCCCC inset;font-size: 11px; line-height: 24px; white-space: nowrap;}
 
 
 
@@ -441,3 +443,116 @@
   .ocfilter-option label a {}
   .ocfilter-option label small {}
   .ocfilter-option label small {}
+
+
+.ocfilter-option {
+
+  label small {
+    display: none !important;
+  }
+  label input[type="radio"],
+  label input[type="checkbox"] {
+    display: none;
+  }
+
+  label input:before {
+    font-family: 'FontAwesome';
+  }
+  //label input[type="radio"] ~ i.fa.fa-circle-o {
+  label input[type="radio"]:before {
+    color: $gray;
+    display: inline;
+  }
+
+  label input[type="radio"] ~ i.fa {
+    &:before {
+      content: '\f10c';
+    }
+  }
+
+  /*label input[type="radio"]:checked ~ i.fa.fa-circle-o {
+    display: none;
+  }*/
+
+  label input[type="radio"]:checked ~ i.fa {
+    color: $brand-primary;
+    display: inline;
+    &:before {
+      content: '\f192';
+    }
+  }
+  label:hover input[type="radio"] ~ i.fa {
+    color: $brand-primary;
+  }
+  label input[type="checkbox"] ~ i.fa {
+    color: $gray;
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid $gray;
+    line-height: 24px;
+    font-size: 16px;
+    text-align: center;
+    top: 5px;
+    position: relative;
+  }
+
+  label input[type="checkbox"]:checked ~ i.fa {
+    color: $brand-primary;
+    border: 2px solid transparent;
+    display: inline;
+    top: 0px;
+    &:before {
+      content: '\f00c';
+    }
+  }
+  label:hover input[type="checkbox"] ~ i.fa {
+    color: $brand-primary;
+  }
+/*  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    margin-right: 26px;
+    width: 0;
+  }
+
+
+  .option-values label {
+    margin: 0;
+  }
+
+  .option-values input:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    border: 2px solid $gray;
+    font-family: FontAwesome;
+    line-height: 24px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  input[type="checkbox"]:checked:before {
+    color: $brand-primary;
+    content: '\f00c';
+    border: none;
+  }
+
+  input[type="radio"]:before {
+    content: '\f10c';
+    border: none;
+    color: $gray;
+  }
+
+  input[type="radio"]:checked:before {
+    content: '\f192';
+    color: $brand-primary;
+  }*/
+}

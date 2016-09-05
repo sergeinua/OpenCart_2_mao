@@ -10,15 +10,20 @@
       <div class="selected-options">
         <?php foreach ($selecteds as $option) { ?>
         <div class="ocfilter-option">
-          <span><?php echo $option['name']; ?>:</span>
-          <?php foreach ($option['values'] as $value) { ?>
-          <a rel="nofollow" href="<?php echo $value['href']; ?>" class="cancel-small"><span>&times;</span><?php echo $value['name']; ?></a>
-          <?php } ?>
+          <span class="cancel-option-small"><?php echo $option['name']; ?>:</span>
+			<div class="cancel-small-wrapp">
+			  <?php foreach ($option['values'] as $value) { ?>
+			  	<a rel="nofollow" href="<?php echo $value['href']; ?>" class="cancel-small"><span>&times;</span><?php echo $value['name']; ?></a>
+			  <?php } ?>
+			</div>
         </div>
         <?php } ?>
 				<?php $count = count($selecteds); $selected = $selecteds; $first = array_shift($selected); ?>
         <?php if ($count > 1 || count($first['values']) > 1) { ?>
-        <a rel="nofollow" href="<?php echo $link; ?>" class="cancel-large"><span>&times;</span><?php echo $text_cancel_all; ?></a>
+		  <div class="text-center">
+			  <a rel="nofollow" href="<?php echo $link; ?>" class="btn btn-hover btn-xs btn-ghost"><span>&times;  </span><?php echo $text_cancel_all; ?></a>
+
+		  </div>
         <?php } ?>
       </div>
       <?php } ?>
@@ -191,6 +196,11 @@
 							<?php if ($value['selected']) { ?>
 		          <label id="v-<?php echo $value['id']; ?>" class="selected">
                 <input type="<?php echo $option['type']; ?>" value="<?php echo $value['href']; ?>" checked="checked" class="ocf-target" />
+					  <i class="fa"></i>
+					  <!-- <i class="fa fa-square-o fa-2x"></i>
+					  <i class="fa fa-check-square-o fa-2x"></i>
+					  <i class="fa fa-circle-o fa-2x"></i>
+					  <i class="fa fa-check-circle-o fa-2x"></i> -->
                 <a href="<?php echo $value['href']; ?>"><?php echo $value['name']; ?></a>
                 <?php if ($show_counter) { ?>
                 <small></small>
@@ -199,6 +209,11 @@
 							<?php } elseif ($value['count']) { ?>
 		          <label id="v-<?php echo $value['id']; ?>">
                 <input type="<?php echo $option['type']; ?>" value="<?php echo $value['href']; ?>" class="ocf-target" />
+					  <i class="fa"></i>
+					  <!-- <i class="fa fa-square-o fa-2x"></i>
+					  <i class="fa fa-check-square-o fa-2x"></i>
+					  <i class="fa fa-circle-o fa-2x"></i>
+					  <i class="fa fa-check-circle-o fa-2x"></i> -->
                 <a href="<?php echo $value['href']; ?>"><?php echo $value['name']; ?></a>
                 <?php if ($show_counter) { ?>
                 <small><?php echo $value['count']; ?></small>

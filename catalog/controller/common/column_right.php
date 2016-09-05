@@ -43,6 +43,8 @@ class ControllerCommonColumnRight extends Controller {
 
 		$data['modules'] = array();
 
+		$data['modules'] = $this->load->controller('module/banner_category');
+
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'column_right');
 
 		foreach ($modules as $module) {

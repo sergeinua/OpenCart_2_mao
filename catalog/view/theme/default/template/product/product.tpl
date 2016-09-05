@@ -3,7 +3,8 @@
 
   <div class="row">
 
-    <!-- <?php echo $column_left; ?>
+    <?php echo $column_left; ?>
+
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -11,58 +12,59 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"> -->
+
+    <div id="content" class="<?php echo $class; ?>">
 
       <div class="hidden-md hidden-lg">
         <?php echo $content_top; ?>
       </div>
     </div>
-
-      <div class="row">
-
-        <div class="hidden-xs hidden-sm col-md-3">
-          <div class="panel-dark" style="max-width: 270px;">
-            <div class="nav-menu-wrapper">
-              <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
-              </a>
-              <nav id="menu2" class="dropdown-menu nav-menu">
-                <ul class="nav">
-                  <li><a href="http://mao.reclamare.ua/desktops">Great Wall</a></li>
-                  <li><a href="http://mao.reclamare.ua/laptop-notebook">Lifan</a></li>
-                  <li class="has-submenu">
-                    <a href="http://mao.reclamare.ua/component" class="">Chery</a>
-                    <div class="submenu panel-dark">
-                      <ul class="list-unstyled">
-                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_59">Chery A13 / Zaz Forza</a></li>
-                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_61">Chery Cross Eastar (B14)</a></li>
-                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_62">Chery Eastar (B11)</a></li>
-                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_63">Chery Jaggi</a></li>
-                        <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_60">Chery M11</a></li>
-                        <li><a href="http://mao.reclamare.ua/component/mouse">Chery Amulet (A11-A15)</a></li>
-                        <li><a href="http://mao.reclamare.ua/component/scanner">Chery Elara (Fora) (A21)</a></li>
-                        <li><a href="http://mao.reclamare.ua/component/web-camera">Chery Kimo (S12 )</a></li>
-                        <li><a href="http://mao.reclamare.ua/component/monitor">Chery QQ (S11)</a></li>
-                        <li><a href="http://mao.reclamare.ua/component/printer">Chery Tiggo (T11)</a></li>
+      <!-- latest
+            <div class="row">
+      -->
+              <!-- <div class="hidden-xs hidden-sm col-md-3">
+                <div class="panel-dark" style="max-width: 270px;">
+                  <div class="nav-menu-wrapper">
+                    <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
+                    </a>
+                    <nav id="menu2" class="dropdown-menu nav-menu">
+                      <ul class="nav">
+                        <li><a href="http://mao.reclamare.ua/desktops">Great Wall</a></li>
+                        <li><a href="http://mao.reclamare.ua/laptop-notebook">Lifan</a></li>
+                        <li class="has-submenu">
+                          <a href="http://mao.reclamare.ua/component" class="">Chery</a>
+                          <div class="submenu panel-dark">
+                            <ul class="list-unstyled">
+                              <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_59">Chery A13 / Zaz Forza</a></li>
+                              <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_61">Chery Cross Eastar (B14)</a></li>
+                              <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_62">Chery Eastar (B11)</a></li>
+                              <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_63">Chery Jaggi</a></li>
+                              <li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_60">Chery M11</a></li>
+                              <li><a href="http://mao.reclamare.ua/component/mouse">Chery Amulet (A11-A15)</a></li>
+                              <li><a href="http://mao.reclamare.ua/component/scanner">Chery Elara (Fora) (A21)</a></li>
+                              <li><a href="http://mao.reclamare.ua/component/web-camera">Chery Kimo (S12 )</a></li>
+                              <li><a href="http://mao.reclamare.ua/component/monitor">Chery QQ (S11)</a></li>
+                              <li><a href="http://mao.reclamare.ua/component/printer">Chery Tiggo (T11)</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li><a href="http://mao.reclamare.ua/tablet">Kia</a></li>
+                        <li><a href="http://mao.reclamare.ua/software">Hyundai</a></li>
+                        <li><a href="http://mao.reclamare.ua/smartphone">Chevrolet</a></li>
+                        <li><a href="http://mao.reclamare.ua/camera">BYD</a></li>
+                        <li><a href="http://mao.reclamare.ua/mp3-players">Daewoo</a></li>
                       </ul>
-                    </div>
-                  </li>
-                  <li><a href="http://mao.reclamare.ua/tablet">Kia</a></li>
-                  <li><a href="http://mao.reclamare.ua/software">Hyundai</a></li>
-                  <li><a href="http://mao.reclamare.ua/smartphone">Chevrolet</a></li>
-                  <li><a href="http://mao.reclamare.ua/camera">BYD</a></li>
-                  <li><a href="http://mao.reclamare.ua/mp3-players">Daewoo</a></li>
-                </ul>
-                <ul class="nav nav-link top-menu-links">
-                  <li><a href="http://mao.reclamare.ua/garanty">Гарантия</a></li>
-                  <li><a href="http://mao.reclamare.ua/delivery">Доставка и оплата</a></li>
-                  <li><a href="http://mao.reclamare.ua/index.php?route=information/contact">Контакты</a></li>
-                </ul>
-              </nav>
-            </div>
+                      <ul class="nav nav-link top-menu-links">
+                        <li><a href="http://mao.reclamare.ua/garanty">Гарантия</a></li>
+                        <li><a href="http://mao.reclamare.ua/delivery">Доставка и оплата</a></li>
+                        <li><a href="http://mao.reclamare.ua/index.php?route=information/contact">Контакты</a></li>
+                      </ul>
+                    </nav>
+                  </div>
 
-            <!-- TODO: вывести динамически -->
+                  <!-- TODO: вывести динамически -->
 
-            <div class="breadcrumb-wrapper">
+            <!-- <div class="breadcrumb-wrapper">
               <ul class="breadcrumb">
                 <li><a href="http://mao.reclamare.ua/index.php?route=common/home">Главная</a></li>
                 <li><a href="http://mao.reclamare.ua/component">Chery</a></li>
@@ -71,8 +73,8 @@
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
+          </div> -->
+        </div> -->
 
         <div class="col-md-6">
           <h1><?php echo $heading_title; ?></h1>
@@ -513,9 +515,10 @@
           </div> -->
 
         </div>
+    <?php echo $column_right; ?>
 
         <!--todo: Вывести эти картинки через админку-->
-
+<!--
         <div class="col-md-3">
           <div class="img-banners-wrapper">
             <div class="row">
@@ -532,7 +535,7 @@
             </div>
           </div>
         </div>
-
+-->
 
         <!-- <div class="">
 
@@ -846,8 +849,11 @@
       </div>
       <?php } ?>
 	  </div>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      <?php echo $content_bottom; ?>
+<!-- latest
+</div>
+-->
+    </div>
 </div>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){

@@ -43,6 +43,17 @@ class ControllerCommonColumnLeft extends Controller {
 
 		$data['modules'] = array();
 
+		// menu for the categories
+		if (isset ($this->request->get['path'])) {
+			$path = $this->request->get['path'];
+			$cats = explode('_', $path);
+			$cat_id = $cats[count($cats) - 1];
+
+			if ($cat_id) {
+				$data['modules'][] = $this->load->controller('module/main_menu');
+			}
+		}
+
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'column_left');
 
 		foreach ($modules as $module) {

@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-md-6">
+<div class="col-sm-12 col-md-9">
 
     <div id="slideshow<?php echo $module; ?>" class="owl-carousel homepage-slider" style="opacity: 1;">
         <?php foreach ($banners as $banner) { ?>
@@ -24,25 +24,6 @@
         pagination: false
     });
     --></script>
-
-</div>
-<!--todo: Вывести эти картинки через админку-->
-<div class="col-md-3">
-
-    <div class="img-banners-wrapper">
-        <div class="row">
-            <div class="col-xs-6 col-md-12">
-                <a href="#" role="link">
-                    <img src="./catalog/view/theme/default/image/mao_free-delivery_250x2501.jpg" alt="banner_title">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-12">
-                <a href="#" role="link">
-                    <img src="./catalog/view/theme/default/image/mao_delivery-kiev_250x2501.jpg" alt="banner_title">
-                </a>
-            </div>
-        </div>
-    </div>
 
 </div>
 </div>

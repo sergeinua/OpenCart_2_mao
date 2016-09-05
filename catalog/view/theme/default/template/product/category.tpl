@@ -1,12 +1,12 @@
-<?php echo $header; ?>
+<?php //var_dump(strlen($column_right)); die; ?><?php echo $header; ?>
 <div class="container">
 
   <div class="row">
 
   <?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
+    <?php if ($column_left && (strlen($column_right) > 100)) { ?>
     <?php $class = 'col-lg-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
+    <?php } elseif ($column_left || (strlen($column_right) > 100)) { ?>
     <?php $class = 'col-lg-9'; ?>
     <?php } else { ?>
     <?php $class = 'col-lg-12'; ?>
@@ -185,6 +185,7 @@
         <?php } ?>
       </div>
       <?php } ?> -->
+		  <!--
       <?php if ($categories) { ?>
       <h3><?php echo $text_refine; ?></h3>
       <?php if (count($categories) <= 5) { ?>
@@ -211,6 +212,7 @@
       </div>
       <?php } ?>
       <?php } ?>
+		  -->
       <?php if ($products) { ?>
       <!-- <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p> -->
 		  <!-- <div class="row">
@@ -310,7 +312,7 @@
 				  </div>
 			  </div>
 			<?php } ?>
-
+<!--
 			  <div class="model-product-thumb">
 				  <div class="clearfix">
 					  <div class="image">
@@ -417,10 +419,11 @@
 					  </div>
 				  </div>
 			  </div>
-
+-->
 			  <!-- TODO удалить к чертям-->
 
 		  </div>
+		  <!--
 		  <div class="col-xs-12 text-center category-pagination">
 			  <ul class="pagination">
 				  <li>
@@ -446,11 +449,12 @@
 				  </li>
 			  </ul>
 		  </div>
+		  -->
       </div>
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div> -->
+      </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
       <p><?php echo $text_empty; ?></p>

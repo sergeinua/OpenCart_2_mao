@@ -1,5 +1,5 @@
-<div class="">
-    <div class="panel-dark" style="max-width: 270px;">
+
+    <div class="panel-dark" style="position: relative;">
         <div class="nav-menu-wrapper">
             <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
             </a>
@@ -62,4 +62,3 @@
             </ul>
         </div>
     </div>
-</div>

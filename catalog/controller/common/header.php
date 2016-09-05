@@ -99,6 +99,10 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+		// Additional tel nums
+		$add_tel_num = $this->config->get('config_telephone_additional');
+		$data['config_telephone_additional'] = explode("\n", $add_tel_num);
+
 		// Menu
 		// we don't need this since it moved to content_top.php
 		/*$this->load->model('catalog/category');

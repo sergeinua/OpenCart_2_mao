@@ -134,14 +134,14 @@
 
 #menu2 {
   &.nav-menu {
-    margin: 0 15px;
-    width: 270px;
+    //margin: 0 15px;
+    width: 100%;
   }
 
   &.dropdown-menu {
     top: 66px;
     position: absolute;
-    box-shadow: 0px 10px 30px 0px rgba(23,24,26,0.5);
+    box-shadow:  10px 30px 0 rgba(23,24,26,0.5);
   }
 
   .nav {
@@ -152,8 +152,8 @@
 
       &:hover {
         .submenu {
-          width: 270px;
-          right: -270px;
+          width: 100%;
+          right: -100%;
         }
       }
     }
