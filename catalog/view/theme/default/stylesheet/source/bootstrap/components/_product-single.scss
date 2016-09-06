@@ -452,6 +452,20 @@
     .owl-item {
       transform: translateX(-50%) !important;
 
+      a {
+        display: block;
+        text-align: center;
+
+
+        .img-responsive {
+          width: 100%;
+        }
+
+        img {
+          display: inline-block;
+        }
+      }
+
       @include sm {
         transform: translateX(0) !important;
       }

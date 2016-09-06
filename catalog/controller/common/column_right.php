@@ -43,7 +43,31 @@ class ControllerCommonColumnRight extends Controller {
 
 		$data['modules'] = array();
 
-		$data['modules'] = $this->load->controller('module/banner_category');
+		// display banner for the home page
+		if ($this->request->get['route'] == 'common/home') {
+			$data['modules'] = $this->load->controller('module/banner_category');
+		}
+		// display for the categories & subcategories
+		if ($this->request->get['route']  == 'product/category') {
+			// getting category id
+			if (isset ($this->request->get['path'])) {
+				$path = $this->request->get['path'];
+				$cats = explode('_', $path);
+				$data['category_id'] = $cats[count($cats) - 1];
+				$this->load->model('catalog/category');
+				$sub_cats = $this->model_catalog_category->getCategories($data['category_id']);
+				// show for the lowest subcategory
+				if ($sub_cats) {
+					$data['modules'] = null;
+				} else {
+					$data['modules'] = $this->load->controller('module/banner_category');
+				}
+			}
+		}
+		// product page
+		if ($this->request->get['route']  == 'product/product') {
+			$data['modules'] = $this->load->controller('module/banner_category');
+		}
 
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'column_right');
 

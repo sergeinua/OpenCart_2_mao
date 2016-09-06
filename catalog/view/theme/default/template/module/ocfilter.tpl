@@ -197,10 +197,6 @@
 		          <label id="v-<?php echo $value['id']; ?>" class="selected">
                 <input type="<?php echo $option['type']; ?>" value="<?php echo $value['href']; ?>" checked="checked" class="ocf-target" />
 					  <i class="fa"></i>
-					  <!-- <i class="fa fa-square-o fa-2x"></i>
-					  <i class="fa fa-check-square-o fa-2x"></i>
-					  <i class="fa fa-circle-o fa-2x"></i>
-					  <i class="fa fa-check-circle-o fa-2x"></i> -->
                 <a href="<?php echo $value['href']; ?>"><?php echo $value['name']; ?></a>
                 <?php if ($show_counter) { ?>
                 <small></small>
@@ -210,10 +206,6 @@
 		          <label id="v-<?php echo $value['id']; ?>">
                 <input type="<?php echo $option['type']; ?>" value="<?php echo $value['href']; ?>" class="ocf-target" />
 					  <i class="fa"></i>
-					  <!-- <i class="fa fa-square-o fa-2x"></i>
-					  <i class="fa fa-check-square-o fa-2x"></i>
-					  <i class="fa fa-circle-o fa-2x"></i>
-					  <i class="fa fa-check-circle-o fa-2x"></i> -->
                 <a href="<?php echo $value['href']; ?>"><?php echo $value['name']; ?></a>
                 <?php if ($show_counter) { ?>
                 <small><?php echo $value['count']; ?></small>

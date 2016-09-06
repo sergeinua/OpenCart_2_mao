@@ -312,117 +312,10 @@
 				  </div>
 			  </div>
 			<?php } ?>
-<!--
-			  <div class="model-product-thumb">
-				  <div class="clearfix">
-					  <div class="image">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
-						  </a>
-					  </div>
-					  <div class="caption">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
-					  </div>
-					  <div class="price-buy-wrapper clearfix">
+		  </div>
 
-								  <span class="price"  style="line-height: 40px;">
-									  99990.00 грн.
-								  </span>
-						  <span class="buy">
-							  <button type="button" class="btn btn-hover btn-outline btn-xs" onclick="cart.add('42', '2');">
-								Купить							  </button>
-						  </span>
-					  </div>
-				  </div>
-			  </div><div class="model-product-thumb">
-				  <div class="clearfix">
-					  <div class="image">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
-						  </a>
-					  </div>
-					  <div class="caption">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
-					  </div>
-					  <div class="price-buy-wrapper clearfix">
-
-								  <span class="price"  style="line-height: 40px;">
-									  1490.00 грн.
-								  </span>
-						  <span class="buy">
-							  Уточняйте наличие
-						  </span>
-					  </div>
-				  </div>
-			  </div><div class="model-product-thumb">
-				  <div class="clearfix">
-					  <div class="image">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
-						  </a>
-					  </div>
-					  <div class="caption">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
-					  </div>
-					  <div class="price-buy-wrapper clearfix">
-
-								  <span class="price"  style="line-height: 40px;">
-									  170.00 грн.
-								  </span>
-						  <span class="buy">
-							  Уточняйте наличие
-						  </span>
-					  </div>
-				  </div>
-			  </div><div class="model-product-thumb">
-				  <div class="clearfix">
-					  <div class="image">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
-						  </a>
-					  </div>
-					  <div class="caption">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
-					  </div>
-					  <div class="price-buy-wrapper clearfix">
-
-								  <span class="price"  style="line-height: 40px;">
-									  1330.00 грн.
-								  </span>
-						  <span class="buy">
-							  Уточняйте наличие
-						  </span>
-					  </div>
-				  </div>
-			  </div><div class="model-product-thumb">
-				  <div class="clearfix">
-					  <div class="image">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  <img src="http://mao.reclamare.ua/image/cache/catalog/car11-228x228.jpg" alt="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" title="Ступица передняя с подшипником в сборе (B11-3001030AB) SNR" class="img-responsive">
-						  </a>
-					  </div>
-					  <div class="caption">
-						  <a href="http://mao.reclamare.ua/component/monitor/test">
-							  Ступица передняя с подшипником в сборе (B11-3001030AB) SNR						  </a>
-					  </div>
-					  <div class="price-buy-wrapper clearfix">
-
-								  <span class="price" style="line-height: 40px;">
-									  90.00 грн.
-								  </span>
-						  <span class="buy"> Уточняйте наличие
-						  </span>
-					  </div>
-				  </div>
-			  </div>
--->
 			  <!-- TODO удалить к чертям-->
 
-		  </div>
 		  <!--
 		  <div class="col-xs-12 text-center category-pagination">
 			  <ul class="pagination">
@@ -453,7 +346,7 @@
       </div>
       <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
+        <!--<div class="col-sm-6 text-right"><?php echo $results; ?></div>-->
       </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>

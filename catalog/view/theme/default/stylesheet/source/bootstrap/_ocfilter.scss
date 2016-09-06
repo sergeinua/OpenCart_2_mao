@@ -139,29 +139,56 @@
 
     /*=Selected Options */
 
-    .selected-options {color: #fff; margin: 0 0 10px; border-bottom: 2px solid $gray;}
-    .selected-options .btn {
-      margin-bottom: 24px;}
+    .selected-options {
+      color: #fff;
+      margin: 0 0 10px;
+      border-bottom: 2px solid $gray;
 
-    .selected-options .ocfilter-option{ font-size: 12px; padding: 6px 0; margin-bottom: 6px;}
+      .btn {
+        margin-bottom: 24px;
+      }
 
-    .selected-options .ocfilter-option .cancel-option-small {display: block;line-height: 36px;}
-    .selected-options .ocfilter-option .cancel-small-wrapp { display:block;}
-    .selected-options .ocfilter-option .cancel-small-wrapp a { margin: 0 6px 6px 0;}
+      .ocfilter-option{
+        font-size: 12px;
+        padding: 6px 0;
+        margin-bottom: 6px;
 
+        .cancel-option-small {
+          display: block;
+          line-height: 36px;
 
+          a {
+            margin: 0 6px 6px 0;
+          }
+        }
 
-    .selected-options .cancel-large,
+        .cancel-small-wrapp {
+          display:block;
+        }
+      }
 
-		.selected-options .cancel-small{display: inline-block; padding: 0 7px; text-decoration: none;}
+      .cancel-large,
+      .cancel-small {
+        display: inline-block;
+        padding: 0 7px;
+        text-decoration: none;
+      }
 
+      .cancel-large {
+        border-radius: 0 0 0 0;
+        box-shadow: none;
+        display: block;
+        font-weight: bold;
+        padding: 1px 5px 4px;
+      }
 
-
-		.selected-options .cancel-large{border-radius: 0 0 0 0; box-shadow: none; display: block; font-weight: bold; padding: 1px 5px 4px;}
-
-    .selected-options .cancel-small{box-shadow: 0 0px 1px #CCCCCC inset;font-size: 11px; line-height: 24px; white-space: nowrap;}
-
-
+      .cancel-small {
+        box-shadow: 0 0px 1px #CCCCCC inset;
+        font-size: 11px;
+        line-height: 24px;
+        white-space: nowrap;
+      }
+    }
 
     .selected-options .cancel-large span,
 
@@ -510,49 +537,4 @@
   label:hover input[type="checkbox"] ~ i.fa {
     color: $brand-primary;
   }
-/*  input[type="checkbox"],
-  input[type="radio"] {
-    cursor: pointer;
-    position: relative;
-    margin: 0;
-    margin-right: 26px;
-    width: 0;
-  }
-
-
-  .option-values label {
-    margin: 0;
-  }
-
-  .option-values input:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 6px;
-    left: 0;
-    width: 22px;
-    height: 22px;
-    border: 2px solid $gray;
-    font-family: FontAwesome;
-    line-height: 24px;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  input[type="checkbox"]:checked:before {
-    color: $brand-primary;
-    content: '\f00c';
-    border: none;
-  }
-
-  input[type="radio"]:before {
-    content: '\f10c';
-    border: none;
-    color: $gray;
-  }
-
-  input[type="radio"]:checked:before {
-    content: '\f192';
-    color: $brand-primary;
-  }*/
 }

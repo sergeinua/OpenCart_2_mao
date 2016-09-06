@@ -74,7 +74,7 @@
               </ul>
             </div>
           </div> -->
-        </div> -->
+        </div>
 
         <div class="col-md-6">
           <h1><?php echo $heading_title; ?></h1>
@@ -106,14 +106,20 @@
                         </li>
                       <li>
                         <div class="product-card-rating">
-                          <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-                          <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-                          <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-                          <span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
-                          <span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+                            <?php for ($i = 0; $i < $rating; $i++ ) : ?>
+                                <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+                            <?php endfor; ?>
+                            <?php for($i = 0; $i < (5 - $rating); $i++) : ?>
+                                <span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+                            <?php endfor; ?>
                         </div>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="#">2 отзыва</a>
+                        <!--
+                        <a href="<?= $review_link; ?>">2 отзыва</a>
+                        -->
+                          <?php if ($review_status) { ?>
+                        <a href="<?= $review_link; ?>"><?php echo $tab_review; ?></a>
+                        <?php } ?>
                       </li>
                     </ul>
 
@@ -145,10 +151,12 @@
                       <?php } ?> -->
                     </ul>
                     <?php } ?>
-                    <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default"><?php echo $button_cart; ?></button>
+                      <button id="button-cart" type="button" class="btn btn-hover btn-default" onclick="cart.add('<?php echo $product_id; ?>');">
+                          <?php echo $button_cart; ?>
+                      </button>
                   </div>
                 </div>
-                <p class="product-description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at atque cum doloremque inventore nulla quis vel. Earum, inventore, provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at atque cum doloremque inventore nulla quis vel. Earum, inventore, provident!</p>
+                <p class="product-description-text"><?= $description; ?></p>
               </div>
             </div>
 
@@ -282,7 +290,6 @@
                       </div>
                     </div>
                   </div>
-
               </div>
             </div>
             <div class="col-xs-12">
@@ -347,65 +354,38 @@
                     <?php echo $text_login; ?>
                     <?php } ?>
                   </form>
+
+
 					<div class="col-sm-12">
 						<div id="review" class="feedback-review"></div>
 					</div>
 					<div class="col-sm-12">
 						<div id="users-reviews" class="users-reviews">
-							<div class="review-single">
-								<div class="review-head clearfix">
-									<div class="user-atrs pull-left">
-										<div>Витя Сидоров</div>
-										<span>24.08.12</span> <span>09:48</span>
-									</div>
-									<div class="user-rating pull-right">
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
-									</div>
-								</div>
-								<div class="review-text">
-									<p>Заказал себе на день рождения. Рекомендую.</p>
-								</div>
-							</div>
-							<div class="review-single">
-								<div class="review-head clearfix">
-									<div class="user-atrs pull-left">
-										<div>Вася Иванов</div>
-										<span>24.08.12</span> <span>09:48</span>
-									</div>
-									<div class="user-rating pull-right">
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
-									</div>
-								</div>
-								<div class="review-text">
-									<p>Куплю ещё, и не раз!)</p>
-								</div>
-							</div>
-							<div class="review-single">
-								<div class="review-head clearfix">
-									<div class="user-atrs pull-left">
-										<div>Коля Петров</div>
-										<span>24.08.12</span> <span>09:48</span>
-									</div>
-									<div class="user-rating pull-right">
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
-										<span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
-									</div>
-								</div>
-								<div class="review-text">
-									<p>Качество на высоте!</p>
-								</div>
-							</div>
+
+                            <?php foreach ($product_reviews as $item) : ?>
+
+                                <div class="review-single">
+                                    <div class="review-head clearfix">
+                                        <div class="user-atrs pull-left">
+                                            <div><?= $item['author']; ?></div>
+                                            <span><?= $item['date_added']; ?></span>
+                                        </div>
+                                        <div class="user-rating pull-right">
+                                            <?php for ($i = 0; $i < $item['rating']; $i++ ) : ?>
+                                                <span class="fa fa-stack"><i class="fa fa-star star fa-stack-1x"></i></span>
+                                            <?php endfor; ?>
+                                            <?php for($i = 0; $i < (5 - $item['rating']); $i++) : ?>
+                                                <span class="fa fa-stack"><i class="fa fa-star-o rating-reverse fa-stack-1x"></i></span>
+                                            <?php endfor; ?>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p><?= $item['text']; ?></p>
+                                    </div>
+                                </div>
+
+                            <?php endforeach; ?>
+
 						</div>
 					</div>
                 </div>
@@ -1006,7 +986,7 @@ $('#review').delegate('.pagination a', 'click', function(e) {
     $('#review').fadeIn('slow');
 });
 
-$('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
+//$('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
 $('#button-review').on('click', function() {
 	$.ajax({
