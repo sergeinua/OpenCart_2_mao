@@ -1,0 +1,45 @@
+body.error-not_found {
+  position: relative;
+  min-height: 100vh;
+  background: url('./../../image/404.png') no-repeat center bottom,
+  $gray-base url('./../../image/body-bg.png') no-repeat 50% bottom;
+  background-size: auto, cover;
+
+
+  #top,
+  #search-col,
+  #cart {
+    display: none;
+  }
+  .header {
+    padding-top: 35px;
+    margin-bottom: 35px;
+  }
+
+  .advantages,
+  .footer-logo,
+  .footer-text {
+    display: none;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .copyright {
+    background-color: transparent;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 180px;
+
+    @include sm {
+      height: 120px;
+    }
+  }
+}
+

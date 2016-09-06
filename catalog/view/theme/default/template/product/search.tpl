@@ -77,7 +77,7 @@
           </label>
         </div>
         <div class="col-xs-12 col-sm-3 text-right">
-          <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-hover btn-outline" />
+          <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-xs btn-hover btn-outline" />
         </div>
         </div>
 		<div class="col-xs-12">

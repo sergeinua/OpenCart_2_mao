@@ -15,7 +15,7 @@
     <div id="content" class="col-xs-12">
       <div class="row">
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-md-4 col-lg-3">
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label class="control-label" for="input-email"><?php echo $entry_email; ?></label>
@@ -37,7 +37,7 @@
           </div>
 
 
-		  <div class="col-sm-6">
+		  <div class="col-sm-6 col-md-offset-2 col-lg-offset-3">
 			  <div class="well">
 				  <p class="small"><span class="lato-bold">Нет учетной записи?</span><br>
 				  <span class="primary-link"><?php echo $text_register; ?></span> прямо сейчас!
