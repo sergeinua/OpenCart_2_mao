@@ -53,6 +53,13 @@
         <span></span>
         <span></span>
       </div>
+
+      <?php if (isset($menu_categories)) : ?>
+        <?php foreach ($menu_categories as $item) : ?>
+          <?php echo '<pre>'; var_dump($item); die; ?>
+          <a href="<?php echo $item['link']; ?>"><?= $item[0]['name']; ?></a>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </button>
 
     <div id="top-links" class="top-links">

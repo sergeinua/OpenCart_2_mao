@@ -44,11 +44,12 @@ class ControllerCommonColumnRight extends Controller {
 		$data['modules'] = array();
 
 		// display banner for the home page
-		if ($this->request->get['route'] == 'common/home') {
+		if ((isset($this->request->get['route']) && $this->request->get['route'] == 'common/home') || (! isset($this->request->get['route']))) {
 			$data['modules'] = $this->load->controller('module/banner_category');
 		}
+
 		// display for the categories & subcategories
-		if ($this->request->get['route']  == 'product/category') {
+		if (isset($this->request->get['route']) && $this->request->get['route']  == 'product/category') {
 			// getting category id
 			if (isset ($this->request->get['path'])) {
 				$path = $this->request->get['path'];
@@ -65,7 +66,7 @@ class ControllerCommonColumnRight extends Controller {
 			}
 		}
 		// product page
-		if ($this->request->get['route']  == 'product/product') {
+		if (isset($this->request->get['route']) && $this->request->get['route']  == 'product/product') {
 			$data['modules'] = $this->load->controller('module/banner_category');
 		}
 

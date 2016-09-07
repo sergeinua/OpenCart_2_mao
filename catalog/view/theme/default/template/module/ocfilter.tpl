@@ -1,9 +1,9 @@
 <?php if ($options) { ?>
-<div class="panel ocfilter panel-default panel-dark" id="ocfilter">
-  <div class="relative-wrapper">
-		<div class="button-float" id="button-float"><a href="#" id="button-submit"><?php echo $button_select; ?></a></div>
-	</div>
-  <!-- <div class="panel-heading"><?php echo $heading_title; ?></div> -->
+<div class="" id="ocfilter">
+	<!-- <div class="relative-wrapper">
+		  <div class="button-float" id="button-float"><a href="#" id="button-submit"><?php echo $button_select; ?></a></div>
+	  </div>
+	<div class="panel-heading"><?php echo $heading_title; ?></div> -->
   <div class="panel-body">
     <form action="">
       <?php if ($selecteds) { # Selected options ?>
@@ -20,7 +20,7 @@
         <?php } ?>
 				<?php $count = count($selecteds); $selected = $selecteds; $first = array_shift($selected); ?>
         <?php if ($count > 1 || count($first['values']) > 1) { ?>
-		  <div class="text-center">
+		  <div class="text-center" style="margin-top: 18px;">
 			  <a rel="nofollow" href="<?php echo $link; ?>" class="btn btn-hover btn-xs btn-ghost"><span>&times;  </span><?php echo $text_cancel_all; ?></a>
 
 		  </div>

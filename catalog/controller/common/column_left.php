@@ -54,6 +54,13 @@ class ControllerCommonColumnLeft extends Controller {
 			}
 		}
 
+		/* that's the way we're getting menu for the home page & search page(?) */
+		if ( (isset($this->request->get['route']) && $this->request->get['route'] == 'common/home') || (! isset($this->request->get['route'])) ) {
+			$data['modules'][] = $this->load->controller('module/home_menu');
+		}
+
+
+
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'column_left');
 
 		foreach ($modules as $module) {

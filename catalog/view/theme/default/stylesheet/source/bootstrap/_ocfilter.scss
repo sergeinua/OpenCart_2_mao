@@ -31,6 +31,9 @@
   text-transform: uppercase;
 }
 
+.ocfilter-option .option-values {
+  margin-bottom: 36px;
+}
 .ocfilter-option .option-values,
 .ocfilter-option .option-description,
 .ocfilter-option .fields-price {
@@ -59,7 +62,7 @@
 
 	//.ocfilter-option + .ocfilter-option{border-top: 1px dotted #EEEEEE;}
 
-	  .ocfilter-option .option-name{  margin: 36px 6px 18px; }
+	  .ocfilter-option .option-name{  margin: 0px 6px 18px; }
 
     .ocfilter-option .option-name b{color: #fff;cursor: pointer; display: none; float: right; font-family: Georgia; font-size: 14px; line-height: 16px; font-style: italic; height: 16px; padding: 0 7px 0 4px;}
 
@@ -141,7 +144,8 @@
 
     .selected-options {
       color: #fff;
-      margin: 0 0 10px;
+      margin: 0 0 36px;
+      border-top: 2px solid $gray;
       border-bottom: 2px solid $gray;
 
       .btn {
@@ -515,11 +519,12 @@
     color: $gray;
     content: '';
     display: inline-block;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border: 2px solid $gray;
-    line-height: 24px;
+    line-height: 22px;
     font-size: 16px;
+    margin-right: 6px;
     text-align: center;
     top: 5px;
     position: relative;

@@ -75,11 +75,9 @@
             </div>
           </div> -->
         </div>
-
         <div class="col-md-6">
           <h1><?php echo $heading_title; ?></h1>
           <?php if ($thumb || $images) { ?>
-
           <div class="row">
             <div class="col-xs-12">
               <div class="panel-dark product-single">
@@ -122,7 +120,6 @@
                         <?php } ?>
                       </li>
                     </ul>
-
                     <?php if ($price) { ?>
                     <ul class="list-unstyled product-card-price">
                       <?php if (!$special) { ?>
@@ -160,138 +157,71 @@
               </div>
             </div>
 
-            <div class="col-xs-12">
-              <div class="panel-dark goods-couple">
+              <?php if ($products) : ?>
 
-                <div class="h1">Вместе дешевле</div>
-                <div class="owl-carousel" id="goods-couple-slider">
-                    <div class="owl-item">
-                      <div class="clearfix sale-prop">
-                        <div class="col-sm-4">
-                          <div class="first-itm-b">
-                            <div class="first-itm clearfix">
-                              <div class="img-wrap">
-                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
-                              </div>
-                              <div class="itm-descr">
-                                <span class="title">Ступица передняя с подшипником в сборе (B11-3001030AB) SNR</span>
-                                <br>
-                                <span class="price-single">7 690 грн.</span>
-                                <span class="price-couple">2 690 грн.</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="second-itm-b">
-                            <div class="second-itm clearfix">
-                              <div class="img-wrap">
-                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
-                              </div>
-                              <div class="itm-descr">
-                                <span class="title">Ступица передняя с подшипником</span>
-                                <br>
-                                <span class="price-single">17 690 грн.</span>
-                                <span class="price-couple">112 690 грн.</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="summ">
-                            <div class="total-price-buy panel-dark">
-                              <div class="couple-summ">15 380 грн.</div>
-                              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default btn-xs"><?php echo $button_cart; ?></button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="owl-item"><div class="clearfix sale-prop">
-                        <div class="col-sm-4">
-                          <div class="first-itm-b">
-                            <div class="first-itm clearfix">
-                              <div class="img-wrap">
-                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
-                              </div>
-                              <div class="itm-descr">
-                                <span class="title">Ступица передняя с подшипником в сборе (B11-3001030AB) SNR</span>
-                                <br>
-                                <span class="price-single">7 690 грн.</span>
-                                <span class="price-couple">2 690 грн.</span>
+                <div class="col-xs-12">
+                  <div class="panel-dark goods-couple">
+                    <div class="h1">Вместе дешевле</div>
+                    <div class="owl-carousel" id="goods-couple-slider">
+
+                        <?php foreach ($products as $item) : ?>
+
+                            <div class="owl-item"><div class="clearfix sale-prop">
+                                <div class="col-sm-4">
+                                  <div class="first-itm-b">
+                                    <div class="first-itm clearfix">
+                                      <div class="img-wrap">
+                                        <img src="<?= $thumb; ?>" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                                      </div>
+                                      <div class="itm-descr">
+                                        <span class="title"><?= $model; ?></span>
+                                        <br>
+                                        <span class="price-single"><?= $price; ?></span>
+                                        <span class="price-couple"><?= (int)$price * 0.9; ?></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                  <div class="second-itm-b">
+                                    <div class="second-itm clearfix">
+                                      <div class="img-wrap">
+                                        <img src="<?= $item['thumb']; ?>" class="sale-prop-img" title="heading_title" alt="heading_title" />
+                                      </div>
+                                      <div class="itm-descr">
+                                        <span class="title"><?= $item['name']; ?></span>
+                                        <br>
+                                        <span class="price-single"><?= $item['price']; ?></span>
+                                        <span class="price-couple"><?= (int)$item['price'] * 0.9; ?></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                  <div class="summ">
+                                    <div class="total-price-buy panel-dark">
+                                      <div class="couple-summ"><?= (int)($price + $item['price']) * 0.9; ?></div>
+                                      <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>"
+                                              class="btn btn-hover btn-default btn-xs"
+                                              onclick="cart.add('<?= $product_id; ?>'); cart.add('<?= $item['product_id']; ?>');">
+                                          <?php echo $button_cart; ?>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="second-itm-b">
-                            <div class="second-itm clearfix">
-                              <div class="img-wrap">
-                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
-                              </div>
-                              <div class="itm-descr">
-                                <span class="title">Ступица передняя с подшипником</span>
-                                <br>
-                                <span class="price-single">17 690 грн.</span>
-                                <span class="price-couple">112 690 грн.</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="summ">
-                            <div class="total-price-buy panel-dark">
-                              <div class="couple-summ">15 380 грн.</div>
-                              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default btn-xs"><?php echo $button_cart; ?></button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="owl-item"><div class="clearfix sale-prop">
-                        <div class="col-sm-4">
-                          <div class="first-itm-b">
-                            <div class="first-itm clearfix">
-                              <div class="img-wrap">
-                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
-                              </div>
-                              <div class="itm-descr">
-                                <span class="title">Ступица передняя с подшипником в сборе (B11-3001030AB) SNR</span>
-                                <br>
-                                <span class="price-single">7 690 грн.</span>
-                                <span class="price-couple">2 690 грн.</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="second-itm-b">
-                            <div class="second-itm clearfix">
-                              <div class="img-wrap">
-                                <img src="./catalog/view/theme/default/image/car11.jpg" class="sale-prop-img" title="heading_title" alt="heading_title" />
-                              </div>
-                              <div class="itm-descr">
-                                <span class="title">Ступица передняя с подшипником</span>
-                                <br>
-                                <span class="price-single">17 690 грн.</span>
-                                <span class="price-couple">112 690 грн.</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="summ">
-                            <div class="total-price-buy panel-dark">
-                              <div class="couple-summ">15 380 грн.</div>
-                              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-hover btn-default btn-xs"><?php echo $button_cart; ?></button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
+                        <?php endforeach; ?>
+
                     </div>
                   </div>
-              </div>
-            </div>
+                </div>
+
+              <?php endif; ?>
+
             <div class="col-xs-12">
                 <div class="feedback-blck panel-dark clearfix">
 					<div class="col-sm-12">

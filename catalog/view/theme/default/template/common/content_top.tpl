@@ -1,4 +1,4 @@
-<?php  if ($categories) { ?>
+<?php  if (!$categories) { ?>
 
   <div class="col-md-3">
       <nav id="menu" class="nav-menu panel-dark">

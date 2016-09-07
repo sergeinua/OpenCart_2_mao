@@ -177,13 +177,13 @@
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-sm-7">
                     <div class="mao-copyright">
                         2009-2016 "MAO запчасти для китайских авто" ТМ "МАО" Все права защищены
                         <!--<?php echo $powered; ?>-->
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 reclamare">
+                <div class="col-xs-12 col-sm-5 reclamare">
                     <a href="http://www.reclamare.ua/uslugi/seo-prodvizhenie/" rel="nofollow" role='link'
                        title="Продвижение сайтов Киев">
                         made by <img src="./catalog/view/theme/default/image/rcl__logo--svg.png" alt="Reclamare Logo">

@@ -68,7 +68,7 @@
                                     <td class="text-center  hidden-xs cart-table-price"><?php echo $product['price']; ?></td>
                                     <td class="text-center  hidden-xs cart-table-total"><?php echo $product['total']; ?></td>
                                     <td class="cart-table-del">
-                                        <button type="button" class="btn btn-close" onclick="cart.remove('<?php echo $product['key']; ?>');"><i class="fa fa-times"></i></button>
+                                        <button type="button" class="btn btn-close" onclick="cart.remove('<?php echo $product['cart_id']; ?>');"><i class="fa fa-times"></i></button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -839,12 +839,25 @@ cart.remove = function(key) {
 			count = count < 1 ? 1 : count;
 			$input.val(count);
 			$input.change();
+            var total = $(this).parent().parent().parent().find('.cart-table-total').text();
+            var curr = total.substr(total.indexOf(' '), total.length),
+                price = parseFloat(($(this).parent().parent().parent().find('.cart-table-price').text()).replace(',','')),
+                result = (count * price).toFixed(2) + curr;
+            $(this).parent().parent().parent().find('.cart-table-total').text(result);
+            updateTotalAmount();
 			return false;
 		});
 		$('span.plus').click(function () {
 			var $input = $(this).parent().find('input');
-			$input.val(parseInt($input.val()) + 1);
+            var count = parseInt($input.val()) + 1;
+			$input.val(count);
 			$input.change();
+            var total = $(this).parent().parent().parent().find('.cart-table-total').text();
+            var curr = total.substr(total.indexOf(' '), total.length),
+                    price = parseFloat(($(this).parent().parent().parent().find('.cart-table-price').text()).replace(',','')),
+                    result = (count * price).toFixed(2) + curr;
+            $(this).parent().parent().parent().find('.cart-table-total').text(result);
+            updateTotalAmount();
 			return false;
 		});
         $('#place-order').click(function () {
@@ -859,6 +872,24 @@ cart.remove = function(key) {
                 else $(this_radio_set[i]).parents('label').removeClass('checked');
             }
         });
+
+        function updateTotalAmount() {
+            var cal_amount = 0;
+            var curr = '';
+            $('.cart-table-total').each(function(){
+                var cur_val = $(this).text();
+                    curr = cur_val.substr(cur_val.indexOf(' '), cur_val.length);
+                    amount = parseFloat(cur_val.replace(',',''));
+                if (!isNaN(amount)) {
+                    cal_amount += amount;
+                }
+            });
+
+            $('.text-right span').each(function() {
+                //set calculated value here
+                $(this).text(cal_amount.toFixed(2) + curr);
+            });
+        }
     });
 	</script>
 <?php echo $footer; ?>

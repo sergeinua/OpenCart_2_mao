@@ -391,7 +391,13 @@ class ControllerProductProduct extends Controller {
 			}
 
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
+
+			/* getting  current reviews for the product */
+			$this->load->model('catalog/review');
+			$data['product_reviews'] = $this->model_catalog_review->getReviewsByProductId($product_id);
+
 			$data['rating'] = (int)$product_info['rating'];
+			$data['review_link'] = 'http://' . $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"] . '#review';
 
 			// Captcha
 			if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('review', (array)$this->config->get('config_captcha_page'))) {
@@ -467,7 +473,8 @@ class ControllerProductProduct extends Controller {
 			$data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
-
+//			echo '<pre>'; var_dump($data); die;
+//			echo '<pre>'; var_dump($data['product']); die;
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
