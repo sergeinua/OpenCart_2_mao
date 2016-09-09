@@ -12,22 +12,89 @@ body.information-contact {
     display: none;
   }
 
+  .nav-menu-wrapper {
+    position: relative;
+    padding: 0;
+
+    .catalog-opening-link {
+      margin: 0;
+      border: none;
+      color: $gray-base;
+    }
+
+    &.open {
+      #menu3.dropdown-menu {
+        transform: translateX(0);
+        height: auto;
+      }
+    }
+
+    #menu3 {
+      &.nav-menu {
+        width: 100%;
+        overflow: visible;
+        padding-top: 0;
+      }
+
+      &.dropdown-menu {
+        top: 38px;
+        position: absolute;
+        box-shadow: 10px 10px 30px rgba(23,24,26,0.25);
+        background-color: $global-color;
+        a {
+          color: $gray-base;
+          &:hover {
+            color: $global-color;
+          }
+        }
+      }
+
+      .nav {
+        li.has-submenu {
+          .submenu {
+            width: 0;
+          }
+
+          &:hover,
+          &:focus {
+            .submenu {
+              width: 100%;
+              right: -100%;
+            }
+          }
+        }
+      }
+
+      .nav li.has-submenu ul {
+        display: block;
+      }
+    }
+  }
+
   .left-panel-wrapper {
     position: absolute;
-    width: 180px;
+    width: 240px;
     z-index: 1000;
     top: 24px;
-    left: 24px;
+    left: 36px;
+
+    .panel-light {
+      box-shadow: 0px 10px 30px 0px rgba(23,24,26,0.25);
+
+      @include sm {
+        margin-left: 24px;
+      }
+    }
 
     #logo {
-      width: 80px;
+      width: 120px;
     }
 
     @include  sm {
       left: 48px;
 
       #logo {
-        width: 200px;
+        width: 236px;
       }
     }
   }
@@ -45,20 +112,29 @@ body.information-contact {
   height: 360px;
 
   @include  md {
-    height: 625px;
+    height: 675px;
   }
 }
 
 .map-legend {
+  box-shadow: 0 10px 30px 0 rgba(23,24,26,0.25);
   padding: 12px;
   background-color: $global-color;
-  margin: 36px auto;
+  margin-top: 36px;
+  margin-bottom: 36px;
 
-  @include  md {
+  @include sm {
+    width: 49%;
+    margin-right: 2%;
+    float: left;
+  }
+
+  @include md {
     position: absolute;
-    right: 24px;
+    right: 48px;
     top: 15px;
     width: 410px;
+    margin-right: 0;
   }
 
   ul {
@@ -91,7 +167,14 @@ body.information-contact {
 .contact-form-wrapper {
   background-color: $global-color;
   padding: 24px;
-  margin: 36px auto;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  box-shadow: 0 10px 30px 0 rgba(23,24,26,0.25);
+
+  @include sm {
+    width: 49%;
+    float: left;
+  }
 
   h2 {
     color: $gray-base;
@@ -99,8 +182,8 @@ body.information-contact {
 
   @include  md {
     position: absolute;
-    right: 24px;
-    top: 220px;
+    right: 48px;
+    top: 232px;
     width: 410px;
   }
 
@@ -109,7 +192,47 @@ body.information-contact {
   }
 
   .form-horizontal .form-group {
+    position: static;
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    input[name="name"] {
+      @include md {
+        width: 97%;
+        float: left;
+      }
+    }
+    input[name="email"] {
+      @include md {
+        width: 97%;
+        float: right;
+      }
+    }
+  }
+
+  .form-control {
+    @include placeholder($color: $gray);
+  }
+  .form-control:focus {
+    border-color: $brand-primary;
+  }
+  .btn {
+    color: $gray-base;
+    font-size: 14px;
+    line-height: 12px;
+
+    @include sm {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  .text-danger {
+    padding: 5px;
+    color: $brand-danger;
+    line-height: 15px;
+    font-size: 12px;
   }
 }

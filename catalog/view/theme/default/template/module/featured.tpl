@@ -1,8 +1,7 @@
 <div class="featured-module">
     <div class="row">
         <div class="col-sm-12 col-md-9 col-md-push-3">
-            <div class="h1"><?php echo $heading_title; ?></div>
-            <div class="row">
+            <div class="h1 col-sm-12"><?php echo $heading_title; ?></div>
                 <?php foreach ($products as $product) { ?>
                 <div class="product-layout col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <div class="product-thumb">
@@ -62,7 +61,6 @@
                         </span>
                     </a>
                 </div>
-            </div>
 
 
         </div>

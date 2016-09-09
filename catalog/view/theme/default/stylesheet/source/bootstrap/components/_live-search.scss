@@ -1,0 +1,16 @@
+#live-search {
+  height: 50px;
+  width: 50px;
+  .product-image {
+    @include sm {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  .product-image {
+    height: 50px;
+    @include sm {
+      height: 70px;
+    }
+  }
+}

@@ -50,7 +50,7 @@
                                             <div style="margin-top: 12px;"><strong><?php echo $column_quantity; ?></strong></div>
                                             <div class="number clearfix">
                                                 <span class="minus">-</span>
-                                                <input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>"  class="itms-quantity" />
+                                                <input type="text" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>"  class="itms-quantity" />
                                                 <span class="plus">+</span>
                                             </div>
                                             <div style="margin-top: 12px;"><strong><?php echo $column_total; ?></strong></div>
@@ -61,7 +61,7 @@
                                     <td class="text-center  hidden-xs cart-table-quantity">
 										<div class="number clearfix">
 											<span class="minus">-</span>
-											<input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>"  class="itms-quantity" />
+											<input type="text" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>"  class="itms-quantity" />
 											<span class="plus">+</span>
 										</div>
 									</td>
@@ -166,7 +166,10 @@
 					</div>
 				</div>
 
-            <!-- <div class="row" id="checkout-form">
+
+
+
+            <div class="row" id="checkout-form">
                 <div class="<?php echo $settings['buy_form_design']?'col-sm-6 col-sm-offset-3':'col-sm-6' ?>">
                     <?php if($settings['buy_form_headings']){ ?>
                     <div class="form-group">
@@ -565,7 +568,8 @@
                         </div>
                     <?php } ?>
                 </div>
-            </div> --> <!--- id="checkout-form" ----->
+            </div>  <!--- id="checkout-form" ----->
+
         </div>
     </div>
 
@@ -788,9 +792,9 @@ cart.remove = function(key) {
     }
     function addWarning(text) {
         $('#checkout-form .alert').remove();
-        $('#checkout-form').prepend('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' + text + '</div>');
+        $('#checkout-form').prepend('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' + text + '</div>').animate({ right: "30px"} , 4000);
         $('html, body').animate({
-            scrollTop: $("#checkout-form").offset().top - 15
+            //scrollTop: $("#checkout-form").offset().top - 15
         }, {
             duration: 500,
             complete: function() {
@@ -839,12 +843,13 @@ cart.remove = function(key) {
 			count = count < 1 ? 1 : count;
 			$input.val(count);
 			$input.change();
-            var total = $(this).parent().parent().parent().find('.cart-table-total').text();
-            var curr = total.substr(total.indexOf(' '), total.length),
-                price = parseFloat(($(this).parent().parent().parent().find('.cart-table-price').text()).replace(',','')),
-                result = (count * price).toFixed(2) + curr;
-            $(this).parent().parent().parent().find('.cart-table-total').text(result);
-            updateTotalAmount();
+//            var total = $(this).parent().parent().parent().find('.cart-table-total').text();
+//            var curr = total.substr(total.indexOf(' '), total.length),
+//                price = parseFloat(($(this).parent().parent().parent().find('.cart-table-price').text()).replace(',','')),
+//                result = (count * price).toFixed(2) + curr;
+//            $(this).parent().parent().parent().find('.cart-table-total').text(result);
+//            updateTotalAmount();
+            $('form').trigger('submit');
 			return false;
 		});
 		$('span.plus').click(function () {
@@ -852,12 +857,13 @@ cart.remove = function(key) {
             var count = parseInt($input.val()) + 1;
 			$input.val(count);
 			$input.change();
-            var total = $(this).parent().parent().parent().find('.cart-table-total').text();
-            var curr = total.substr(total.indexOf(' '), total.length),
-                    price = parseFloat(($(this).parent().parent().parent().find('.cart-table-price').text()).replace(',','')),
-                    result = (count * price).toFixed(2) + curr;
-            $(this).parent().parent().parent().find('.cart-table-total').text(result);
-            updateTotalAmount();
+//            var total = $(this).parent().parent().parent().find('.cart-table-total').text();
+//            var curr = total.substr(total.indexOf(' '), total.length),
+//                    price = parseFloat(($(this).parent().parent().parent().find('.cart-table-price').text()).replace(',','')),
+//                    result = (count * price).toFixed(2) + curr;
+//            $(this).parent().parent().parent().find('.cart-table-total').text(result);
+//            updateTotalAmount();
+            $('form').trigger('submit');
 			return false;
 		});
         $('#place-order').click(function () {

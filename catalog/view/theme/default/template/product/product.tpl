@@ -616,7 +616,7 @@
         </div> -->
       </div>
       <?php if ($products) { ?>
-
+<div class="container">
       <div class="row">
 		  <h3><?php echo $text_related; ?></h3>
 		  <div class="owl-carousel goods-related-slider" id="goods-related-slider">
@@ -760,6 +760,7 @@
       <?php } ?>
 	  </div>
       <?php echo $content_bottom; ?>
+</div>
 <!-- latest
 </div>
 -->

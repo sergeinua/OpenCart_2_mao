@@ -71,30 +71,6 @@
   }
 }
 
-
-/*.catalog-link {
-  display: block;
-  text-align: center;
-  background-color: transparent;
-  margin: 0 24px;
-  padding: 0 24px;
-  font-size: 14px;
-  line-height: 36px;
-  border: 2px solid $brand-primary-hover;
-  text-transform: uppercase;
-  transition: $transition;
-
-  &:active,
-  &:hover {
-    color: $brand-primary-hover;
-  }
-
-  .fa {
-    transition: transform .3s ease;
-  }
-}*/
-
-
 .nav-menu-wrapper {
   padding: 24px 0;
 
@@ -118,7 +94,6 @@
     .fa {
       transition: $transition;
     }
-
   }
 
   &.open {

@@ -30,6 +30,43 @@
   }
 }
 
+.top-filter {
+  margin-bottom: 12px;
+
+  .top-filter-itm {
+    display: inline-block;
+    float: left;
+    width: 33%;
+    text-align: center;
+    color: $global-color;
+    padding: 24px 0;
+
+    @include sm {
+      width: 14%;
+    }
+
+    img {
+      display: inline-block;
+      width: 30px;
+
+      @include sm {
+        width: 60px;
+      }
+    }
+
+    span {
+      display: block;
+      font-size: 12px;
+      line-height: 24px;
+
+      @include sm {
+        font-size: 14px;
+        line-height: 32px;
+      }
+    }
+  }
+}
+
 .model-goods-list {
 
   .model-product-thumb {

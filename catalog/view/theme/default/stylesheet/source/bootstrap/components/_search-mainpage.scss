@@ -1,10 +1,10 @@
 #search-col{
+  z-index: 999;
   will-change: position, width;
   transition: position $a-transition, width $a-transition;
 
   @include max-lg{
     position: relative;
-    z-index: 999;
   }
 
   &.active{

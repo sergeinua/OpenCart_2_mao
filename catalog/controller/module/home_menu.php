@@ -135,6 +135,7 @@ class ControllerModuleHomeMenu extends Controller {
 
         $results = $this->model_catalog_category->getCategories($category_id);
 
+
         foreach ($results as $result) {
             $filter_data = array(
                 'filter_category_id'  => $result['category_id'],

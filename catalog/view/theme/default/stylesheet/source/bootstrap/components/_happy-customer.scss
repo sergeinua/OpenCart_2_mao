@@ -4,8 +4,19 @@
   font-family: $font-family-heading;
   color: $gray-light;
 
-  @include md{
-    top: 53px;
+  @include lg{
+    //margin-top: 60px;
+
+    > div {
+      height: 480px;
+    }
+
+    img {
+      height: 480px;
+      //margin-top: 60px;
+      object-fit: contain;
+      object-position: center bottom;
+    }
   }
 
   img{
@@ -18,16 +29,16 @@
     left: -40px;
 
     @include max-sm{
-      top: 70px;
+      top: 20px;
     }
 
     @include sm-md{
-      top: 110px;
+      top: 50px;
       left: -50px;
     }
 
     @include md{
-      left: -70px;
+      left: -20px;
     }
 
     @include lg{
@@ -39,6 +50,10 @@
     position: relative;
     font-size: $font-size-large + 2; // 20px
     line-height: 1;
+
+    @media screen and (min-width: 666px) {
+      font-size: 40px;
+    }
 
     @include max-sm{
       width: 140%;
@@ -53,13 +68,21 @@
       top: 50px;
       font-size: ($font-size-h3 * 2);
     }
+
+    @include lg{
+      top: 100px;
+    }
   }
 
   &-number{
     position: relative;
     display: block;
-    font-size: 96px;
+    font-size: 100px;
     line-height: 1;
+
+    @media screen and (min-width: 666px) {
+      font-size: 200px;
+    }
 
     @include sm{
       top: 20px;
@@ -70,11 +93,18 @@
     @include md{
       top: 20px;
       margin-left: -13px;
-      font-size: 390px;
+      font-size: 340px;
+      line-height: 320px;
     }
 
     @include lg{
+      top: 100px;
       font-size: ($font-size-h3 * 14);
+      line-height: 380px;
+    }
+
+    @include xlg{
+      margin-left: -60px;
     }
   }
 

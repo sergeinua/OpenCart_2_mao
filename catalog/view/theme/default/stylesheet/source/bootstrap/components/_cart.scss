@@ -135,7 +135,12 @@ body.checkout-buy {
       a {
         color: $gray-base;
       }
-
+      .cart-quantity {
+        color: $gray-base;
+      }
+      .cart-product-sum {
+        color: $gray-base;
+      }
       .btn-close {
         opacity: 1;
       }

@@ -1,4 +1,9 @@
 .html-block-homepage{
+  margin-top: 70px;
+
+  @include md {
+    margin-top: 110px;
+  }
 
   h1,.h1,
   h2,.h2,

@@ -12,9 +12,44 @@
     <?php $class = 'col-md-12'; ?>
     <?php } ?>
 
+	  <h2><?php echo $heading_title; ?></h2>
+
+	  <div id="top-filter" class="col-md-9 top-filter">
+		  <div class="clearfix">
+			  <a href="#" class="top-filter-itm">
+				  <img src="./catalog/view/theme/default/image/top-filter/accessories.png" alt="accessories">
+				  <span>Аксессуары</span>
+			  </a>
+			  <a href="#" class="top-filter-itm">
+				  <img src="./catalog/view/theme/default/image/top-filter/engine.png" alt="engine">
+				  <span>Двигатель</span>
+			  </a>
+			  <a href="#" class="top-filter-itm">
+				  <img src="./catalog/view/theme/default/image/top-filter/body.png" alt="body">
+				  <span>Кузов</span>
+			  </a>
+			  <a href="#" class="top-filter-itm">
+				  <img src="./catalog/view/theme/default/image/top-filter/salon.png" alt="salon">
+				  <span>Салон</span>
+			  </a>
+			  <a href="#" class="top-filter-itm">
+				  <img src="./catalog/view/theme/default/image/top-filter/transmission.png" alt="transmission">
+				  <span>Трансмиссия</span>
+			  </a>
+			  <a href="#" class="top-filter-itm">
+				  <img src="./catalog/view/theme/default/image/top-filter/chassis.png" alt="chassis">
+				  <span>Ходовая</span>
+			  </a>
+			  <a href="#" class="top-filter-itm">
+				  <img src="./catalog/view/theme/default/image/top-filter/electric.png" alt="electric">
+				  <span>Электрика</span>
+			  </a>
+		  </div>
+
+	  </div>
+
 	  <div id="content" class="<?php echo $class; ?>">
 
-      <h2><?php echo $heading_title; ?></h2>
 
       <?php if (isset($categories)) : ?>
 

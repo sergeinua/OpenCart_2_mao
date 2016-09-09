@@ -2,7 +2,7 @@
     <div class="nav-menu-wrapper">
         <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
         </a>
-        <nav id="menu2" class="dropdown-menu nav-menu">
+        <nav id="menu" class="dropdown-menu nav-menu">
             <ul class="nav">
 
                 <?php foreach ($menu_categories as $item) : ?>

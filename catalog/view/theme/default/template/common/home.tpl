@@ -10,7 +10,7 @@
         <?php } else { ?>
         <?php $class = 'col-sm-12'; ?>
         <?php } ?>
-        <div id="content" class="<?php echo $class; ?>">
+        <div id="content" class="col-sm-9 col-md-6">
 
             <?php echo $content_top; ?>
 
@@ -20,37 +20,36 @@
             <?php echo $column_right; ?>
 
         <?php endif; ?>
-
+    </div>
         <div class="row">
 
             <?php echo $content_bottom; ?>
 
             <?php if (isset($category_home)) : ?>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="catalog-homepage-links">
+                            <div class="row">
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="catalog-homepage-links">
-                        <div class="row">
+                                <?php foreach ($category_home as $item) : ?>
 
-                            <?php foreach ($category_home as $item) : ?>
+                                <div class="col-xs-6 col-sm-4 col-md-3 catalog-homepage-links-grid">
+                                    <a href="<?= $item['link']; ?>" class="catalog-link" role="link">
+                                        <span class="image" style="background-image: url(<?= $item['img']; ?>)"></span>
+                                        <span class="title"><?= $item[0]['name']; ?></span>
+                                    </a>
+                                </div>
 
-                            <div class="col-xs-6 col-sm-4 col-md-3 catalog-homepage-links-grid">
-                                <a href="<?= $item['link']; ?>" class="catalog-link" role="link">
-                                    <span class="image" style="background-image: url(<?= $item['img']; ?>)"></span>
-                                    <span class="title"><?= $item[0]['name']; ?></span>
-                                </a>
+                                <?php endforeach; ?>
+
                             </div>
-
-                            <?php endforeach; ?>
-
                         </div>
                     </div>
                 </div>
-            </div>
 
             <?php endif; ?>
 
-            <div class="html-block-homepage">
+            <div class="html-block-homepage container">
                 <div class="row">
                     <div class="col-xs-12 col-lg-5 col-lg-push-7 html-text-image">
                         <img src="./catalog/view/theme/default/image/geely-seo.png" alt="" class="img-responsive">
@@ -90,7 +89,7 @@
                     </div>
                 </div>
                 <div class="row happy-customer">
-                    <div class="col-xs-7 col-sm-6 col-md-5 col-lg-4 col-lg-push-1">
+                    <div class="col-xs-7 col-sm-6 col-md-push-1 col-md-5 col-lg-4 col-lg-push-1">
                         <img src="./catalog/view/theme/default/image/happy_customer.png" alt="" class="img-responsive">
                     </div>
                     <div class="col-xs-5 col-sm-6 col-md-6 col-md-pull-1 col-lg-6 happy-customer-text">
@@ -104,7 +103,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </div>
 
 <?php echo $footer; ?>
