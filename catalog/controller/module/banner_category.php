@@ -14,7 +14,8 @@ class ControllerModuleBannerCategory extends Controller
             if (is_file(DIR_IMAGE . $result['img_path'])) {
                 $data['modules'][] = array(
                     'link'  => $result['href'],
-                    'image' => $this->model_tool_image->resize($result['img_path'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'))
+//                    'image' => $this->model_tool_image->resize($result['img_path'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'))
+                    'image' => $this->model_tool_image->resize($result['img_path'], '300', '240')
                 );
             }
         }

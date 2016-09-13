@@ -22,7 +22,6 @@
         <?php if ($count > 1 || count($first['values']) > 1) { ?>
 		  <div class="text-center" style="margin-top: 18px;">
 			  <a rel="nofollow" href="<?php echo $link; ?>" class="btn btn-hover btn-xs btn-ghost"><span>&times;  </span><?php echo $text_cancel_all; ?></a>
-
 		  </div>
         <?php } ?>
       </div>

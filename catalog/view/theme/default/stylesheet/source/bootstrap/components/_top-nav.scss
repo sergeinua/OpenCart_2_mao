@@ -126,7 +126,7 @@
 }
 
 .btn-nav{
-  position: relative;
+  position: absolute;
   left: -10px;
   @include size(24px 16px);
   padding: 24px;
@@ -137,7 +137,7 @@
   background-color: $footer-text-bg;
 
   .span-overlay {
-    @include middle-center;
+    @include absolute(50% null null 50%);
     @include size(24px 16px);
   }
 
@@ -174,8 +174,6 @@
   }
 
   &.active{
-    //position: fixed;
-    //left: 10px;
     background: $gray-base;
     top: -2px;
     span {

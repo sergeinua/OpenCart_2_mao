@@ -33,8 +33,8 @@ $(document).ready(function() {
 	var $searchOverlay = $('.search-overlay');
 	var $navBtn	= $('#nav-btn');
 	var $navMenu = $('#menu');
-	var $navMenu2 = $('#menu2');
-	var $navMenu3 = $('#menu3');
+	//var $navMenu2 = $('#menu2');
+	///var $navMenu3 = $('#menu3');
 	var $searchCol	= $('#search-col');
 	var $content	= $("#content");
 
@@ -42,8 +42,8 @@ $(document).ready(function() {
 		$(this).toggleClass('active');
 		$body.toggleClass('overflow-hidden-fixed');
 		$navMenu.toggleClass('open');
-		$navMenu2.toggleClass('open');
-		$navMenu3.toggleClass('open');
+		//$navMenu2.toggleClass('open');
+		//$navMenu3.toggleClass('open');
 	});
 
 

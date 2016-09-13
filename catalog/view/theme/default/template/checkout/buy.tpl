@@ -101,15 +101,21 @@
                         </div>
                         <div class="form-group required">
                             <label class="control-label" for="input-payment-firstname">Имя и Фамилия</label>
+                            <!--
                             <input type="text" name="firstname" value="" id="input-payment-firstname" class="form-control">
+                            -->
+                            <input type="text" name="firstname" value="<?php echo $firstname; ?>" id="input-payment-firstname" class="form-control" />
                         </div>
                         <div class="form-group required">
                             <label class="control-label" for="input-payment-telephone">Телефон</label>
+                            <!--
                             <input type="text" name="telephone" value="" id="input-payment-telephone" class="form-control">
+                            -->
+                            <input type="text" name="telephone" value="<?php echo $telephone; ?>" id="input-payment-telephone" class="form-control" />
                         </div>
                         <div class="form-group required">
                             <label class="control-label" for="input-payment-address">Адрес</label>
-                            <input type="text" name="telephone" value="" id="input-payment-address" class="form-control">
+                            <input type="text" name="address_1" value="" id="input-payment-address" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="input-payment-email">E-Mail</label>
@@ -117,11 +123,11 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="input-payment-password">Пароль</label>
-                            <input type="password" name="email" value="" id="input-payment-password" class="form-control">
+                            <input type="password" name="password" value="" id="input-payment-password" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="input-payment-confirm-password">Подтвердите пароль</label>
-                            <input type="password" name="email" value="" id="input-payment-confirm-password" class="form-control">
+                            <input type="password" name="password_confirm" value="" id="input-payment-confirm-password" class="form-control">
                         </div>
                     </div>
 
@@ -169,7 +175,8 @@
 
 
 
-            <div class="row" id="checkout-form">
+
+            <div class="row" id="checkout-form" style="display: none">
                 <div class="<?php echo $settings['buy_form_design']?'col-sm-6 col-sm-offset-3':'col-sm-6' ?>">
                     <?php if($settings['buy_form_headings']){ ?>
                     <div class="form-group">
@@ -197,7 +204,9 @@
                     <?php if($settings['buy_firstname_status']){ ?>
                     <div class="form-group<?php if($settings['buy_firstname_required']){ ?> required<?php } ?>">
                         <label class="control-label" for="input-payment-firstname"><?php echo $entry_firstname; ?></label>
-                        <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
+                        <!--
+                        <input type="text" name="firstname" value="<!?php echo $firstname; ?>" placeholder="<!?php echo $entry_firstname; ?>" id="input-payment-firstname" class="form-control" />
+                        -->
                     </div>
                     <?php } ?>
                     <?php if($settings['buy_lastname_status']){ ?>
@@ -208,14 +217,19 @@
                     <?php } ?>
                     <?php if($settings['buy_email_status']){ ?>
                     <div class="form-group<?php if($settings['buy_email_required']){ ?> required<?php } ?>">
-                        <label class="control-label" for="input-payment-email"><?php echo $entry_email; ?></label>
-                        <input type="text" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-payment-email" class="form-control" />
+                        <!--
+                        <label class="control-label" for="input-payment-email"><!?php echo $entry_email; ?></label>
+
+                        <input type="text" name="email" value="<!?php echo $email; ?>" placeholder="<!?php echo $entry_email; ?>" id="input-payment-email" class="form-control" />
+                        -->
                     </div>
                     <?php } ?>
                     <?php if($settings['buy_telephone_status']){ ?>
                     <div class="form-group<?php if($settings['buy_telephone_required']){ ?> required<?php } ?>">
                         <label class="control-label" for="input-payment-telephone"><?php echo $entry_telephone; ?></label>
-                        <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-payment-telephone" class="form-control" />
+                        <!--
+                        <input type="text" name="telephone" value="<!?php echo $telephone; ?>" placeholder="<!?php echo $entry_telephone; ?>" id="input-payment-telephone" class="form-control" />
+                        -->
                     </div>
                     <?php } ?>
                     <?php if($settings['buy_fax_status']){ ?>
@@ -348,6 +362,10 @@
                         <h2><span class="label label-primary">2</span> <?php echo $settings['buy_heading_2'.$lang]; ?></h2>
                     </div>
                     <?php } ?>
+
+
+
+
                     <?php if($settings['buy_country_status']){ ?>
                     <div class="form-group<?php if($settings['buy_country_required']){ ?> required<?php } ?>" id="payment-country">
                         <label class="control-label" for="input-payment-country"><?php echo $entry_country; ?></label>
@@ -369,6 +387,7 @@
                         </select>
                     </div>
                     <?php } ?>
+
                     <?php if($settings['buy_zone_status']){ ?>
                     <div class="form-group has-feedback<?php if($settings['buy_zone_required']){ ?> required<?php } ?>" id="payment-zone">
                         <label class="control-label" for="input-payment-zone"><?php echo $entry_zone; ?></label>
@@ -397,7 +416,9 @@
                     <?php if($settings['buy_address_1_status']){ ?>
                     <div class="form-group<?php if($settings['buy_address_1_required']){ ?> required<?php } ?>">
                         <label class="control-label" for="input-payment-address-1"><?php echo $entry_address_1; ?></label>
-                        <input type="text" name="address_1" value="<?php echo $address_1; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-payment-address-1" class="form-control" />
+                        <!--
+                        <input type="text" name="address_1" value="<!?php echo $address_1; ?>" placeholder="<!?php echo $entry_address_1; ?>" id="input-payment-address-1" class="form-control" />
+                        -->
                     </div>
                     <?php } ?>
                     <?php if($settings['buy_address_2_status']){ ?>
@@ -406,6 +427,9 @@
                         <input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-payment-address-2" class="form-control" />
                     </div>
                     <?php } ?>
+
+
+
                     <?php foreach ($custom_fields as $custom_field) { ?>
                         <?php if ($custom_field['location'] == 'address') { ?>
                             <?php if ($custom_field['type'] == 'select') { ?>
@@ -539,7 +563,9 @@
                     <br />
                     <div class="form-group<?php if($settings['buy_comment_required']){ ?> required<?php } ?>">
                         <label class="control-label" for="input-comment"><strong><?php echo $entry_comment; ?></strong></label>
-                        <textarea name="comment" rows="8" class="form-control" id="input-comment"><?php echo $comment; ?></textarea>
+                        <!--
+                        <textarea name="comment" rows="8" class="form-control" id="input-comment"><!?php echo $comment; ?></textarea>
+                        -->
                     </div>
                     <?php } ?>
                     <?php if ($text_agree) { ?>

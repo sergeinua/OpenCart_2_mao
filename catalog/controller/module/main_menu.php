@@ -149,7 +149,7 @@ class ControllerModuleMainMenu extends Controller {
         }
 
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/main_menu.tpl')) {
-            return $this->load->view($this->config->get('config_template') . '//template/module/main_menu.tpl', $data);
+            return $this->load->view($this->config->get('config_template') . '/template/module/main_menu.tpl', $data);
         } else {
             throw new Exception('What the fuck? Where\'s the rest of my files?');
         }

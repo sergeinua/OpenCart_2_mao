@@ -12,7 +12,7 @@
   @include max-md {
     transform: translateX(-100%);
     height: 100%;
-    width: 50%;
+    width: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +27,6 @@
   }
 
   @include sm-md{
-    @include size(70% 100%);
     padding-top: 70px;
   }
 }
@@ -380,4 +379,119 @@
   margin-top: -1px;
   // Remove the top rounded corners here since there is a hard edge above the menu
   @include border-top-radius(0);
+}
+
+
+
+// Home-menu
+
+.home-menu {
+  position: relative;
+  padding: 12px 0;
+  z-index: 10;
+
+  @include max-md {
+    transform: translateX(-100%);
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include transition-willChange(transform);
+    padding-top: 50px;
+
+    &.open {
+      transform: translateX(0);
+      z-index: 1000;
+    }
+  }
+
+  @include sm-md{
+    padding-top: 70px;
+  }
+}
+
+nav#menu ul li {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+nav#menu ul li.active {
+  background: $brand-primary;
+}
+nav#menu ul li.has-submenu:hover ul[class*="submenu"] {
+  transform: translateX(100%);
+  opacity: 1;
+}
+nav#menu ul li.has-submenu > span {
+  position: relative;
+
+  &:after {
+      content: "\f178";
+      position: absolute;
+      font-family: FontAwesome;
+      color: $global-color;
+      top: 0;
+      right: 12px;
+      transform: translateX(-50%);
+      opacity: 0;
+      font-size: 14px;
+      line-height: 30px;
+      will-change: transform, opacity;
+      transition: transform .15s $a-transition, opacity .15s $a-transition;
+
+    @include sm {
+      font-size: $font-size-large;
+      line-height: 40px;
+      }
+    }
+}
+nav#menu ul li.has-submenu:hover > span {
+  @include sm {
+    &:after {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+nav#menu ul li span {
+  display: block;
+}
+
+nav#menu ul li span:hover {
+  background: $brand-primary;
+  cursor: pointer;
+
+  a {
+    color: $global-color;
+  }
+}
+
+nav#navigation ul li span .category-name {
+  display: inline-block;
+}
+
+nav#menu ul li span a {
+  display: inline-block;
+  padding: $nav-link-padding;
+  font-size: 14px;
+
+  @include sm {
+    font-size: $font-size-large;
+  }
+}
+nav#menu ul li ul[class*="submenu"] {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 12px 0;
+  transform: translateX(-200%);
+  opacity: 0;
+  transition: width .3s ease, opacity .3s ease ;
+  z-index:2;
+}
+
+nav#menu ul li ul[class*="submenu"] li span:hover {
+  background: $brand-primary;
 }

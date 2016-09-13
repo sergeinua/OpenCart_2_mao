@@ -195,7 +195,8 @@ class ControllerCheckoutBuy extends Controller {
                     'reward' => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
                     'price' => $price,
                     'total' => $total,
-                    'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+                    'href' => $this->url->link('product/product', 'product_id=' . $product['product_id']),
+                    'product_id' => $product['product_id']
                 );
             }
 
@@ -553,7 +554,7 @@ class ControllerCheckoutBuy extends Controller {
                     $data[$extension] = $this->load->controller('total/' . $extension);
                 }
             }
-            
+
             $data['column_left'] = $this->load->controller('common/column_left');
             $data['column_right'] = $this->load->controller('common/column_right');
             $data['content_top'] = $this->load->controller('common/content_top');
@@ -744,25 +745,26 @@ class ControllerCheckoutBuy extends Controller {
 
             $this->load->model('localisation/country');
 
-            $country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
+//            $country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
+//            $country_info = $this->model_localisation_country->getCountry('1');
 
-            if ($settings['buy_postcode_status'] && $settings['buy_postcode_required'] && $country_info && $country_info['postcode_required'] && (!isset($this->request->post['postcode']) || utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
-                $json['error']['postcode'] = $this->language->get('error_postcode');
-            }
-
-            if ($settings['buy_country_status'] && $settings['buy_country_required'] && $this->request->post['country_id'] == '') {
-                $json['error']['country'] = $this->language->get('error_country');
-            }
-
-            if ($settings['buy_zone_status'] && $settings['buy_zone_required'] && (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '')) {
-                $json['error']['zone'] = $this->language->get('error_zone');
-            }
-            if ($settings['buy_comment_status'] && $settings['buy_comment_required'] && (!isset($this->request->post['comment']) || $this->request->post['comment'] == '')) {
-                $json['error']['comment'] = $this->language->get('error_comment');
-            }
-            if ($settings['buy_company_status'] && $settings['buy_company_required'] && (!isset($this->request->post['company']) || $this->request->post['company'] == '')) {
-                $json['error']['company'] = $this->language->get('error_company');
-            }
+//            if ($settings['buy_postcode_status'] && $settings['buy_postcode_required'] && $country_info && $country_info['postcode_required'] && (!isset($this->request->post['postcode']) || utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
+//                $json['error']['postcode'] = $this->language->get('error_postcode');
+//            }
+//
+//            if ($settings['buy_country_status'] && $settings['buy_country_required'] && $this->request->post['country_id'] == '') {
+//                $json['error']['country'] = $this->language->get('error_country');
+//            }
+//
+//            if ($settings['buy_zone_status'] && $settings['buy_zone_required'] && (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '')) {
+//                $json['error']['zone'] = $this->language->get('error_zone');
+//            }
+//            if ($settings['buy_comment_status'] && $settings['buy_comment_required'] && (!isset($this->request->post['comment']) || $this->request->post['comment'] == '')) {
+//                $json['error']['comment'] = $this->language->get('error_comment');
+//            }
+//            if ($settings['buy_company_status'] && $settings['buy_company_required'] && (!isset($this->request->post['company']) || $this->request->post['company'] == '')) {
+//                $json['error']['company'] = $this->language->get('error_company');
+//            }
 
             // Customer Group
             if (isset($this->request->post['customer_group_id']) && is_array($this->config->get('config_customer_group_display')) && in_array($this->request->post['customer_group_id'], $this->config->get('config_customer_group_display'))) {
@@ -787,25 +789,25 @@ class ControllerCheckoutBuy extends Controller {
             } else {
                 $shipping = explode('.', $this->request->post['shipping_method']);
 
-                if (!isset($shipping[0]) || !isset($shipping[1]) || !isset($this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]])) {
-                    $json['error']['warning'] = $this->language->get('error_shipping');
-                }
+//   -----             if (!isset($shipping[0]) || !isset($shipping[1]) || !isset($this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]])) {
+//                    $json['error']['warning'] = $this->language->get('error_shipping');
+//                }
             }
 
-            if (!isset($this->request->post['payment_method'])) {
-                $json['error']['warning'] = $this->language->get('error_payment');
-            } elseif (!isset($this->session->data['payment_methods'][$this->request->post['payment_method']])) {
-                $json['error']['warning'] = $this->language->get('error_payment');
-            }
+//            if (!isset($this->request->post['payment_method'])) {
+//                $json['error']['warning'] = $this->language->get('error_payment');
+//            } elseif (!isset($this->session->data['payment_methods'][$this->request->post['payment_method']])) {
+//                $json['error']['warning'] = $this->language->get('error_payment');
+//            }
 
             if ($this->config->get('config_checkout_id')) {
                 $this->load->model('catalog/information');
 
                 $information_info = $this->model_catalog_information->getInformation($this->config->get('config_checkout_id'));
 
-                if ($information_info && !isset($this->request->post['agree'])) {
-                    $json['error']['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
-                }
+//                if ($information_info && !isset($this->request->post['agree'])) {
+//                    $json['error']['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
+//                }
             }
             
             if ($settings['buy_min_order_sum'] && $settings['buy_min_order_sum'] && $this->cart->getTotal() < $settings['buy_min_order_sum']) {
