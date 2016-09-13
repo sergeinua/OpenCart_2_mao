@@ -2,104 +2,249 @@
 
 <div class="left-panel-wrapper">
 
-  <!-- TODO: вывести по-умному
-
-        -->
+  <!-- TODO: вывести   -->
 
 
   <div id="logo">
     <a href="http://mao.reclamare.ua/index.php?route=common/home"><img src="./catalog/view/theme/default/image/logo_shadow.png" title="MAO" alt="MAO" class="img-responsive" /></a>
   </div>
-<div class="panel-light">
+	<div class="panel-light">
 		<div class="nav-menu-wrapper">
-			<a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
-			</a>
-			<nav id="menu3" class="dropdown-menu nav-menu">
+			<a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог <span class="hidden-xs">товаров</span>  <i class="fa fa-angle-down"></i></a>
+			<nav id="" class="contacts-menu dropdown-menu panel-light">
 				<ul class="nav">
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/desktops" class="">Great Wall</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/laptop-notebook" class="">Chery</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/laptop-notebook/monitor">Chery Amulet (A11-A15) (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/laptop-notebook/web-camera">Chery QQ (S11)  (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=18_35">Chery Tiggo (T11) (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=18_36">Chery Elara (Fora)(A21) (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=18_63">Chery Kimo (S12) (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/laptop-notebook/mouse">Chery Jaggi (S21) (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=18_65">Chery Eastar (B11) (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=18_121">Chery Cross Eastar (B14) (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=18_125">Chery M11 (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=18_123">Chery A13 / Zaz Forza (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
-
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/laptop-notebook" class="">Lifan</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-
-
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/component" class="">Geely</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_523"> Geely CK-2 (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_67">Geely CK (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_69">Geely MK (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_71">Geely FC / SL (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_129">Geely EMGRAND EC-7/EC7RV (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_431">Geely-MK-2 / MK CROSS (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
-
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/component" class="">Chery</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-								<li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_59">Chery A13 / Zaz Forza (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_61">Chery Cross Eastar (B14) (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_62">Chery Eastar (B11) (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_63">Chery Jaggi (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=25_60">Chery M11 (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/component/mouse">Chery Amulet (A11-A15) (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/component/scanner">Chery Elara (Fora) (A21) (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/component/web-camera">Chery Kimo (S12 ) (0)</a></li>
-								<li><a href="http://mao.reclamare.ua/component/monitor">Chery QQ (S11) (2)</a></li>
-								<li><a href="http://mao.reclamare.ua/component/printer">Chery Tiggo (T11) (0)</a></li>
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/smartphone" class="">Great Wall</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=24_131">Great Wall Deer (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=24_75">Great Wall Hover (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=24_77">Great Wall Safe \Pegasus (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=24_79">Great Wall Wingle (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
-
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/tablet" class="">Kia</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/tablet" class="">Lifan</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=57_133">Lifan 520 (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
-
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/software" class="">Hyundai</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-
-
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/camera" class="">BYD</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=33_141">BYD F3 (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=33_143">BYD Flye (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
-
-
-
-
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/smartphone" class="">Chevrolet</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=625" class="">Daewoo</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=625_627">Daewoo Lanos (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=625_639">Daewoo Matiz (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=625_651">Daewoo Nexia (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=625_663">Daewoo Nubira (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=625_675">Daewoo Sens (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
-
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/camera" class="">BYD</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-
-
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=563" class="">Chevrolet</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=563_565">Chevrolet Aveo (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=563_577">Chevrolet Captiva (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=563_589">Chevrolet Cruze (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=563_601">Chevrolet Evanda (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=563_613">Chevrolet Lacetti (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
-
 					<li class="has-submenu">
-						<a href="http://mao.reclamare.ua/mp3-players" class="">Daewoo</a>
-						<div class="submenu panel-light">
-							<ul class="list-unstyled">
-
-							</ul>
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687" class="">Hyundai</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_689">Hyundai Accent (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_701">Hyundai Coupe (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_713">Hyundai Elantra (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_725">Hyundai Getz (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_737">Hyundai i10 (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_749">Hyundai i20 (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_761">Hyundai i30 (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_773">Hyundai IX35 (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_785">Hyundai Santa Fe (0)</a>
+									</li
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_797">Hyundai Sonata (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=687_809">Hyundai Tucson (0)</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="has-submenu">
+						<div class="h-s-after">
+							<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821" class="">KIA</a>
+							<div class="submenu panel-light">
+								<ul class="nav">
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821_823">KIA Carens (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821_835">KIA Ceed (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821_847">KIA Cerato (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821_859">KIA Magentis (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821_871">KIA Rio (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821_883">KIA Sorento (0)</a>
+									</li>
+									<li>
+										<a href="http://mao.reclamare.ua/index.php?route=product/category&amp;path=821_895">KIA Sportage (0)</a>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
 				</ul>

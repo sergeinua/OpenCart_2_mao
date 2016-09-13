@@ -5,7 +5,7 @@
 // Base class
 // --------------------------------------------------
 .nav-menu {
-  position: relative;
+  position: absolute;
   padding: 12px 0;
   z-index: 10;
 
@@ -33,152 +33,95 @@
 
 .nav {
   margin-bottom: 0;
-  padding-left: 0; // Override default ul/ol
+  padding-left: 0;
   list-style: none;
   @include clearfix;
 
+  > li{
+    &:hover {
+      div > a {
+        color: $global-color;
+      }
+    }
+  }
+
   li {
-    position: relative;
     display: block;
+    transition: background-color .15s ease;
 
     a {
-      position: relative;
-      display: block;
-      font-size: $font-size-large;
-      padding: $nav-link-padding;
-      overflow: hidden;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 30px;
+      margin-left: 15px;
       @include transition-willChange(color);
 
-      @include max-sm{
-        will-change: color, background-color;
-        transition: color $a-transition, background-color $a-transition;
-      }
-
       @include sm {
-        &:before {
-          content: '';
-          @include size(100%);
-          @include absolute(0 null null 0);
-          background-color: $brand-primary;
-          transform: translateX(-100%);
-          will-change: opacity, transform;
-          transition: opacity $a-transition, transform $a-transition;
-          z-index: -1;
-          opacity: 0;
-        }
+        font-size: $font-size-large;
+        line-height: 40px;
       }
+    }
 
-      &:hover {
-        text-decoration: none;
+    &:hover {
+      cursor: pointer;
+      background-color: $brand-primary;
+
+      >a {
         color: $global-color;
-
-        @include max-sm{
-          color: $global-color;
-          background-color: $brand-primary;
-        }
-
-        @include sm {
-          &:before {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
       }
     }
 
     &.has-submenu {
-      ul {
-        @include max-sm{
-          display: block;
-        }
-        li {
-          will-change: opacity, transform;
-          opacity: 0;
-          transition-duration: .15s;
-          transition-property: opacity, transform;
-          transition-timing-function: ease-in-out;
-          transform: translateX(-30%);
-        }
-      }
+      .h-s-after {
+        position: relative;
 
-      > a {
         &:after {
           content: "\f178";
+          position: absolute;
           font-family: FontAwesome;
-          @include absolute(50% 12px null null);
-          transform: translate(-50%, -50%);
-          font-size: $font-size-large;
+          color: $global-color;
+          top: 0;
+          right: 12px;
+          transform: translateX(-50%);
           opacity: 0;
+          font-size: 14px;
+          line-height: 30px;
           will-change: transform, opacity;
           transition: transform .15s $a-transition, opacity .15s $a-transition;
+
+          @include sm {
+            font-size: $font-size-large;
+            line-height: 40px;
+          }
         }
       }
 
       &:hover {
-        .submenu {
-          right: -100%;
-        }
-        li {
-          opacity: 1;
-        }
-
-        > a {
-          &:after {
-            opacity: 1;
-            transform: translate(0, -50%);
-          }
-        }
-        .submenu {
-          opacity: 1;
-          ul {
-            li {
+        .h-s-after {
+          @include sm {
+            &:after {
               transform: translateX(0);
               opacity: 1;
-
-              &:nth-of-type(1) {
-                transition-delay: .15s;
-              }
-              &:nth-of-type(2) {
-                transition-delay: .20s;
-              }
-              &:nth-of-type(3) {
-                transition-delay: .25s;
-              }
-              &:nth-of-type(4) {
-                transition-delay: .30s;
-              }
-              &:nth-of-type(5) {
-                transition-delay: .35s;
-              }
-              &:nth-of-type(6) {
-                transition-delay: .40s;
-              }
-              &:nth-of-type(7) {
-                transition-delay: .45s;
-              }
-              &:nth-of-type(8) {
-                transition-delay: .50s;
-              }
-              &:nth-of-type(9) {
-                transition-delay: .55s;
-              }
-              &:nth-of-type(10) {
-                transition-delay: .60s;
-              }
             }
           }
         }
       }
 
       .submenu {
-        @include absolute(-12px 0 null null);
-        will-change: opacity, right;
-        transition: opacity $a-transition, right $a-transition;
-        padding: 12px 0;
-        z-index: -1;
-        opacity: 0;
+        position: absolute;
+        top: 0;
         width: 100%;
-        overflow: hidden;
+        padding: 12px 0;
+        transform: translateX(-200%);
+        opacity: 0;
+        transition: width .3s ease, opacity .3s ease ;
+      }
+
+      &:hover {
+        .submenu {
+          transform: translateX(100%);
+          opacity: 1;
+        }
       }
     }
   }
@@ -409,89 +352,119 @@
   @include sm-md{
     padding-top: 70px;
   }
-}
 
-nav#menu ul li {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-nav#menu ul li.active {
-  background: $brand-primary;
-}
-nav#menu ul li.has-submenu:hover ul[class*="submenu"] {
-  transform: translateX(100%);
-  opacity: 1;
-}
-nav#menu ul li.has-submenu > span {
-  position: relative;
+  ul li {
+    display: block;
+    width: 100%;
+    @include transition-willChange(background);
 
-  &:after {
-      content: "\f178";
-      position: absolute;
-      font-family: FontAwesome;
-      color: $global-color;
-      top: 0;
-      right: 12px;
-      transform: translateX(-50%);
-      opacity: 0;
-      font-size: 14px;
-      line-height: 30px;
-      will-change: transform, opacity;
-      transition: transform .15s $a-transition, opacity .15s $a-transition;
+    &:hover {
+      background: $brand-primary;
+    }
 
-    @include sm {
-      font-size: $font-size-large;
-      line-height: 40px;
+    &.active {
+      background: $brand-primary;
+    }
+  }
+
+  ul li ul[class*="submenu"] {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 12px 0;
+    transform: translateX(-200%);
+    opacity: 0;
+    transition: width .3s ease, opacity .3s ease ;
+  }
+
+  ul li.has-submenu:hover ul[class*="submenu"] {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+
+  ul {
+    li.has-submenu {
+      .h-s-after {
+        position: relative;
+
+        &:after {
+          content: "\f178";
+          position: absolute;
+          font-family: FontAwesome;
+          color: $global-color;
+          top: 0;
+          right: 12px;
+          transform: translateX(-50%);
+          opacity: 0;
+          font-size: 14px;
+          line-height: 30px;
+          will-change: transform, opacity;
+          transition: transform .15s $a-transition, opacity .15s $a-transition;
+
+          @include sm {
+            font-size: $font-size-large;
+            line-height: 40px;
+          }
+        }
+      }
+
+      &:hover > .h-s-after {
+        @include sm {
+          &:after {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
       }
     }
-}
-nav#menu ul li.has-submenu:hover > span {
-  @include sm {
-    &:after {
-      transform: translateX(0);
-      opacity: 1;
+
+    li .h-s-after {
+
+      &:hover {
+        cursor: pointer;
+
+        >a {
+          color: $global-color;
+        }
+      }
+
+      a {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 30px;
+        margin-left: 15px;
+
+        @include sm {
+          line-height: 40px;
+          font-size: $font-size-large;
+        }
+      }
     }
   }
 }
 
-nav#menu ul li span {
-  display: block;
-}
-
-nav#menu ul li span:hover {
-  background: $brand-primary;
-  cursor: pointer;
-
-  a {
-    color: $global-color;
-  }
-}
-
-nav#navigation ul li span .category-name {
-  display: inline-block;
-}
-
-nav#menu ul li span a {
-  display: inline-block;
-  padding: $nav-link-padding;
-  font-size: 14px;
-
-  @include sm {
-    font-size: $font-size-large;
-  }
-}
-nav#menu ul li ul[class*="submenu"] {
-  position: absolute;
-  top: 0;
-  width: 100%;
+.main-menu {
+  position: relative;
   padding: 12px 0;
-  transform: translateX(-200%);
-  opacity: 0;
-  transition: width .3s ease, opacity .3s ease ;
-  z-index:2;
-}
+  z-index: 10;
 
-nav#menu ul li ul[class*="submenu"] li span:hover {
-  background: $brand-primary;
+  @include max-md {
+    transform: translateX(-100%);
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include transition-willChange(transform);
+    padding-top: 50px;
+
+    &.open {
+      transform: translateX(0);
+      z-index: 1000;
+    }
+  }
+
+  @include sm-md{
+    padding-top: 70px;
+  }
 }

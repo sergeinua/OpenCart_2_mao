@@ -6,7 +6,7 @@
         <?php foreach ($menu_categories as $category) { ?>
         <?php if ($category['children']) { ?>
         <li class="has-submenu">
-            <span>
+            <div class="h-s-after">
                 <a href="<?php echo $category['href']; ?>" class="category-name">
                     <?php echo $category['name']; ?>
                 </a>
@@ -21,7 +21,7 @@
                         <?php } ?>
                     <?php } ?>
                 </ul>
-            </span>
+            </div>
         </li>
         <?php } else { ?>
         <li>

@@ -73,10 +73,11 @@
 
 .nav-menu-wrapper {
   padding: 24px 0;
+  position: relative;
 
   .catalog-opening-link {
     display: block;
-    padding: 12px 30px;
+    padding: 12px 0;
     margin: 0 24px;
     font-size: $font-size-base;
     line-height: 12px;
@@ -105,33 +106,22 @@
       }
     }
   }
+
+  .nav-menu {
+    position: absolute;
+  }
 }
 
 #menu2 {
   &.nav-menu {
-    //margin: 0 15px;
     width: 100%;
   }
 
   &.dropdown-menu {
     top: 66px;
+    padding-top: 24px;
     position: absolute;
-    box-shadow:  10px 30px 0 rgba(23,24,26,0.5);
-  }
-
-  .nav {
-    li.has-submenu {
-      .submenu {
-        width: 0;
-      }
-
-      &:hover {
-        .submenu {
-          width: 100%;
-          right: -100%;
-        }
-      }
-    }
+    box-shadow: 10px 10px 20px rgba(23,24,26,0.5);
   }
 }
 
@@ -155,24 +145,28 @@
       &:before {
         display: none;
       }
+
       &:last-of-type:after {
         content: '';
         display: none;
       }
-      &:nth-of-type(2) {
-        margin-left: 12px;
-      }
-      &:nth-of-type(3) {
-        margin-left: 24px;
-      }
-      &:nth-of-type(4) {
-        margin-left: 36px;
-      }
-      &:nth-of-type(5) {
-        margin-left: 48px;
-      }
-      &:nth-of-type(6) {
-        margin-left: 60px;
+
+      @include sm {
+        &:nth-of-type(2) {
+          margin-left: 12px;
+        }
+        &:nth-of-type(3) {
+          margin-left: 24px;
+        }
+        &:nth-of-type(4) {
+          margin-left: 36px;
+        }
+        &:nth-of-type(5) {
+          margin-left: 48px;
+        }
+        &:nth-of-type(6) {
+          margin-left: 60px;
+        }
       }
 
       &.subcategories-links a {

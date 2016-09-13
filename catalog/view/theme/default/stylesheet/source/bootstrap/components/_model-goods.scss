@@ -40,6 +40,7 @@
     text-align: center;
     color: $global-color;
     padding: 24px 0;
+    transition: background-color .15s ease;
 
     @include sm {
       width: 14%;
@@ -63,6 +64,15 @@
         font-size: 14px;
         line-height: 32px;
       }
+    }
+
+    &:hover {
+      background-color: $brand-primary-hover;
+    }
+
+    &:active,
+    &.active {
+      background-color: $brand-primary-active;
     }
   }
 }

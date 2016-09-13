@@ -28,57 +28,21 @@ body.information-contact {
         height: auto;
       }
     }
-
-    #menu3 {
-      &.nav-menu {
-        width: 100%;
-        overflow: visible;
-        padding-top: 0;
-      }
-
-      &.dropdown-menu {
-        top: 38px;
-        position: absolute;
-        box-shadow: 10px 10px 30px rgba(23,24,26,0.25);
-        background-color: $global-color;
-        a {
-          color: $gray-base;
-          &:hover {
-            color: $global-color;
-          }
-        }
-      }
-
-      .nav {
-        li.has-submenu {
-          .submenu {
-            width: 0;
-          }
-
-          &:hover,
-          &:focus {
-            .submenu {
-              width: 100%;
-              right: -100%;
-            }
-          }
-        }
-      }
-
-      .nav li.has-submenu ul {
-        display: block;
-      }
-    }
   }
 
   .left-panel-wrapper {
     position: absolute;
-    width: 240px;
+    width: 160px;
     z-index: 1000;
     top: 24px;
-    left: 36px;
+    left: 12px;
 
-    .panel-light {
+    @include sm {
+      width: 240px;
+      left: 36px;
+    }
+
+    > .panel-light {
       box-shadow: 0px 10px 30px 0px rgba(23,24,26,0.25);
 
       @include sm {
@@ -102,6 +66,35 @@ body.information-contact {
   .footer {
     padding-top: 0;
   }
+}
+
+.contacts-menu {
+
+  a, .h-s-after a {
+    color: $gray-base;
+  }
+  &.dropdown-menu {
+    top: 38px;
+  }
+
+  .nav li.has-submenu {
+    &:hover {
+      .submenu {
+        transform: translateX(80%);
+
+        @include sm {
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+  /*ul li.has-submenu:hover ul[class*="submenu"] {
+    transform: translateX(80%);
+
+    @include sm {
+      transform: translateX(100%);
+    }
+  }*/
 }
 
 .map-wrapper {
@@ -222,6 +215,7 @@ body.information-contact {
     color: $gray-base;
     font-size: 14px;
     line-height: 12px;
+    padding: 12px 18px;
 
     @include sm {
       font-size: 14px;

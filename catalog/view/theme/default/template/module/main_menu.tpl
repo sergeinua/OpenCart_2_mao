@@ -1,34 +1,38 @@
-<div class="" style="position: relative;">
+<nav id="menu" class="main-menu panel-dark">
     <div class="nav-menu-wrapper">
-        <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог товаров  <i class="fa fa-angle-down"></i>
+        <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог <span class="hidden-xs">товаров</span>  <i class="fa fa-angle-down"></i>
         </a>
-        <nav id="menu" class="dropdown-menu nav-menu">
+        <nav id="menu2" class="dropdown-menu panel-dark">
             <ul class="nav">
 
                 <?php foreach ($menu_categories as $item) : ?>
 
-                <?php if (isset($item['children'])) : ?>
+					<?php if (isset($item['children'])) : ?>
 
-                <li class="has-submenu">
-                    <a href="<?= $item['href']; ?>" class=""><?= $item['name']; ?></a>
-                    <div class="submenu panel-dark">
-                        <ul class="list-unstyled">
+					<li class="has-submenu">
+						<div class="h-s-after">
+							<a href="<?= $item['href']; ?>" class=""><?= $item['name']; ?></a>
+							<div class="submenu panel-dark">
+								<ul class="nav">
 
-                            <?php foreach ($item['children'] as $child) : ?>
+									<?php foreach ($item['children'] as $child) : ?>
 
-                            <li><a href="<?= $child['href']; ?>"><?= $child['name']; ?></a></li>
+									<li>
+										<a href="<?= $child['href']; ?>"><?= $child['name']; ?></a>
+									</li>
 
-                            <?php endforeach; ?>
+									<?php endforeach; ?>
 
-                        </ul>
-                    </div>
-                </li>
+								</ul>
+							</div>
+						</div>
+					</li>
 
-                <?php else : ?>
+					<?php else : ?>
 
-                <li><a href="<?= $item['href']; ?>"><?= $item['name']; ?></a></li>
+					<li><a href="<?= $item['href']; ?>"><?= $item['name']; ?></a></li>
 
-                <?php endif; ?>
+					<?php endif; ?>
 
                 <?php endforeach; ?>
 
@@ -60,4 +64,4 @@
             </li>
         </ul>
     </div>
-</div>
+</nav>
