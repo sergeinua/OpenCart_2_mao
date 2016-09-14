@@ -35,6 +35,10 @@ $(document).ready(function() {
 	var $navMenu = $('#menu');
 	var $searchCol	= $('#search-col');
 	var $content	= $("#content");
+	var $mToggleLink	= $(".m-catalog-opening-link");
+	var $mainMenuItms	= $(".main-menu-itms");
+	var $toggleLink	= $(".catalog-opening-link");
+	var $contactsMenu	= $(".contacts-menu");
 
 	$navBtn.on('click', function () {
 		$(this).toggleClass('active');
@@ -42,6 +46,15 @@ $(document).ready(function() {
 		$navMenu.toggleClass('open');
 	});
 
+	$mToggleLink.on('click', function () {
+		$(this).toggleClass('open');
+		$mainMenuItms.toggleClass('open');
+	});
+
+	$toggleLink.on('click', function () {
+		$(this).toggleClass('open');
+		$contactsMenu.toggleClass('open');
+	});
 
 	// Language
 	$searchInput.on('click', function() {

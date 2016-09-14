@@ -1,8 +1,7 @@
-<nav id="menu" class="main-menu panel-dark">
+<nav id="menu" class="main-menu">
     <div class="nav-menu-wrapper">
-        <a href="#" class="dropdown-toggle catalog-opening-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Каталог <span class="hidden-xs">товаров</span>  <i class="fa fa-angle-down"></i>
-        </a>
-        <nav id="menu2" class="dropdown-menu panel-dark">
+		<div class="m-catalog-opening-link" role="button"> Каталог <span class="hidden-xs">товаров</span>  <i class="fa fa-angle-down"></i></div>
+        <nav id="menu2" class="main-menu-itms panel-dark">
             <ul class="nav">
 
                 <?php foreach ($menu_categories as $item) : ?>

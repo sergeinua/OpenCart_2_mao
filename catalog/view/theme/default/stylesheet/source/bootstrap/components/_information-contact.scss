@@ -8,6 +8,21 @@ body.information-contact {
     display: none;
   }
 
+  #logo {
+    width: 120px;
+    margin-bottom: 12px;
+    position: absolute;
+    z-index: 111;
+    top: 12px;
+    left: 12px;
+
+    @include  sm {
+      width: 236px;
+      top: 24px;
+      left: 36px;
+    }
+  }
+
   nav#top {
     display: none;
   }
@@ -21,54 +36,62 @@ body.information-contact {
       border: none;
       color: $gray-base;
     }
-
-    &.open {
-      #menu3.dropdown-menu {
-        transform: translateX(0);
-        height: auto;
-      }
-    }
-  }
-
-  .left-panel-wrapper {
-    position: absolute;
-    width: 160px;
-    z-index: 1000;
-    top: 24px;
-    left: 12px;
-
-    @include sm {
-      width: 240px;
-      left: 36px;
-    }
-
-    > .panel-light {
-      box-shadow: 0px 10px 30px 0px rgba(23,24,26,0.25);
-
-      @include sm {
-        margin-left: 24px;
-      }
-    }
-
-    #logo {
-      width: 120px;
-    }
-
-    @include  sm {
-      left: 48px;
-
-      #logo {
-        width: 236px;
-      }
-    }
   }
 
   .footer {
     padding-top: 0;
+    background-color: $gray-base;
+  }
+}
+
+.left-panel-wrapper {
+  position: absolute;
+  width: 160px;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+
+  @include sm {
+    width: 240px;
+    top: 24px;
+    left: 36px;
+  }
+
+  > .panel-light {
+    box-shadow: 0px 10px 30px 0px rgba(23,24,26,0.25);
+
+    @include sm {
+      margin-left: 24px;
+    }
+  }
+
+  @include  sm {
+    left: 48px;
+  }
+}
+
+#menu3 {
+  position: absolute;
+  z-index: 1;
+  width: 160px;
+  top: 75px;
+  left: 12px;
+
+  @include sm {
+    width: 240px;
+    top: 130px;
+    left: 36px;
   }
 }
 
 .contacts-menu {
+  display: none;
+
+  &.open {
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
 
   a, .h-s-after a {
     color: $gray-base;
@@ -88,13 +111,6 @@ body.information-contact {
       }
     }
   }
-  /*ul li.has-submenu:hover ul[class*="submenu"] {
-    transform: translateX(80%);
-
-    @include sm {
-      transform: translateX(100%);
-    }
-  }*/
 }
 
 .map-wrapper {
@@ -228,5 +244,123 @@ body.information-contact {
     color: $brand-danger;
     line-height: 15px;
     font-size: 12px;
+  }
+}
+
+.marker-info-wrapper {
+  width: 300px;
+  height: 360px;
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  color: $gray-base;
+  @include transition-willChange(transform);
+  transform: translate(-125%, 0);
+
+  @include sm {
+    width: 340px;
+  }
+
+  @include  md {
+    height: 675px;
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .marker-info {
+    height: 100%;
+    position: relative;
+
+    .close {
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      position: absolute;
+      top: 140px;
+      height: 36px;
+      width: 36px;
+      padding: 0;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: -4px 2px 8px 1px rgba(0,0,0,0.13);
+      color: #333740;
+      right: -18px;
+      outline: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 3px 8px 2px rgba(0,0,0,0.13);
+      }
+
+      &:active {
+        top: 141px;
+
+        @include sm {
+          top: 281px;
+        }
+        @include lg {
+          top: 261px;
+        }
+      }
+
+      @include sm {
+        top: 280px;
+      }
+      @include lg {
+        top: 260px;
+      }
+    }
+  }
+
+  .marker-info-inner {
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+.marker-info-block {
+  overflow: auto;
+
+  .place-img {
+    width: 100%;
+    height: 120px;
+
+    @include sm {
+      height: 260px;
+    }
+    @include lg {
+      height: 240px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  .place-description {
+    padding: 24px;
+  }
+
+  p {
+    padding: 12px 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: $gray-base !important;
+    margin: 0;
+
+    a {
+      color: $gray-base;
+    }
+
+    @include sm {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 }

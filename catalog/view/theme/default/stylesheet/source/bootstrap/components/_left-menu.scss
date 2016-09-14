@@ -75,6 +75,7 @@
   padding: 24px 0;
   position: relative;
 
+  .m-catalog-opening-link,
   .catalog-opening-link {
     display: block;
     padding: 12px 0;
@@ -91,15 +92,14 @@
     text-transform: uppercase;
     font-family: $font-family-sans-serif;
     font-weight: $headings-font-weight;
+    transition: color .1s ease;
 
     .fa {
       transition: $transition;
     }
-  }
 
-  &.open {
-    .catalog-opening-link {
-      color: $brand-primary-hover;
+    &.open {
+      color: $brand-primary-hover !important;
 
       .fa {
         transform: rotate(180deg);
@@ -112,12 +112,16 @@
   }
 }
 
-#menu2 {
-  &.nav-menu {
-    width: 100%;
-  }
+.main-menu {
+  background-color: $gray-base;
+}
 
-  &.dropdown-menu {
+.main-menu-itms {
+  display: none;
+
+  &.open {
+    display: block;
+    width: 100%;
     top: 66px;
     padding-top: 24px;
     position: absolute;
